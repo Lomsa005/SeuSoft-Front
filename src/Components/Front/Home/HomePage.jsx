@@ -1,10 +1,19 @@
-import { Link } from "react-router-dom"
+// import { Link } from "react-router-dom"
+import { MainVideo } from "./Video"
+import { ContactButton } from "./contactButton"
+import { Footer } from "./Footer"
 
 export const HomePage = () => {
   return (
-    <>
-    <div className="text-black text-xl">This is a first page</div>
-    <Link className="text-gray-600 text-lg " to="/admin">go admin</Link>
-    </>
+    <div className="mainContainer">
+      <div className="main">
+        <MainVideo />
+        <ContactButton />
+      </div>
+      <div className="footerContainer">
+        <Footer />
+      </div>
+    </div>
+
   )
 }
