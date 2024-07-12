@@ -1,3 +1,4 @@
+import flag from "media/GE.svg"
 export const Footer = () => {
   return (
     <>
@@ -21,13 +22,13 @@ export const Footer = () => {
               SeuSoft<span className="descriptionHeaderDot">.</span>
             </h3>
             <p className="descriptionParagraph">
-              კომპანია რომელიც ორიენტირებულია ხარისხის ზრდაზე, განვითარებაზე და
+              კომპანია რომელიც ორიენტირებულია<br /> ხარისხის ზრდაზე, განვითარებაზე<br />  და
               წარმატებაზე
             </p>
           </div>
           <div className="links">
             <h4 className="linksHeader">
-              ლინკები<span className="linksHeaderDot">.</span>
+              ლინკები<span className="linksHeaderDot"></span>
             </h4>
             <ul className="linksList">
               <li>სერვისები</li>
@@ -37,14 +38,17 @@ export const Footer = () => {
             </ul>
           </div>
           <div className="contacts">
-            <h4 className="contactsHeader">
-              დაგვიკავშირდი<span className="contactsHeaderDot">.</span>
+            <h4 className="linksHeader">
+              დაგვიკავშირდი<span className="contactsHeaderDot"></span>
             </h4>
             <ul className="contactsList">
               <li>თბილისი,წინანდლის N9</li>
               <li>Info@Seu.edu.com</li>
               <li>
-                <a></a>
+                <a>032 2 90 00 00</a>
+              </li>
+              <li className="ge"><div>
+                <img src={flag} alt="geo flag"/></div><div className="geSpan"><span className="geSpan">GE</span></div>
               </li>
             </ul>
           </div>

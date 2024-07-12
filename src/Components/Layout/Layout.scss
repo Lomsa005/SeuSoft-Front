@@ -170,5 +170,110 @@ nav {
 }
 
 .footer {
+  display: flex;
+  justify-content: flex-start;
   color: #fff;
+  margin-top: 24px;
 }
+
+.description {
+  margin-left: 5%;
+  line-height: 200%; 
+  margin-top: -7px;
+}
+
+.descriptionHeader {
+  color: #FFF;
+  font-family: Tomorrow;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+.descriptionHeaderDot {
+  color: #3376CD;
+  font-family: Tomorrow;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.descriptionParagraph {
+  color: #FFF;
+  font-family: "BPG ExtraSquare Mtavruli";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 125%;
+
+}
+
+.links {
+  margin-left: 5%;
+}
+
+.linksHeader {
+  color: #FFF;
+  font-family: "BPG ExtraSquare Mtavruli";
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: -0.09px;
+  margin-bottom: 17px;
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.09px;
+  line-height: normal;
+}
+
+.linksHeaderDot {
+  width: 10px;
+  height: 10px;
+  background-color: #7F27FF;
+  border-radius: 50%;
+  margin-left: 11px;
+  margin-top: -4px;
+}
+
+.contactsHeaderDot{
+  width: 10px;
+  height: 10px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  margin-left: 11px;
+  margin-top: -4px;
+}
+
+.linksList {
+  color: #FFF;
+  font-family: "BPG ExtraSquare Mtavruli";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 236.3%;
+}
+
+.contacts {
+  margin-left: 5%; 
+}
+
+.contactsList {
+  color: #FFF;
+  font-family: "BPG ExtraSquare Mtavruli";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 236.3%;
+}
+
+.ge {
+  color: #FFF;
+  // text-align: center;
+  font-family: "BPG ExtraSquare Mtavruli"; // -------------------------needs install
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; 
+  display: flex;
+}
+
+.geSpan {
+  margin-bottom: 10px;
+}
+
+

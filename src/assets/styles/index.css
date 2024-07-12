@@ -37,6 +37,7 @@ body {
 
 .btnContact {
   --slant: 28.2px;
+  font-family: "BPG ExtraSquare Mtavruli";
   font-size: 18px;
   padding: 0.4em 1.2em;
   width: 192px;
