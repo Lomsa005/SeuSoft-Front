@@ -1,0 +1,62 @@
+body {
+  background-color: black;
+  font-family: "BPG ExtraSquare Mtavruli", sans-serif;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.main-video {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.btnContainer {
+  position: absolute;
+  right: 3%;
+  bottom: 8%;
+}
+
+.btnContact {
+  --slant: 28.2px;
+  font-size: 18px;
+  padding: 0.4em 1.2em;
+  width: 192px;
+  height: 64px;
+  border: none;
+  cursor: pointer;
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--slant)) 0,
+    100% var(--slant),
+    100% 100%,
+    var(--slant) 100%,
+    0 calc(100% - var(--slant))
+  );
+  background-color: #56f1ff;
+}
+
+.little-rectangle {
+  background-color: #000000;
+  width: 25px;
+  height: 4px;
+  transform: translate(150px, -4px);
+}

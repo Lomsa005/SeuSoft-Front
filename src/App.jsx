@@ -1,6 +1,5 @@
-import { HomePage, AboutUs } from './Components/Front';
+import { HomePage, Layout } from './Components';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { Admin } from './Components/Admin/Admin';
 
 
 function App() {
@@ -9,9 +8,7 @@ function App() {
     <>
       <Router>
       <Routes>
-        <Route path="/" element={<HomePage/>} />
-        <Route path="/aboutUs" element={<AboutUs/>} />
-        <Route path="/Admin" element={<Admin/>} />
+        <Route path="/" element={<Layout> <HomePage/></Layout>} />
       </Routes>
     </Router>
     </>
