@@ -276,4 +276,28 @@ nav {
   margin-bottom: 10px;
 }
 
+.social-icons{
+  display: flex;
+  column-gap: 16px;
+  align-items: center;
+  flex-direction: row;
+  margin-left: auto;
+  transform: translateX(-32px);
+  margin-top: 44px;
+  margin-bottom: 26px;
+  .soc{
+    width: 34px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.08);
+    border-radius: 9999px;
+    cursor: pointer;
+  }
+  svg{
+    fill: white;
+
+  }
+}
 

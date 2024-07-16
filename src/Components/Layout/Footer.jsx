@@ -1,4 +1,11 @@
-import flag from "media/GE.svg"
+import flag from "media/GE.svg";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaTwitter,
+  FaLinkedinIn,
+} from "react-icons/fa";
+
 export const Footer = () => {
   return (
     <>
@@ -22,8 +29,9 @@ export const Footer = () => {
               SeuSoft<span className="descriptionHeaderDot">.</span>
             </h3>
             <p className="descriptionParagraph">
-              კომპანია რომელიც ორიენტირებულია<br /> ხარისხის ზრდაზე, განვითარებაზე<br />  და
-              წარმატებაზე
+              კომპანია რომელიც ორიენტირებულია
+              <br /> ხარისხის ზრდაზე, განვითარებაზე
+              <br /> და წარმატებაზე
             </p>
           </div>
           <div className="links">
@@ -47,12 +55,32 @@ export const Footer = () => {
               <li>
                 <a>032 2 90 00 00</a>
               </li>
-              <li className="ge"><div>
-                <img src={flag} alt="geo flag"/></div><div className="geSpan"><span className="geSpan">GE</span></div>
+              <li className="ge">
+                <div>
+                  <img src={flag} alt="geo flag" />
+                </div>
+                <div className="geSpan">
+                  <span className="geSpan">GE</span>
+                </div>
               </li>
             </ul>
           </div>
         </div>
+        <div className="social-icons">
+          <div className="soc">
+            <FaFacebookF />
+          </div>
+          <div className="soc">
+            <FaInstagram />
+          </div>
+          <div className="soc">
+            <FaTwitter />
+          </div>
+          <div className="soc">
+            <FaLinkedinIn />
+          </div>
+        </div>
+        
       </div>
     </>
   );
