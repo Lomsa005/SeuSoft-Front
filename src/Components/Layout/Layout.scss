@@ -260,17 +260,17 @@ nav {
 
 .ge {
   color: #FFF;
-  // text-align: center;
   font-family: "BPG ExtraSquare Mtavruli"; // -------------------------needs install
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 150%; 
   display: flex;
+  align-items: center;
 }
 
 .geSpan {
-  margin-bottom: 10px;
+  margin-bottom: -3px;
 }
 
 .social-icons{
@@ -356,3 +356,7 @@ nav {
   letter-spacing: -0.07px;
   text-align: center;
 }
+
+
+////needs to try: border-radius: 20px !important;
+///box-shadow: blue 0px 0px 0px 2px inset, rgb(255, 255, 255) 10px 10px 0px -3px, rgb(31, 193, 27) 10px 10px;

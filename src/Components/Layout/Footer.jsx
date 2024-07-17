@@ -56,12 +56,8 @@ export const Footer = () => {
                 <a style={{textDecoration:"underline"}}>032 2 90 00 00</a>
               </li>
               <li className="ge">
-                <div>
                   <img src={flag} alt="geo flag" />
-                </div>
-                <div className="geSpan">
                   <span className="geSpan">GE</span>
-                </div>
               </li>
             </ul>
           </div>
