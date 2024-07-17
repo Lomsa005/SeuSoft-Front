@@ -283,8 +283,8 @@ nav {
   flex-direction: row;
   margin-left: auto;
   transform: translateX(-32px);
-  margin-top: 44px;
-  margin-bottom: 26px;
+  margin-top: 36px;
+  margin-bottom: 31px;
   .soc{
     width: 34px;
     height: 35px;
@@ -301,3 +301,62 @@ nav {
   }
 }
 
+.footerlines {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 100%;
+}
+
+.footer-line {
+  position: relative;
+  width: 25%;
+  height: 1px;
+  background-color: #7F27FF;
+}
+
+.middleline::before,
+.middleline::after, .firstline::after, .thirdline::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3.5px; 
+  height: 3.5px; 
+  background-color: #7F27FF;
+  border-radius: 50%;
+}
+
+.footer-line::before {
+  left: 0px; 
+}
+
+.footer-line::after {
+  right: 0px; 
+}
+
+.middleline {
+  width: 40%;
+}
+
+.line-color{
+  width: 24.8%;
+  background-color: rgb(55 26 129);
+}
+.line-color-middle{
+  width: 39.5%;
+  background-color: rgb(55 26 129);;
+}
+
+.copyright{
+  color: #FFF;
+  font-family: "BPG ExtraSquare Mtavruli";
+  font-size: 14px;
+  line-height: 10px;
+  margin-top: 13px;
+  margin-bottom: 12px;
+  font-weight: 400;
+  letter-spacing: -0.07px;
+  text-align: center;
+}

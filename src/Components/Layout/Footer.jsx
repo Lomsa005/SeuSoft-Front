@@ -80,7 +80,19 @@ export const Footer = () => {
             <FaLinkedinIn />
           </div>
         </div>
-        
+        <div className="footerlines" style={{transform: "translateY(-5px)"}}>
+
+            <div className="footer-line line-color"></div>
+            <div className="footer-line line-color-middle"></div>
+            <div className="footer-line line-color"></div>
+        </div>
+        <div className="footerlines">
+
+            <div className="footer-line firstline"></div>
+            <div className="footer-line middleline"></div>
+            <div className="footer-line thirdline"></div>
+        </div>
+      <div className="copyright"> <span style={{fontFamily:"Tomorrow"}}>©</span> 2023 ყველა უფლება დაცულია</div>
       </div>
     </>
   );
