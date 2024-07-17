@@ -171,13 +171,13 @@ nav {
 
 .footer {
   display: flex;
-  justify-content: flex-start;
   color: #fff;
   margin-top: 24px;
+  margin-left: 8%;
 }
 
 .description {
-  margin-left: 5%;
+  margin-right: 6.9%;
   line-height: 200%; 
   margin-top: -7px;
 }
@@ -204,10 +204,6 @@ nav {
   font-weight: 400;
   line-height: 125%;
 
-}
-
-.links {
-  margin-left: 5%;
 }
 
 .linksHeader {
@@ -250,7 +246,8 @@ nav {
 }
 
 .contacts {
-  margin-left: 5%; 
+  margin-left: 8%; 
+  margin-right: 3%;
 }
 
 .contactsList {
@@ -280,9 +277,8 @@ nav {
   display: flex;
   column-gap: 16px;
   align-items: center;
-  flex-direction: row;
-  margin-left: auto;
-  transform: translateX(-32px);
+  flex-direction: row-reverse;
+  margin-right: 3.8%;
   margin-top: 36px;
   margin-bottom: 31px;
   .soc{
@@ -292,7 +288,7 @@ nav {
     align-items: center;
     justify-content: center;
     background-color: rgba(255, 255, 255, 0.08);
-    border-radius: 9999px;
+    border-radius: 999px;
     cursor: pointer;
   }
   svg{
@@ -311,7 +307,7 @@ nav {
 
 .footer-line {
   position: relative;
-  width: 25%;
+  width: 23%;
   height: 1px;
   background-color: #7F27FF;
 }
@@ -337,15 +333,15 @@ nav {
 }
 
 .middleline {
-  width: 40%;
+  width: 46%;
 }
 
 .line-color{
-  width: 24.8%;
+  width: 22.8%;
   background-color: rgb(55 26 129);
 }
 .line-color-middle{
-  width: 39.5%;
+  width: 45.5%;
   background-color: rgb(55 26 129);;
 }
 

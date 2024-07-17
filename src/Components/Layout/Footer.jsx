@@ -53,7 +53,7 @@ export const Footer = () => {
               <li>თბილისი,წინანდლის N9</li>
               <li>Info@Seu.edu.com</li>
               <li>
-                <a>032 2 90 00 00</a>
+                <a style={{textDecoration:"underline"}}>032 2 90 00 00</a>
               </li>
               <li className="ge">
                 <div>
@@ -68,31 +68,33 @@ export const Footer = () => {
         </div>
         <div className="social-icons">
           <div className="soc">
-            <FaFacebookF />
-          </div>
-          <div className="soc">
-            <FaInstagram />
+            <FaLinkedinIn />
           </div>
           <div className="soc">
             <FaTwitter />
           </div>
           <div className="soc">
-            <FaLinkedinIn />
+            <FaInstagram />
+          </div>
+          <div className="soc">
+            <FaFacebookF />
           </div>
         </div>
-        <div className="footerlines" style={{transform: "translateY(-5px)"}}>
-
-            <div className="footer-line line-color"></div>
-            <div className="footer-line line-color-middle"></div>
-            <div className="footer-line line-color"></div>
+        <div className="footerlines" style={{ transform: "translateY(-5px)" }}>
+          <div className="footer-line line-color"></div>
+          <div className="footer-line line-color-middle"></div>
+          <div className="footer-line line-color"></div>
         </div>
         <div className="footerlines">
-
-            <div className="footer-line firstline"></div>
-            <div className="footer-line middleline"></div>
-            <div className="footer-line thirdline"></div>
+          <div className="footer-line firstline"></div>
+          <div className="footer-line middleline"></div>
+          <div className="footer-line thirdline"></div>
         </div>
-      <div className="copyright"> <span style={{fontFamily:"Tomorrow"}}>©</span> 2023 ყველა უფლება დაცულია</div>
+        <div className="copyright">
+          {" "}
+          <span style={{ fontFamily: "Tomorrow" }}>©</span> 2023 ყველა უფლება
+          დაცულია
+        </div>
       </div>
     </>
   );
