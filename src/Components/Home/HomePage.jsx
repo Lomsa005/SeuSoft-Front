@@ -1,5 +1,5 @@
-import { MainVideo } from "./Video";
-import { ContactButton } from "./contactButton";
+import { MainVideo } from "../Common/Video";
+import { ContactButton } from "../Common/contactButton";
 
 export const HomePage = () => {
   return (

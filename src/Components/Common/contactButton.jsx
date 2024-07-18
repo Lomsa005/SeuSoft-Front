@@ -1,3 +1,5 @@
+import "./common.scss"
+
 export const ContactButton = () => {
   return (
     <div className="btnContainer">

@@ -1,0 +1,43 @@
+.main {
+  position: relative;
+  height: 105vh;
+}
+
+.main-video {
+  width: 100%;
+  height: 105vh;
+  object-fit: fill;
+}
+
+.btnContainer {
+  position: absolute;
+  right: 3%;
+  bottom: 8%;
+}
+
+.btnContact {
+  --slant: 28.2px;
+  font-family: "BPG ExtraSquare Mtavruli";
+  font-size: 18px;
+  padding: 0.4em 1.2em;
+  width: 192px;
+  height: 64px;
+  border: none;
+  cursor: pointer;
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--slant)) 0,
+    100% var(--slant),
+    100% 100%,
+    var(--slant) 100%,
+    0 calc(100% - var(--slant))
+  );
+  background-color: #56f1ff;
+}
+
+.little-rectangle {
+  background-color: #000000;
+  width: 25px;
+  height: 4px;
+  transform: translate(150px, -4px);
+}
