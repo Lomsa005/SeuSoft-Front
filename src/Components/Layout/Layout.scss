@@ -56,12 +56,7 @@ nav {
 
     .blur-effect {
       opacity: 0.3;
-      background: linear-gradient(
-        0deg,
-        #01b3ff08 3%,
-        #03b7ff 22%,
-        #0dd3ff00 97%
-      );
+      background: linear-gradient(0deg, #01b3ff08 3%, #03b7ff 22%, #0dd3ff00 97%);
       filter: blur(3px);
       width: 20px;
       height: 453px;
@@ -177,13 +172,13 @@ nav {
 }
 
 .description {
-  margin-right: 6.9%;
-  line-height: 200%; 
+  margin-right: 7.5%;
+  line-height: 200%;
   margin-top: -7px;
 }
 
 .descriptionHeader {
-  color: #FFF;
+  color: #fff;
   font-family: Tomorrow;
   font-size: 24px;
   font-weight: 600;
@@ -191,23 +186,22 @@ nav {
 }
 
 .descriptionHeaderDot {
-  color: #3376CD;
+  color: #3376cd;
   font-family: Tomorrow;
   font-size: 24px;
   font-weight: 600;
 }
 
 .descriptionParagraph {
-  color: #FFF;
+  color: #fff;
   font-family: "BPG ExtraSquare Mtavruli";
   font-size: 20px;
   font-weight: 400;
   line-height: 125%;
-
 }
 
 .linksHeader {
-  color: #FFF;
+  color: #fff;
   font-family: "BPG ExtraSquare Mtavruli";
   font-size: 18px;
   font-weight: 400;
@@ -222,13 +216,13 @@ nav {
 .linksHeaderDot {
   width: 10px;
   height: 10px;
-  background-color: #7F27FF;
+  background-color: #7f27ff;
   border-radius: 50%;
   margin-left: 11px;
   margin-top: -4px;
 }
 
-.contactsHeaderDot{
+.contactsHeaderDot {
   width: 10px;
   height: 10px;
   background-color: #ffffff;
@@ -238,7 +232,7 @@ nav {
 }
 
 .linksList {
-  color: #FFF;
+  color: #fff;
   font-family: "BPG ExtraSquare Mtavruli";
   font-size: 14px;
   font-weight: 400;
@@ -246,12 +240,12 @@ nav {
 }
 
 .contacts {
-  margin-left: 8%; 
+  margin-left: 8%;
   margin-right: 3%;
 }
 
 .contactsList {
-  color: #FFF;
+  color: #fff;
   font-family: "BPG ExtraSquare Mtavruli";
   font-size: 14px;
   font-weight: 400;
@@ -259,12 +253,12 @@ nav {
 }
 
 .ge {
-  color: #FFF;
+  color: #fff;
   font-family: "BPG ExtraSquare Mtavruli"; // -------------------------needs install
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 150%; 
+  line-height: 150%;
   display: flex;
   align-items: center;
 }
@@ -273,7 +267,7 @@ nav {
   margin-bottom: -3px;
 }
 
-.social-icons{
+.social-icons {
   display: flex;
   column-gap: 16px;
   align-items: center;
@@ -281,7 +275,7 @@ nav {
   margin-right: 3.8%;
   margin-top: 36px;
   margin-bottom: 31px;
-  .soc{
+  .soc {
     width: 34px;
     height: 35px;
     display: flex;
@@ -291,9 +285,8 @@ nav {
     border-radius: 999px;
     cursor: pointer;
   }
-  svg{
+  svg {
     fill: white;
-
   }
 }
 
@@ -309,44 +302,46 @@ nav {
   position: relative;
   width: 23%;
   height: 1px;
-  background-color: #7F27FF;
+  background-color: #7f27ff;
 }
 
 .middleline::before,
-.middleline::after, .firstline::after, .thirdline::before {
+.middleline::after,
+.firstline::after,
+.thirdline::before {
   content: "";
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 3.5px; 
-  height: 3.5px; 
-  background-color: #7F27FF;
+  width: 3.5px;
+  height: 3.5px;
+  background-color: #7f27ff;
   border-radius: 50%;
 }
 
 .footer-line::before {
-  left: 0px; 
+  left: 0px;
 }
 
 .footer-line::after {
-  right: 0px; 
+  right: 0px;
 }
 
 .middleline {
   width: 46%;
 }
 
-.line-color{
+.line-color {
   width: 22.8%;
   background-color: rgb(55 26 129);
 }
-.line-color-middle{
+.line-color-middle {
   width: 45.5%;
-  background-color: rgb(55 26 129);;
+  background-color: rgb(55 26 129);
 }
 
-.copyright{
-  color: #FFF;
+.copyright {
+  color: #fff;
   font-family: "BPG ExtraSquare Mtavruli";
   font-size: 14px;
   line-height: 10px;
@@ -356,7 +351,6 @@ nav {
   letter-spacing: -0.07px;
   text-align: center;
 }
-
 
 ////needs to try: border-radius: 20px !important;
 ///box-shadow: blue 0px 0px 0px 2px inset, rgb(255, 255, 255) 10px 10px 0px -3px, rgb(31, 193, 27) 10px 10px;
