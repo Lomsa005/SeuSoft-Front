@@ -172,9 +172,10 @@ nav {
 }
 
 .description {
-  margin-right: 7.5%;
+  margin-right: 7%;
   line-height: 200%;
   margin-top: -7px;
+  width: 30.5%;
 }
 
 .descriptionHeader {
@@ -216,7 +217,7 @@ nav {
 .linksHeaderDot {
   width: 10px;
   height: 10px;
-  background-color: #6B62A0;
+  background-color: #6b62a0;
   border-radius: 50%;
   margin-left: 11px;
   margin-top: -4px;
@@ -360,23 +361,68 @@ nav {
 ////needs to try: border-radius: 20px !important;
 ///box-shadow: blue 0px 0px 0px 2px inset, rgb(255, 255, 255) 10px 10px 0px -3px, rgb(31, 193, 27) 10px 10px;
 
-
-
-
-@media (max-width: 912px) {
+@media (max-width: 1419px) {
   .description {
-    width: 32%;
+    margin-right: 0%;
+    width: 37.5%;
   }
 }
 
+@media (max-width: 1330px) {
+  .description {
+    margin-right: 4%;
+  }
+}
+
+@media (max-width: 1154px) {
+  .description {
+    width: 40%;
+  }
+}
+
+@media (max-width: 1084px) {
+  .contactsAndLinks {
+    width: 40%;
+  }
+
+  .description {
+    margin-right: 0%;
+    width: 50%;
+  }
+}
+
+@media (max-width: 1030px) {
+  .contactsAndLinks {
+    width: 50%;
+  }
+
+  .contacts {
+    margin-left: 16%;
+  }
+}
+
+@media (max-width: 912px) {
+  .description {
+    width: 45%;
+  }
+
+  .descriptionParagraph {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 860px) {
+  .description {
+    width: 50%;
+  }
+}
 
 @media (max-width: 768px) {
   .description {
     margin-right: none;
     margin-bottom: 4%;
-    width: 57%;
+    width: 67%;
   }
-
 
   .descriptionParagraph {
     font-size: 16px;
@@ -391,15 +437,84 @@ nav {
     margin-left: 25%;
   }
 
-  .footer { 
+  .footer {
     display: block;
     // margin-top: 0px;
   }
 
   .social-icons {
-    margin-top: 0% 
+    margin-top: 0%;
   }
 }
 
+@media (max-width: 651px) {
+  .description {
+    width: 79%;
+  }
 
+  .contacts {
+    margin-left: 20%;
+  }
 
+  .contactsAndLinks {
+    width: 90%;
+  }
+}
+
+@media (max-width: 445px) {
+  .description {
+    width: 85%;
+  }
+
+  .descriptionParagraph {
+    font-size: 14px;
+    line-height: 178.571%;
+  }
+
+  .linksHeader {
+    font-size: 16px;
+    letter-spacing: -0.08px;
+  }
+
+  .linksList,
+  .contactsList {
+    font-size: 12px;
+  }
+
+  .footer {
+    margin-top: 0px;
+  }
+
+  .footerlines {
+    display: none;
+  }
+
+  .contacts {
+    margin-left: 25%;
+  }
+
+  .copyright {
+    color: #fff;
+    font-family: Tomorrow;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 83.333%;
+    letter-spacing: -0.06px;
+    text-align: left;
+    margin-left: 4.5%;
+    margin-top: 5.7%;
+    margin-bottom: 7.5%;
+  }
+
+  .social-icons {
+    flex-direction: row;
+    margin-left: 4.5%;
+    margin-top: 8%;
+    margin-bottom: 0%;
+  }
+
+  .footer {
+    margin-left: 4.5%;
+  }
+}
