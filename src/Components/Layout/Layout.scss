@@ -517,4 +517,20 @@ nav {
   .footer {
     margin-left: 4.5%;
   }
+
+  nav .underline-decoration .blur-effect {
+    height: 353px;
+  }
+
+  .btnContact {
+    --slant: 22.32px;
+    width: 152px;
+    height: 50.66px;
+    color: #000;
+    font-family: "BPG ExtraSquare Mtavruli";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
 }
