@@ -457,7 +457,11 @@ nav {
   }
 
   .contactsAndLinks {
-    width: 90%;
+    width: 92%;
+  }
+
+  nav .underline-decoration .blur-effect {
+    height: 440px;
   }
 }
 
@@ -494,7 +498,7 @@ nav {
   }
 
   .contacts {
-    margin-left: 25%;
+    margin-left: 22%;
   }
 
   .copyright {
@@ -523,7 +527,7 @@ nav {
   }
 
   nav .underline-decoration .blur-effect {
-    height: 382px;
+    height: 368px;
   }
 
   nav .underline-decoration .line-primary {
@@ -545,7 +549,7 @@ nav {
 
 @media (max-width: 362px) {
   .contacts {
-    margin-left: 14%;
+    margin-left: 10%;
   }
 
   nav .underline-decoration .blur-effect {
