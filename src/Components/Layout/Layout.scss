@@ -459,18 +459,6 @@ nav {
   .contactsAndLinks {
     width: 90%;
   }
-
-  .btnContact {
-    --slant: 22.32px;
-    width: 152px;
-    height: 50.66px;
-    color: #000;
-    font-family: "BPG ExtraSquare Mtavruli";
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-  }
 }
 
 @media (max-width: 454px) {
@@ -546,18 +534,6 @@ nav {
   nav .underline-decoration .line-secondary {
     width: 225.757px;
     transform: translate(0px, 0px);
-  }
-
-  .btnContact {
-    --slant: 19.4px;
-    width: 132px;
-    height: 44px;
-    color: #000;
-    font-family: "BPG ExtraSquare Mtavruli";
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
   }
 }
 

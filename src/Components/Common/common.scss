@@ -34,3 +34,31 @@
   height: 4px;
   transform: translate(590%, -3px);
 }
+
+@media (max-width: 651px) {
+  .btnContact {
+    --slant: 22.32px;
+    width: 152px;
+    height: 50.66px;
+    color: #000;
+    font-family: "BPG ExtraSquare Mtavruli";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+}
+
+@media (max-width: 454px) {
+  .btnContact {
+    --slant: 19.4px;
+    width: 132px;
+    height: 44px;
+    color: #000;
+    font-family: "BPG ExtraSquare Mtavruli";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+}
