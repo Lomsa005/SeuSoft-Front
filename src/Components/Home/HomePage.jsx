@@ -5,9 +5,9 @@ import { Boxes } from "../Common/boxes";
 export const HomePage = () => {
   return (
     <div className="mainContainer">
+      <Boxes />
       <div className="main">
         <MainVideo />
-        <Boxes />
         <ContactButton />
       </div>
     </div>

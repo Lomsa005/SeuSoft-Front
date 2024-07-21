@@ -43,40 +43,23 @@
 }
 
 .boxContainer {
+  position: absolute;
+  z-index: 4;
+  top: 37%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  position: relative;
-  margin-left: 250px;
-  margin-right: 250px;
+  justify-content: center;
+  width: 100%;
 }
 
 .box {
   width: 142px;
   height: 125px;
-  position: absolute;
-  // transform: translate(0, -350%);
+  margin: 0 16px; /* Add some spacing between boxes */
 }
 
-.box1 {
-  bottom: 350px;
-  left: 100px;
-}
 
-.box2 {
-  bottom: 330px;
-  left: 300px;
-}
-
-.box3 {
-  bottom: 330px;
-  right: 300px;
-}
-
-.box4 {
-  bottom: 350px;
-  right: 100px;
-}
 
 .boxParagraph {
   color: #9feeff;
