@@ -58,11 +58,11 @@ nav {
       opacity: 0.3;
       background: linear-gradient(0deg, #01b3ff08 3%, #03b7ff 22%, #0dd3ff00 97%);
       filter: blur(3px);
-      width: 20px;
+      width: 14px;
       height: 453px;
       left: 50%;
       top: 50%;
-      transform: translate(-50%, -50%);
+      transform: translate(-70%, -50%);
     }
 
     .line-container {
@@ -459,11 +459,23 @@ nav {
   .contactsAndLinks {
     width: 90%;
   }
+
+  .btnContact {
+    --slant: 22.32px;
+    width: 152px;
+    height: 50.66px;
+    color: #000;
+    font-family: "BPG ExtraSquare Mtavruli";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
 }
 
-@media (max-width: 445px) {
+@media (max-width: 454px) {
   .description {
-    width: 85%;
+    width: 96%;
   }
 
   .descriptionParagraph {
@@ -479,6 +491,10 @@ nav {
   .linksList,
   .contactsList {
     font-size: 12px;
+  }
+
+  .contactsAndLinks {
+    width: 100%;
   }
 
   .footer {
@@ -519,18 +535,50 @@ nav {
   }
 
   nav .underline-decoration .blur-effect {
-    height: 353px;
+    height: 382px;
+  }
+
+  nav .underline-decoration .line-primary {
+    width: 217.801px;
+    transform: translate(38px, 0px);
+  }
+
+  nav .underline-decoration .line-secondary {
+    width: 225.757px;
+    transform: translate(0px, 0px);
   }
 
   .btnContact {
-    --slant: 22.32px;
-    width: 152px;
-    height: 50.66px;
+    --slant: 19.4px;
+    width: 132px;
+    height: 44px;
     color: #000;
     font-family: "BPG ExtraSquare Mtavruli";
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+  }
+}
+
+@media (max-width: 382px) {
+  nav .underline-decoration .blur-effect {
+    height: 340px;
+  }
+}
+
+@media (max-width: 362px) {
+  .contacts {
+    margin-left: 14%;
+  }
+
+  nav .underline-decoration .blur-effect {
+    height: 300px;
+  }
+}
+
+@media (max-width: 314px) {
+  .contacts {
+    margin-left: 8%;
   }
 }
