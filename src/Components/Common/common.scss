@@ -24,7 +24,14 @@
   height: 64px;
   border: none;
   cursor: pointer;
-  clip-path: polygon(0 0, calc(103% - var(--slant)) 0, 108% var(--slant), 100% 100%, var(--slant) 109%, 0 calc(118% - var(--slant)));
+  clip-path: polygon(
+    0 0,
+    calc(103% - var(--slant)) 0,
+    108% var(--slant),
+    100% 100%,
+    var(--slant) 109%,
+    0 calc(118% - var(--slant))
+  );
   background-color: #56f1ff;
 }
 
@@ -33,4 +40,49 @@
   width: 13%;
   height: 4px;
   transform: translate(590%, -3px);
+}
+
+.boxContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  margin-left: 250px;
+  margin-right: 250px;
+}
+
+.box {
+  width: 142px;
+  height: 125px;
+  position: absolute;
+  // transform: translate(0, -350%);
+}
+
+.box1 {
+  bottom: 350px;
+  left: 100px;
+}
+
+.box2 {
+  bottom: 330px;
+  left: 300px;
+}
+
+.box3 {
+  bottom: 330px;
+  right: 300px;
+}
+
+.box4 {
+  bottom: 350px;
+  right: 100px;
+}
+
+.boxParagraph {
+  color: #9feeff;
+  font-family: "BPG ExtraSquare Mtavruli";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
