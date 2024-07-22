@@ -56,7 +56,12 @@ nav {
 
     .blur-effect {
       opacity: 0.3;
-      background: linear-gradient(0deg, #01b3ff08 3%, #03b7ff 22%, #0dd3ff00 97%);
+      background: linear-gradient(
+        0deg,
+        #01b3ff08 3%,
+        #03b7ff 22%,
+        #0dd3ff00 97%
+      );
       filter: blur(3px);
       width: 14px;
       height: 453px;
@@ -412,10 +417,12 @@ nav {
   .description {
     width: 50%;
   }
-  .l-line::before, .r-line::before{
+  .l-line::before,
+  .r-line::before {
     width: 58%;
   }
-  .l-line::after, .r-line::after{
+  .l-line::after,
+  .r-line::after {
     width: 41.8%;
   }
 }
@@ -450,6 +457,9 @@ nav {
 }
 
 @media (max-width: 651px) {
+  nav .nav-container {
+    margin-top: 36px;
+  }
   .description {
     width: 79%;
   }
@@ -478,7 +488,7 @@ nav {
   }
   .descriptionHeader {
     margin-top: 10px;
-}
+  }
   .linksHeader {
     font-size: 16px;
     letter-spacing: -0.08px;
