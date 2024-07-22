@@ -358,9 +358,6 @@ nav {
   text-align: center;
 }
 
-////needs to try: border-radius: 20px !important;
-///box-shadow: blue 0px 0px 0px 2px inset, rgb(255, 255, 255) 10px 10px 0px -3px, rgb(31, 193, 27) 10px 10px;
-
 @media (max-width: 1419px) {
   .description {
     margin-right: 0%;
@@ -415,6 +412,12 @@ nav {
   .description {
     width: 50%;
   }
+  .l-line::before, .r-line::before{
+    width: 58%;
+  }
+  .l-line::after, .r-line::after{
+    width: 41.8%;
+  }
 }
 
 @media (max-width: 768px) {
@@ -439,7 +442,6 @@ nav {
 
   .footer {
     display: block;
-    // margin-top: 0px;
   }
 
   .social-icons {
@@ -474,7 +476,9 @@ nav {
     font-size: 14px;
     line-height: 178.571%;
   }
-
+  .descriptionHeader {
+    margin-top: 10px;
+}
   .linksHeader {
     font-size: 16px;
     letter-spacing: -0.08px;
