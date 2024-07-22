@@ -58,11 +58,11 @@ nav {
       opacity: 0.3;
       background: linear-gradient(0deg, #01b3ff08 3%, #03b7ff 22%, #0dd3ff00 97%);
       filter: blur(3px);
-      width: 20px;
+      width: 14px;
       height: 453px;
       left: 50%;
       top: 50%;
-      transform: translate(-50%, -50%);
+      transform: translate(-70%, -50%);
     }
 
     .line-container {
@@ -172,9 +172,10 @@ nav {
 }
 
 .description {
-  margin-right: 7.5%;
+  margin-right: 7%;
   line-height: 200%;
   margin-top: -7px;
+  width: 30.5%;
 }
 
 .descriptionHeader {
@@ -216,7 +217,7 @@ nav {
 .linksHeaderDot {
   width: 10px;
   height: 10px;
-  background-color: #6B62A0;
+  background-color: #6b62a0;
   border-radius: 50%;
   margin-left: 11px;
   margin-top: -4px;
@@ -357,26 +358,74 @@ nav {
   text-align: center;
 }
 
-////needs to try: border-radius: 20px !important;
-///box-shadow: blue 0px 0px 0px 2px inset, rgb(255, 255, 255) 10px 10px 0px -3px, rgb(31, 193, 27) 10px 10px;
-
-
-
-
-@media (max-width: 912px) {
+@media (max-width: 1419px) {
   .description {
-    width: 32%;
+    margin-right: 0%;
+    width: 37.5%;
   }
 }
 
+@media (max-width: 1330px) {
+  .description {
+    margin-right: 4%;
+  }
+}
+
+@media (max-width: 1154px) {
+  .description {
+    width: 40%;
+  }
+}
+
+@media (max-width: 1084px) {
+  .contactsAndLinks {
+    width: 40%;
+  }
+
+  .description {
+    margin-right: 0%;
+    width: 50%;
+  }
+}
+
+@media (max-width: 1030px) {
+  .contactsAndLinks {
+    width: 50%;
+  }
+
+  .contacts {
+    margin-left: 16%;
+  }
+}
+
+@media (max-width: 912px) {
+  .description {
+    width: 45%;
+  }
+
+  .descriptionParagraph {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 860px) {
+  .description {
+    width: 50%;
+  }
+  .l-line::before, .r-line::before{
+    width: 58%;
+  }
+  .l-line::after, .r-line::after{
+    width: 41.8%;
+  }
+}
 
 @media (max-width: 768px) {
   .description {
     margin-right: none;
     margin-bottom: 4%;
-    width: 57%;
+    width: 67%;
   }
-
 
   .descriptionParagraph {
     font-size: 16px;
@@ -391,15 +440,129 @@ nav {
     margin-left: 25%;
   }
 
-  .footer { 
+  .footer {
     display: block;
-    // margin-top: 0px;
   }
 
   .social-icons {
-    margin-top: 0% 
+    margin-top: 0%;
   }
 }
 
+@media (max-width: 651px) {
+  .description {
+    width: 79%;
+  }
 
+  .contacts {
+    margin-left: 20%;
+  }
 
+  .contactsAndLinks {
+    width: 92%;
+  }
+
+  nav .underline-decoration .blur-effect {
+    height: 438px;
+  }
+}
+
+@media (max-width: 454px) {
+  .description {
+    width: 96%;
+  }
+
+  .descriptionParagraph {
+    font-size: 14px;
+    line-height: 178.571%;
+  }
+  .descriptionHeader {
+    margin-top: 10px;
+}
+  .linksHeader {
+    font-size: 16px;
+    letter-spacing: -0.08px;
+  }
+
+  .linksList,
+  .contactsList {
+    font-size: 12px;
+  }
+
+  .contactsAndLinks {
+    width: 100%;
+  }
+
+  .footer {
+    margin-top: 0px;
+  }
+
+  .footerlines {
+    display: none;
+  }
+
+  .contacts {
+    margin-left: 22%;
+  }
+
+  .copyright {
+    color: #fff;
+    font-family: Tomorrow;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 83.333%;
+    letter-spacing: -0.06px;
+    text-align: left;
+    margin-left: 4.5%;
+    margin-top: 5.7%;
+    margin-bottom: 7.5%;
+  }
+
+  .social-icons {
+    flex-direction: row;
+    margin-left: 4.5%;
+    margin-top: 8%;
+    margin-bottom: 0%;
+  }
+
+  .footer {
+    margin-left: 4.5%;
+  }
+
+  nav .underline-decoration .blur-effect {
+    height: 366px;
+  }
+
+  nav .underline-decoration .line-primary {
+    width: 217.801px;
+    transform: translate(38px, 0px);
+  }
+
+  nav .underline-decoration .line-secondary {
+    width: 225.757px;
+    transform: translate(0px, 0px);
+  }
+}
+
+@media (max-width: 382px) {
+  nav .underline-decoration .blur-effect {
+    height: 340px;
+  }
+}
+
+@media (max-width: 362px) {
+  .contacts {
+    margin-left: 10%;
+  }
+
+  nav .underline-decoration .blur-effect {
+    height: 300px;
+  }
+}
+
+@media (max-width: 314px) {
+  .contacts {
+    margin-left: 8%;
+  }
+}
