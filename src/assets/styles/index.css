@@ -231,7 +231,6 @@ body {
   min-height: 103px;
   cursor: pointer;
   border-radius: 57px;
-  box-shadow: -3px 0px 7px 1px #1252F4;
 
 }
 
@@ -347,3 +346,4 @@ body {
   position: absolute;
   z-index: 5;
 }
+
