@@ -81,9 +81,21 @@ nav {
   transform: translateY(9px);
 }
 
+.lines-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
 .lines {
   position: relative;
   width: 100%;
+  max-width: 1440px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -101,8 +113,9 @@ nav {
 .r-line::before {
   content: "";
   position: absolute;
+  width: calc(100% - 56px);
   top: 0;
-  width: 90%;
+  max-width: 680px;
   height: 2px;
   background: linear-gradient(to left, #7f27ff, rgba(107, 99, 159, 0));
 }
@@ -121,7 +134,7 @@ nav {
   content: "";
   position: absolute;
   top: 0;
-  width: 9.8%;
+  width: 56px;
   height: 100%;
   border-left: 3px solid #7f27ff;
   border-bottom: 3px solid #7f27ff;
@@ -358,10 +371,6 @@ nav {
   text-align: center;
 }
 
-////needs to try: border-radius: 20px !important;
-///box-shadow: blue 0px 0px 0px 2px inset, rgb(255, 255, 255) 10px 10px 0px -3px, rgb(31, 193, 27) 10px 10px;
-
-
 @media (max-width: 1419px) {
   .description {
     margin-right: 0%;
@@ -410,6 +419,10 @@ nav {
   .descriptionParagraph {
     font-size: 16px;
   }
+
+  .contacts {
+    margin-left: 15%;
+  }
 }
 
 @media (max-width: 860px) {
@@ -440,7 +453,6 @@ nav {
 
   .footer {
     display: block;
-    // margin-top: 0px;
   }
 
   .social-icons {
@@ -449,6 +461,9 @@ nav {
 }
 
 @media (max-width: 651px) {
+  nav .nav-container {
+    margin-top: 36px;
+  }
   .description {
     width: 79%;
   }
@@ -458,19 +473,18 @@ nav {
   }
 
   .contactsAndLinks {
-    width: 90%;
+    width: 92%;
   }
 
-  .btnContact {
-    --slant: 22.32px;
-    width: 152px;
-    height: 50.66px;
-    color: #000;
-    font-family: "BPG ExtraSquare Mtavruli";
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+  nav .underline-decoration .blur-effect {
+    height: 438px;
+  }
+  .lines-container {
+    padding: 0px;
+  }
+  .l-line::before,
+  .r-line::before {
+    background: #7f27ff;
   }
 }
 
@@ -483,7 +497,9 @@ nav {
     font-size: 14px;
     line-height: 178.571%;
   }
-
+  .descriptionHeader {
+    margin-top: 10px;
+  }
   .linksHeader {
     font-size: 16px;
     letter-spacing: -0.08px;
@@ -507,7 +523,7 @@ nav {
   }
 
   .contacts {
-    margin-left: 25%;
+    margin-left: 22%;
   }
 
   .copyright {
@@ -536,7 +552,7 @@ nav {
   }
 
   nav .underline-decoration .blur-effect {
-    height: 382px;
+    height: 366px;
   }
 
   nav .underline-decoration .line-primary {
@@ -548,18 +564,6 @@ nav {
     width: 225.757px;
     transform: translate(0px, 0px);
   }
-
-  .btnContact {
-    --slant: 19.4px;
-    width: 132px;
-    height: 44px;
-    color: #000;
-    font-family: "BPG ExtraSquare Mtavruli";
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-  }
 }
 
 @media (max-width: 382px) {
@@ -570,7 +574,7 @@ nav {
 
 @media (max-width: 362px) {
   .contacts {
-    margin-left: 14%;
+    margin-left: 10%;
   }
 
   nav .underline-decoration .blur-effect {
@@ -582,4 +586,8 @@ nav {
   .contacts {
     margin-left: 8%;
   }
+
+  nav .underline-decoration .blur-effect {
+    height: 290px;
+}
 }
