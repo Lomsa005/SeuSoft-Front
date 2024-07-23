@@ -86,28 +86,39 @@ nav {
   transform: translateY(9px);
 }
 
+.lines-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
 .lines {
   position: relative;
   width: 100%;
+  max-width: 1440px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 19px;
 }
 
-.l-line,
-.r-line {
+.l-line, .r-line {
   position: relative;
   width: 50%;
   height: 100%;
 }
 
-.l-line::before,
-.r-line::before {
+.l-line::before, .r-line::before {
   content: "";
   position: absolute;
+  width: calc(100% - 56px);
   top: 0;
-  width: 90%;
+  max-width: 680px;
   height: 2px;
   background: linear-gradient(to left, #7f27ff, rgba(107, 99, 159, 0));
 }
@@ -121,12 +132,11 @@ nav {
   transform: scaleX(-1);
 }
 
-.l-line::after,
-.r-line::after {
+.l-line::after, .r-line::after {
   content: "";
   position: absolute;
   top: 0;
-  width: 9.8%;
+  width: 56px;
   height: 100%;
   border-left: 3px solid #7f27ff;
   border-bottom: 3px solid #7f27ff;
@@ -143,6 +153,7 @@ nav {
   transform: scaleX(-1) skew(30deg);
   transform-origin: top;
 }
+
 
 .diamond-container {
   position: relative;
@@ -416,15 +427,7 @@ nav {
 @media (max-width: 860px) {
   .description {
     width: 50%;
-  }
-  .l-line::before,
-  .r-line::before {
-    width: 58%;
-  }
-  .l-line::after,
-  .r-line::after {
-    width: 41.8%;
-  }
+  } 
 }
 
 @media (max-width: 768px) {
@@ -474,6 +477,12 @@ nav {
 
   nav .underline-decoration .blur-effect {
     height: 438px;
+  }
+  .lines-container {
+    padding: 0px;
+  }
+  .l-line::before, .r-line::before {
+    background: #7f27ff;
   }
 }
 

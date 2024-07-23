@@ -14,14 +14,16 @@ export const Footer = () => {
           <div className="diamond-container">
             <div className="diamond"></div>
           </div>
-          <div className="lines first-line">
-            <div className="l-line"></div>
-            <div className="r-line"></div>
-          </div>
-          <div className="lines">
-            <div className="l-line"></div>
-            <div className="r-line"></div>
-          </div>
+          <div className="lines-container">
+    <div className="lines first-line">
+      <div className="l-line"></div>
+      <div className="r-line"></div>
+    </div>
+    <div className="lines">
+      <div className="l-line"></div>
+      <div className="r-line"></div>
+    </div>
+  </div>
         </div>
         <div className="footer">
           <div className="description">
