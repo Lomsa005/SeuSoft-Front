@@ -28,55 +28,15 @@
   font-weight: 400;
   line-height: normal;
   cursor: pointer;
-  clip-path: polygon(
-    0 0,
-    calc(103% - var(--slant)) 0,
-    108% var(--slant),
-    100% 100%,
-    var(--slant) 109%,
-    0 calc(118% - var(--slant))
-  );
+  clip-path: polygon(0 0, calc(103% - var(--slant)) 0, 108% var(--slant), 100% 100%, var(--slant) 109%, 0 calc(118% - var(--slant)));
   background-color: #56f1ff;
 }
 
 .little-rectangle {
   background-color: #000000;
-  width: 13%;
-  height: 3px;
-  transform: translate(590%, -2.5px);
-}
-
-@media (max-width: 651px) {
-  .btnContact {
-    --slant: 22.32px;
-    width: 152px;
-    height: 50.66px;
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 554px) {
-  .btnContainer {
-    right: 4%;
-    bottom: 4.3%;
-  }
-}
-
-@media (max-width: 454px) {
-  .btnContact {
-    --slant: 16.8px;
-    width: 115px;
-    height: 38.3px;
-    font-size: 16px;
-  }
-
-  .main-video {
-    height: 85vh;
-  }
-
-  .main {
-    height: 85vh;
-  }
+  width: 12.5%;
+  height: 4px;
+  transform: translate(608%, -3.3px);
 }
 
 .boxes {
@@ -88,7 +48,7 @@
   display: flex;
   justify-content: center;
   align-items: center; /* Add this line */
-  width: 100%;
+  width: 90%;
 }
 
 .boxContainer {
@@ -102,7 +62,7 @@
 }
 
 .box {
-  width: 100%;
+  width: 110%;
 }
 
 .boxParagraph {
@@ -112,7 +72,7 @@
   transform: translate(-50%, -50%);
   color: #9feeff;
   font-family: "BPG ExtraSquare Mtavruli";
-  font-size: 18px;
+  font-size: 100%;
   font-style: normal;
   font-weight: 400;
   text-align: center;
@@ -141,4 +101,167 @@
   left: auto;
   right: 5%;
   transform: translateY(-40%);
+}
+
+@media (max-width: 1440px) {
+  .boxes {
+    width: 700px;
+    gap: 65px;
+  }
+
+  .box {
+    width: 160px;
+  }
+
+  .boxParagraph {
+    width: 130px;
+    font-size: 18px;
+  }
+
+  .boxParagraph1 {
+    transform: translate(18%, -40%);
+  }
+
+  .boxParagraph2 {
+    transform: translate(27%, -40%);
+  }
+
+  .boxParagraph3 {
+    transform: translate(22%, -40%);
+  }
+
+  .boxParagraph4 {
+    transform: translate(24%, -40%);
+  }
+}
+
+@media (max-width: 860px) {
+  .boxes {
+    width: 600px;
+    gap: 50px;
+  }
+
+  .box {
+    width: 140px;
+  }
+
+  .boxParagraph {
+    font-size: 15px;
+  }
+
+  .boxParagraph1 {
+    transform: translate(25%, -40%);
+  }
+
+  .boxParagraph3 {
+    transform: translate(25%, -40%);
+  }
+}
+
+@media (max-width: 651px) {
+  .btnContact {
+    --slant: 22.32px;
+    width: 152px;
+    height: 50.66px;
+    font-size: 16px;
+  }
+
+  .boxes {
+    width: 440px;
+  }
+
+  .box {
+    width: 122px;
+  }
+
+  .boxParagraph {
+    font-size: 13px;
+  }
+
+  .boxParagraph1 {
+    transform: translate(35%, -40%);
+  }
+
+  .boxParagraph2 {
+    transform: translate(37%, -40%);
+  }
+
+  .boxParagraph3 {
+    transform: translate(30%, -40%);
+  }
+
+  .boxParagraph4 {
+    transform: translate(28%, -40%);
+  }
+}
+
+@media (max-width: 554px) {
+  .btnContainer {
+    right: 4%;
+    bottom: 4.3%;
+  }
+
+  .boxes {
+    width: 338px;
+    gap: 38px;
+  }
+
+  .box {
+    width: 105px;
+  }
+}
+
+@media (max-width: 454px) {
+  .btnContact {
+    --slant: 16.8px;
+    width: 115px;
+    height: 38.3px;
+    font-size: 16px;
+  }
+
+  .main-video {
+    height: 85vh;
+  }
+
+  .main {
+    height: 85vh;
+  }
+
+  .boxes {
+    width: 280px;
+    gap: 3px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    top: 40%;
+  }
+
+  .boxContainer {
+    margin: 0px;
+    width: 100%;
+  }
+
+  .box {
+    width: 183px;
+  }
+
+  .boxParagraph {
+    width: 71%;
+    font-size: 18px;
+  }
+
+  .boxParagraph2 {
+    transform: translate(-16%, -40%);
+  }
+
+  .boxParagraph4 {
+    transform: translate(-22%, -40%);
+  }
+
+  .boxParagraph3 {
+    transform: translate(-23%, -40%);
+  }
+
+  .boxParagraph1 {
+    transform: translate(-18%, -40%);
+  }
 }
