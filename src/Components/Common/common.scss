@@ -70,6 +70,8 @@
 
 .box {
   width: 110%;
+  cursor: pointer;
+  -webkit-user-drag: none;
 }
 
 .boxParagraph {
@@ -84,6 +86,7 @@
   font-weight: 400;
   text-align: center;
   width: 100%;
+  cursor: pointer;
 }
 
 .boxParagraph1 {
