@@ -1,30 +1,22 @@
 import btnclose from "media/close.png";
 import "./Container.scss";
 
-export const Container = () => {
+export const Container = ({ title, content, isVisible, onClose }) => {
+  if (!isVisible) return null;
+
   return (
     <div className="container">
       <div className="backdrop">
         <div className="Tflex">
-          <div className="Theader">Main</div>
-          <img src={btnclose} alt="close button" />
+          <div className="Theader">{title}</div>
+          <img src={btnclose} alt="close button" onClick={onClose} />
         </div>
         <div className="Tline-circle"></div>
         <div className="Tline"></div>
 
         <div className="content-wrapper">
-          <div className="scrollable-content">
-            შექმნას საერთაშორისოდ ცნობადი, სტუდენტსა და მის წარმატებაზე
-            ორიენტირებული, თანამედროვე სტანდარტების მქონე აკადემიური გარემო,
-            რომელიც სტიმულს აძლევს სწავლას, სწავლებასა და კვლევას, შესაბამისად,
-            ყველას უქმნის საკუთარი პოტენციალის სრული რეალიზების შესაძლებლობას და
-            ამზადებს მაღალი კვალიფიკაციის მქონე კონკურენტუნარიან სპეციალისტებს
-            შრომის ბაზრისათვის. ევროპის უმაღლესი საგანმანათლებლო სივრცის
-            ღირებულებებსა და პრინციპებზე დაფუძნებული განათლების უზრუნველყოფა,
-            ინოვაციური და მოქნილი მიდგომების გამოყენება სტუდენტებისა და
-            საზოგადოების სხვადასხვა საჭიროებისა და მოთხოვნის საპასუხოდ, მომავალი
-            ტენდენციების განჭვრეტა და ხარისხის გაუმჯობესებაზე ფოკუსირება, სეუ-ს
-            მუდმივი მიზანია.
+          <div className="scrollable-content" style={{color:"white"}}>
+            {content}
           </div>
         </div>
       </div>

@@ -48,13 +48,13 @@
 
 .boxes {
   position: absolute;
-  z-index: 4;
-  top: 50%; /* Change from 37% to 50% */
+  z-index: 3;
+  top: 50%; 
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
-  align-items: center; /* Add this line */
+  align-items: center; 
   width: 90%;
 }
 

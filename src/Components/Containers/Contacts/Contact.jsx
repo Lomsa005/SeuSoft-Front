@@ -5,12 +5,14 @@ import location from "media/location.svg";
 import number from "media/number.svg";
 import "./Contact.scss";
 
-export const Contact = () => {
+export const Contact = ({ isVisible, onClose }) => {
+  if (!isVisible) return null;
+
   return (
     <>
-      <div className="ContactBorder">
-        <ContactBorder />
-        <img src={btnclose} alt="close button" className="CloseBtn" />
+    <div className="ContactBorder">
+      <ContactBorder />
+      <img src={btnclose} alt="close button" className="CloseBtn" onClick={onClose} />
 
         <div className="ContactElements">
           <div className="scrollable-content">
