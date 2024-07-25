@@ -28,14 +28,7 @@
   font-weight: 400;
   line-height: normal;
   cursor: pointer;
-  clip-path: polygon(
-    0 0,
-    calc(103% - var(--slant)) 0,
-    108% var(--slant),
-    100% 100%,
-    var(--slant) 109%,
-    0 calc(118% - var(--slant))
-  );
+  clip-path: polygon(0 0, calc(103% - var(--slant)) 0, 108% var(--slant), 100% 100%, var(--slant) 109%, 0 calc(118% - var(--slant)));
   background-color: #56f1ff;
 }
 
@@ -49,12 +42,12 @@
 .boxes {
   position: absolute;
   z-index: 3;
-  top: 50%; 
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
   width: 90%;
 }
 
@@ -219,6 +212,22 @@
   .box {
     width: 105px;
   }
+
+  .boxParagraph {
+    width: 87px;
+  }
+
+  .boxParagraph1 {
+    transform: translate(26%, -40%);
+  }
+
+  .boxParagraph3 {
+    transform: translate(28%, -40%);
+}
+
+  .boxParagraph4 {
+    transform: translate(32%, -40%);
+  }
 }
 
 @media (max-width: 454px) {
@@ -255,23 +264,24 @@
   }
 
   .boxParagraph {
-    width: 71%;
+    width: 81%;
     font-size: 18px;
   }
-
-  .boxParagraph2 {
-    transform: translate(-16%, -40%);
-  }
-
-  .boxParagraph4 {
-    transform: translate(-22%, -40%);
-  }
-
-  .boxParagraph3 {
-    transform: translate(-23%, -40%);
-  }
-
+  
   .boxParagraph1 {
     transform: translate(-18%, -40%);
+  }
+  
+  .boxParagraph2 {
+    transform: translate(-11%, -40%);
+  }
+
+  
+  .boxParagraph3 {
+    transform: translate(-9%, -40%);
+  }
+  
+  .boxParagraph4 {
+    transform: translate(-6%, -40%);
   }
 }
