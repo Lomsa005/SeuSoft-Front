@@ -5,6 +5,10 @@
     width: 95%;
     height: calc(calc(var(--vh, 1vh) * 98) - 140px);
     transform: translate(2.5%, 0%);
+    
+    svg{
+      backdrop-filter: blur(6px);
+    }
   }
   
   .CloseBtn {

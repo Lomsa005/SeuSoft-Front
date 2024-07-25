@@ -259,10 +259,10 @@
   }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 454px) {
   .container {
-    height: calc(calc(var(--vh, 1vh) * 92) - 140px);
-  }
+    height: calc(var(--vh, 1vh)* 92 - 230px);
+}
   .Tline-circle {
     margin-left: 15px;
     width: 172px;

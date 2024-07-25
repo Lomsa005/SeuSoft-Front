@@ -4,7 +4,7 @@ export const ContactBorder = () => {
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="100%"
-        height=""
+        height="100%"
         preserveAspectRatio="none"
         viewBox="0 0 1370 601"
         fill="rgba(0, 0, 0, 0.55)"
