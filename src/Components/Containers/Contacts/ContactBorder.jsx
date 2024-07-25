@@ -3,12 +3,11 @@ export const ContactBorder = () => {
     <>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="95%"
+        width="100%"
         height=""
         preserveAspectRatio="none"
         viewBox="0 0 1370 601"
-        fill="none"
-        className="ContactBorder"
+        fill="rgba(0, 0, 0, 0.55)"
       >
         <g filter="url(#filter0_b_681_731)">
           <path
@@ -165,7 +164,6 @@ export const ContactBorder = () => {
           </linearGradient>
         </defs>
       </svg>
-      ;
     </>
   );
 };
