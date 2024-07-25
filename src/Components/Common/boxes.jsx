@@ -1,4 +1,3 @@
-// import { firstBox, secondBox, thirdBox, fourthBox } from "media";
 import firstBox from "media/firstBox.png";
 import secondBox from "media/secondBox.png";
 import thirdBox from "media/thirdBox.png";

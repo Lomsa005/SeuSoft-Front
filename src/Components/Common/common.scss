@@ -28,7 +28,14 @@
   font-weight: 400;
   line-height: normal;
   cursor: pointer;
-  clip-path: polygon(0 0, calc(103% - var(--slant)) 0, 108% var(--slant), 100% 100%, var(--slant) 109%, 0 calc(118% - var(--slant)));
+  clip-path: polygon(
+    0 0,
+    calc(103% - var(--slant)) 0,
+    108% var(--slant),
+    100% 100%,
+    var(--slant) 109%,
+    0 calc(118% - var(--slant))
+  );
   background-color: #56f1ff;
 }
 
@@ -241,7 +248,7 @@
   }
 
   .box {
-    width: 183px;
+    width: 149px;
   }
 
   .boxParagraph {

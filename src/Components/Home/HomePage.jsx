@@ -8,8 +8,8 @@ export const HomePage = () => {
   return (
     <div className="mainContainer">
       <Boxes />
-      <Contact/>
-     <Container/>
+      {/* <Contact/>
+     <Container/> */}
       <div className="main">
         <MainVideo />
         <ContactButton />
