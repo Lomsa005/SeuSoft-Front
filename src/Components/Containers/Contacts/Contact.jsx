@@ -95,11 +95,11 @@ export const Contact = ({ isVisible, onClose }) => {
                 </div>
                 <div className="notfill"></div>
               </div>
-              <div className="fill">
+              <div className="longLine fill">
                 <div className="label">
                   <label htmlFor="Comment">დაწერეთ კომენტარი</label>
                 </div>
-                <div className="notfill" style={{ width: "552px" }}></div>
+                <div className="notfill"></div>
               </div>
             </div>
 
