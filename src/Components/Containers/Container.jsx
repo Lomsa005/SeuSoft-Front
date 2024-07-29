@@ -1,5 +1,6 @@
 import btnclose from "media/close.png";
 import "./Container.scss";
+import PropTypes from "prop-types"
 
 export const Container = ({ title, content, isVisible, onClose }) => {
   if (!isVisible) return null;
@@ -32,4 +33,11 @@ export const Container = ({ title, content, isVisible, onClose }) => {
       <div className="tab tab5"></div>
     </div>
   );
+};
+
+Container.propTypes = {
+  title: PropTypes.string,
+  content: PropTypes.string,
+  isVisible: PropTypes.bool,
+  onClose: PropTypes.func,
 };

@@ -4,6 +4,7 @@ import email from "media/email.svg";
 import location from "media/location.svg";
 import number from "media/number.svg";
 import "./Contact.scss";
+import PropTypes from "prop-types"
 
 export const Contact = ({ isVisible, onClose }) => {
   if (!isVisible) return null;
@@ -112,4 +113,8 @@ export const Contact = ({ isVisible, onClose }) => {
       </div>
     </>
   );
+};
+Contact.propTypes = {
+  isVisible: PropTypes.bool,
+  onClose: PropTypes.func,
 };

@@ -1,4 +1,5 @@
 import "./common.scss";
+import Proptypes from "prop-types"
 
 export const ContactButton = ({ onClick }) => {
   return (
@@ -9,5 +10,6 @@ export const ContactButton = ({ onClick }) => {
   );
 };
 
-
-
+ContactButton.propTypes = {
+  onClick: Proptypes.func
+};
