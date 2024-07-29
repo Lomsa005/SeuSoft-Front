@@ -34,6 +34,7 @@ export const Contact = ({ isVisible, onClose }) => {
                 </div>
                 <div className="ws">დაგვიკავშირდით</div>
               </div>
+              
               <div className="smCont">
                 <img src={email} />
                 <div className="fl">

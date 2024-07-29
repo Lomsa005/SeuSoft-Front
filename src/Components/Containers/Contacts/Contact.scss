@@ -108,7 +108,12 @@
   height: 6px;
   left: 9px;
   top: 9px;
-  background: linear-gradient(90deg, rgba(152, 249, 255, 0.5) 0%, rgba(152, 249, 255, 1) 52.65%, rgba(152, 249, 255, 0.35) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(152, 249, 255, 0.5) 0%,
+    rgba(152, 249, 255, 1) 52.65%,
+    rgba(152, 249, 255, 0.35) 100%
+  );
   border-radius: 50%/100%;
   filter: blur(4.5px);
 }
@@ -146,7 +151,11 @@
   width: 16px;
   height: 16px;
   border-radius: 16px;
-  background: radial-gradient(5941.67% 44.93% at 50% 0%, #73c7f6 0%, rgba(112, 203, 254, 0.78) 100%);
+  background: radial-gradient(
+    5941.67% 44.93% at 50% 0%,
+    #73c7f6 0%,
+    rgba(112, 203, 254, 0.78) 100%
+  );
   mix-blend-mode: hard-light;
   filter: blur(4.5px);
 }
@@ -249,7 +258,8 @@
   }
 }
 
-.longLine, .longLine .notfill {
+.longLine,
+.longLine .notfill {
   width: 552px;
 }
 
@@ -279,6 +289,16 @@
   }
 }
 
+@media (max-width: 910px) {
+  .Weare {
+    margin-bottom: 20px;
+  }
+
+  .smCont {
+    width: 225px;
+  }
+}
+
 @media (max-height: 715px) {
   .ContactElements {
     .scrollable-content {
@@ -294,7 +314,77 @@
 }
 
 @media (max-width: 675px) {
-  .longLine, .longLine .notfill {
+  .longLine,
+  .longLine .notfill {
     width: 256px;
+  }
+  .ContactElements {
+    .scrollable-content {
+      padding-right: 10px;
+    }
+  }
+}
+
+@media (max-width: 590px) {
+  .Weare {
+    margin-bottom: 5px;
+  }
+  .ContactAboutus {
+    flex-direction: column;
+    row-gap: 33px;
+    margin-bottom: 62px;
+  }
+  .smCont {
+    width: 100%;
+    align-items: center;
+    img {
+      width: 30px;
+      height: 30px;
+    }
+    .fl {
+      flex-direction: row;
+      column-gap: 9px;
+
+      div:first-child {
+        margin-bottom: -5px;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+      }
+      div:last-child {
+        color: #fff;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+      }
+    }
+  }
+  .FillContact {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    column-gap: 40px;
+    row-gap: 40px;
+    margin-bottom: 40px;
+  }
+  .ContactBtn div {
+    width: 162px;
+    height: 43px;
+}.none{
+  display: none;
+}
+}
+
+@media (max-width: 454px) {
+  .ContactBorder {
+    height: calc(var(--vh, 1vh) * 92 - 230px);
+  }
+  .ContactElements {
+    .scrollable-content {
+      height: calc(calc(var(--vh, 1vh) * 98) - 400px);
+    }
   }
 }

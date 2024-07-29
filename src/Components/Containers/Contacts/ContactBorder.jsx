@@ -50,30 +50,37 @@ export const ContactBorder = () => {
         <path
           d="M1365.65 517.249H1370V528.823L1330.85 564.743H1291.71L1295.19 561.55H1329.11L1365.65 526.827V517.249Z"
           fill="#01C2FF"
+          className="none"
         />
         <path
           d="M1287.8 565.142L1291.71 561.55H1289.54L1285.62 565.142H1287.8Z"
           fill="#01C2FF"
+          className="none"
         />
         <path
           d="M1280.84 565.142L1284.75 561.55H1282.58L1278.66 565.142H1280.84Z"
           fill="#01C2FF"
+          className="none"
         />
         <path
           d="M1273.88 565.142L1277.79 561.55H1275.62L1271.71 565.142H1273.88Z"
           fill="#01C2FF"
+          className="none"
         />
         <path
           d="M1266.92 565.142L1270.83 561.55H1268.66L1264.75 565.142H1266.92Z"
           fill="#01C2FF"
+          className="none"
         />
         <path
           d="M-0.000181198 600.264L-0.000181198 583.501H2.60934H5.21886L5.21886 596.273H19.1363L20.876 600.264H-0.000181198Z"
           fill="#01C2FF"
+          className="none"
         />
         <path
           d="M8.69434 6.00815e-05L1.73562 8.78052L1.73562 6.00815e-05H8.69434Z"
           fill="#01C2FF"
+          className="none"
         />
         <line
           x1="287.916"
@@ -82,6 +89,7 @@ export const ContactBorder = () => {
           y2="2.00012"
           stroke="url(#paint0_linear_681_731)"
           strokeWidth="4"
+          className="none"
         />
         <line
           x1="3.74121"
@@ -90,6 +98,7 @@ export const ContactBorder = () => {
           y2="528.424"
           stroke="url(#paint1_linear_681_731)"
           strokeWidth="4"
+          className="none"
         />
         <defs>
           <filter
