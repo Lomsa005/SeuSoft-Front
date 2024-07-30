@@ -8,8 +8,6 @@ import "./Contact.scss";
 import PropTypes from "prop-types";
 
 export const Contact = ({ isVisible, onClose }) => {
-  if (!isVisible) return null;
-
   const [inputStates, setInputStates] = useState({
     FirstName: false,
     LastName: false,
@@ -19,6 +17,9 @@ export const Contact = ({ isVisible, onClose }) => {
     CompanyName: false,
     Comment: false
   });
+  if (!isVisible) return null;
+
+ 
 
   const handleInputChange = (e) => {
     const { id, value } = e.target;

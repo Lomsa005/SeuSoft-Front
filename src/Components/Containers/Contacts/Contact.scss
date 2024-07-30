@@ -343,6 +343,10 @@
       padding-right: 10px;
     }
   }
+  .ContactBorder {
+    top: 126px;
+    height: calc(calc(var(--vh, 1vh) * 98) - 140px);
+  }  
 }
 
 @media (max-width: 590px) {
