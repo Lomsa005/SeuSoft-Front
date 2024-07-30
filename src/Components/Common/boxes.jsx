@@ -2,13 +2,14 @@ import firstBox from "media/firstBox.png";
 import secondBox from "media/secondBox.png";
 import thirdBox from "media/thirdBox.png";
 import fourthBox from "media/fourthBox.png";
+import PropTypes from "prop-types"
 
 export const Boxes = ({ onBoxClick }) => {
   const boxes = [
-    { id: 1, title: "პროდუქტები", image: firstBox },
-    { id: 2, title: "სერვისები", image: secondBox },
-    { id: 3, title: "პორტფოლიო", image: thirdBox },
-    { id: 4, title: "ჩვენ შესახებ", image: fourthBox },
+    { id: 1, title: "პროდუქტები", image: firstBox, isimage: false  },
+    { id: 2, title: "სერვისები", image: secondBox, isimage: false  },
+    { id: 3, title: "პორტფოლიო", image: thirdBox, isimage: true },
+    { id: 4, title: "ჩვენ შესახებ", image: fourthBox, isimage: false  },
   ];
 
   return (
@@ -17,7 +18,7 @@ export const Boxes = ({ onBoxClick }) => {
         <div
           key={box.id}
           className={`boxContainer boxContainer${box.id}`}
-          onClick={() => onBoxClick(box.id, box.title)}
+          onClick={() => onBoxClick(box.id, box.title, box.isimage)}
         >
           <img className={`box box${box.id}`} src={box.image} alt={box.title} />
           <p className={`boxParagraph boxParagraph${box.id}`}>{box.title}</p>
@@ -25,4 +26,8 @@ export const Boxes = ({ onBoxClick }) => {
       ))}
     </div>
   );
+};
+
+Boxes.propTypes = {
+  onBoxClick: PropTypes.func
 };

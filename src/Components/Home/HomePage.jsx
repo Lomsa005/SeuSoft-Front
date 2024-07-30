@@ -9,8 +9,9 @@ export const HomePage = () => {
   const [activeContainer, setActiveContainer] = useState(null);
   const [isContactVisible, setIsContactVisible] = useState(false);
 
-  const handleBoxClick = (id, title) => {
-    setActiveContainer({ id, title });
+
+  const handleBoxClick = (id, title, isimage) => {
+    setActiveContainer({ id, title, isimage });
     setIsContactVisible(false);
   };
 
@@ -45,9 +46,11 @@ export const HomePage = () => {
       <Boxes onBoxClick={handleBoxClick} />
       <Container
         title={activeContainer?.title}
+        isimage={activeContainer?.isimage}
         content={activeContainer ? getContainerContent(activeContainer.id) : ""}
         isVisible={!!activeContainer}
         onClose={handleCloseContainer}
+        
       />
       <Contact 
         isVisible={isContactVisible}
