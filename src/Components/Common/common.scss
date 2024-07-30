@@ -297,3 +297,10 @@
     transform: translate(-17%, -30%);
   }
 }
+
+
+@media (min-width:2000px) {
+  .boxParagraph {
+    font-size: 20px;
+  }
+}
