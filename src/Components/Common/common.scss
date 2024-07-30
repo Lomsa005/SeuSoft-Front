@@ -85,25 +85,25 @@
 .boxParagraph1 {
   left: auto;
   right: -5%;
-  transform: translate(2%, -40%);
+  transform: translate(2%, -30%);
 }
 
 .boxParagraph2 {
   left: auto;
   right: -5%;
-  transform: translate(4.5%, -40%);
+  transform: translate(4.5%, -30%);
 }
 
 .boxParagraph3 {
   left: auto;
   right: 5%;
-  transform: translate(-3%, -40%);
+  transform: translate(-3%, -30%);
 }
 
 .boxParagraph4 {
   left: auto;
   right: 5%;
-  transform: translate(-2%, -40%);
+  transform: translate(-2%, -30%);
 }
 
 @media (max-width: 1440px) {
@@ -118,23 +118,23 @@
 
   .boxParagraph {
     width: 130px;
-    font-size: 18px;
+    font-size: 17px;
   }
 
   .boxParagraph1 {
-    transform: translate(26%, -40%);
+    transform: translate(26%, -30%);
   }
 
   .boxParagraph2 {
-    transform: translate(27%, -40%);
+    transform: translate(27%, -30%);
   }
 
   .boxParagraph3 {
-    transform: translate(15%, -40%);
+    transform: translate(15%, -30%);
   }
 
   .boxParagraph4 {
-    transform: translate(15%, -40%);
+    transform: translate(15%, -30%);
   }
 }
 
@@ -149,23 +149,23 @@
   }
 
   .boxParagraph {
-    font-size: 15px;
+    font-size: 14.5px;
   }
 
   .boxParagraph1 {
-    transform: translate(29.5%, -40%);
+    transform: translate(29.5%, -30%);
   }
 
   .boxParagraph2 {
-    transform: translate(30%, -40%);
+    transform: translate(30%, -30%);
   }
 
   .boxParagraph3 {
-    transform: translate(20%, -40%);
+    transform: translate(20%, -30%);
   }
 
   .boxParagraph4 {
-    transform: translate(20%, -40%);
+    transform: translate(20%, -30%);
 }
 }
 
@@ -190,19 +190,19 @@
   }
 
   .boxParagraph1 {
-    transform: translate(35%, -40%);
+    transform: translate(35%, -30%);
   }
 
   .boxParagraph2 {
-    transform: translate(37%, -40%);
+    transform: translate(37%, -30%);
   }
 
   .boxParagraph3 {
-    transform: translate(26.5%, -40%);
+    transform: translate(26.5%, -30%);
   }
 
   .boxParagraph4 {
-    transform: translate(28%, -40%);
+    transform: translate(28%, -30%);
   }
 }
 
@@ -226,16 +226,20 @@
   }
 
   .boxParagraph1 {
-    transform: translate(26%, -40%);
+    transform: translate(34%, -30%);
   }
 
   .boxParagraph3 {
-    transform: translate(28%, -40%);
+    transform: translate(23%, -30%);
 }
 
   .boxParagraph4 {
-    transform: translate(32%, -40%);
+    transform: translate(25%, -30%);
   }
+  .boxParagraph {
+    font-size: 10px;
+  }
+
 }
 
 @media (max-width: 454px) {
@@ -272,24 +276,24 @@
   }
 
   .boxParagraph {
-    width: 81%;
-    font-size: 18px;
+    width: 110px;
+    font-size: 14px;
   }
   
   .boxParagraph1 {
-    transform: translate(-18%, -40%);
+    transform: translate(-18%, -30%);
   }
 
   .boxParagraph2 {
-    transform: translate(-11%, -40%);
+    transform: translate(-12%, -30%);
   }
 
   
   .boxParagraph3 {
-    transform: translate(-9%, -40%);
+    transform: translate(-20%, -30%);
   }
   
   .boxParagraph4 {
-    transform: translate(-6%, -40%);
+    transform: translate(-17%, -30%);
   }
 }
