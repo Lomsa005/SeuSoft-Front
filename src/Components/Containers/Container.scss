@@ -236,6 +236,7 @@
   height: -webkit-fill-available;
   width: 48.5%;
   position: relative;
+  margin: 5px;
 
 
   img{
@@ -245,6 +246,7 @@
     object-fit: cover;
     object-position: top;
   }
+
   div{
     position: absolute;
     bottom: 0;
@@ -274,6 +276,20 @@
   }
   
 }
+
+.portf::before {
+  content: '';
+  background: linear-gradient(to right top, #1062ded0 15%, #00b7ffde 60%, #08388100 );
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  margin: -3px;
+  box-shadow: 0 0 5px #1062DE,
+}
+
 @media (max-width: 780px) {
   .scrollable-content-img{
     color: white;
