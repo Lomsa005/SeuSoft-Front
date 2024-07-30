@@ -230,21 +230,41 @@
   .label:first-child {
     display: flex;
     flex-direction: row;
+    width: 256px;
+    align-items: center;
 
     label {
       color: #fff;
       font-size: 12px;
       font-style: normal;
       font-weight: 400;
+      width: max-content;
       line-height: 20px;
+      white-space: nowrap;
       margin-right: 17px;
     }
-    p {
+    .p {
       color: #00f0ff;
       font-size: 12px;
+      font-family: "BPG ExtraSquare Mtavruli";
       font-style: normal;
       font-weight: 400;
       line-height: 20px;
+      background: transparent;
+      border: 0px;
+      padding: 0px;
+      margin: 0px;
+      contain: strict;
+      width: -webkit-fill-available;
+    }
+  }
+  .cc{
+    width: -webkit-fill-available!important;
+
+    .p{
+      height: 1.7em!important;
+      line-height: 16px!important;
+      resize: none
     }
   }
   .notfill {
@@ -259,7 +279,7 @@
 }
 
 .longLine,
-.longLine .notfill {
+.longLine .notfill, .longLine .filled {
   width: 552px;
 }
 
@@ -315,7 +335,7 @@
 
 @media (max-width: 675px) {
   .longLine,
-  .longLine .notfill {
+  .longLine .notfill, .longLine .filled {
     width: 256px;
   }
   .ContactElements {
