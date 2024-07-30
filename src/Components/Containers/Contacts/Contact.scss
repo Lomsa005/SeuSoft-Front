@@ -217,45 +217,82 @@
   display: flex;
   flex-direction: column;
   width: fit-content;
+}
 
-  .filled {
-    width: 256px;
-    height: 4px;
-    border-radius: 57px;
-    background: #00f0ff;
-    box-shadow: 0px 0px 7px 1px #1252f4;
-    margin-top: 20px;
-    margin-left: 2px;
-  }
-  .label:first-child {
-    display: flex;
-    flex-direction: row;
+.fill .filled {
+  width: 256px;
+  height: 4px;
+  border-radius: 57px;
+  background: #00f0ff;
+  box-shadow: 0px 0px 7px 1px #1252f4;
+  margin-top: 20px;
+  margin-left: 2px;
+}
 
-    label {
-      color: #fff;
-      font-size: 12px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 20px;
-      margin-right: 17px;
-    }
-    p {
-      color: #00f0ff;
-      font-size: 12px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 20px;
-    }
-  }
-  .notfill {
-    border-radius: 57px;
-    background: #000;
-    box-shadow: 0px 0px 7px 1px #28bcf7;
-    width: 256px;
-    height: 4px;
-    margin-top: 20px;
-    margin-left: 3px;
-  }
+.fill .label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 256px;
+}
+
+.fill .label label {
+  color: #fff;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.fill .label input,
+.fill .label textarea {
+  width: 150px;
+  // height: 18px;
+  background-color: wheat;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 12px;
+  outline: none;
+}
+
+#Phone {
+  width: 124px;
+}
+#Comment {
+  height: 16px;
+}
+
+#CompanyName {
+  width: 135px;
+}
+
+#serviceName {
+  width: 110px;
+}
+
+.fill .label textarea {
+  height: 60px;
+  resize: vertical;
+}
+
+.fill .notfill {
+  border-radius: 57px;
+  background: #000;
+  box-shadow: 0px 0px 7px 1px #28bcf7;
+  width: 256px;
+  height: 4px;
+  margin-top: 20px;
+  margin-left: 3px;
+}
+
+.longLine.fill .label {
+  width: 100%;
+}
+
+.longLine.fill .label textarea {
+  width: calc(100% - 150px);
 }
 
 .longLine,
