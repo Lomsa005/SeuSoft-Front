@@ -60,10 +60,10 @@ export const Footer = () => {
         <div className="footer">
           <div className="description">
             <h3 className="descriptionHeader">
-              SeuSoft
+              SeuSoft<span className="descriptionHeaderDot">.</span>
             </h3>
             <p className="descriptionParagraph">
-            {contactData.title}<span className="descriptionHeaderDot">.</span>
+            {contactData.title}
             </p>
           </div>
           <div className="contactsAndLinks">

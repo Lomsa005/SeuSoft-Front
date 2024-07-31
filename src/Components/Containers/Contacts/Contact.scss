@@ -8,6 +8,7 @@
 
   svg {
     backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
   }
 }
 
@@ -52,6 +53,7 @@
   display: flex;
   flex-direction: column;
   width: fit-content;
+  width: -moz-fit-content;
 
   .ws {
     font-size: 14px;
@@ -217,6 +219,7 @@
   display: flex;
   flex-direction: column;
   width: fit-content;
+  width: -moz-fit-content;
 
   .filled {
     width: 256px;

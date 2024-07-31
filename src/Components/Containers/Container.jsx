@@ -21,20 +21,35 @@ export const Container = ({ title, content, isVisible, onClose, isimage }) => {
               {content}
             </div>
           ) : (
-            <div className="scrollable-content scrollable-content-img" style={{ color: "white" }}>
-                <div className="portf">
-                  <img src="https://www.wilmarinc.com/hs-fs/hubfs/AdobeStock_177874292-1.jpeg?width=1200&height=744&name=AdobeStock_177874292-1.jpeg" alt="" />
-                  <div>Apple.com</div>
-                </div>
-                <div className="portf">
-                  <img src="https://www.hpcwire.com/wp-content/uploads/2018/11/shutterstock_1095831830-675x380.jpg" alt="" />
-                  <div>Apple.com</div>
-                </div>
-                <div className="portf">
-                  <img src="https://www.hpcwire.com/wp-content/uploads/2018/11/shutterstock_1095831830-675x380.jpg" alt="" />
-                  <div>Apple.com</div>
-                </div>
-                </div>
+            <div
+              className="scrollable-content scrollable-content-img"
+              style={{ color: "white" }}
+            >
+              <div className="portf">
+                <img
+                  src="https://www.wilmarinc.com/hs-fs/hubfs/AdobeStock_177874292-1.jpeg?width=1200&height=744&name=AdobeStock_177874292-1.jpeg"
+                  alt=""
+                />
+
+                <div className="title">Apple.com</div>
+              </div>
+              <div className="portf">
+
+                <img
+                  src="https://www.hpcwire.com/wp-content/uploads/2018/11/shutterstock_1095831830-675x380.jpg"
+                  alt=""
+                />
+                <div className="title">Apple.com</div>
+              </div>
+              <div className="portf">
+
+                <img
+                  src="https://www.hpcwire.com/wp-content/uploads/2018/11/shutterstock_1095831830-675x380.jpg"
+                  alt=""
+                />
+                <div className="title">Apple.com</div>
+              </div>
+            </div>
           )}
         </div>
       </div>
