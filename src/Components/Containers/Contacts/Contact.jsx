@@ -7,8 +7,12 @@ import axios from 'axios';
 import number from "media/number.svg";
 import "./Contact.scss";
 import PropTypes from "prop-types";
+import useContactData from '../../Api/Api';
 
 export const Contact = ({ isVisible, onClose }) => {
+  
+  const contactData = useContactData();
+
   const [inputStates, setInputStates] = useState({
     FirstName: false,
     LastName: false,
@@ -67,7 +71,7 @@ export const Contact = ({ isVisible, onClose }) => {
 
         <div className="ContactElements">
           <div className="scrollable-content">
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className="scrollable-content">
             <div className="ContactAboutus">
               <div className="Weare">
                 <div className="ws">
@@ -90,21 +94,21 @@ export const Contact = ({ isVisible, onClose }) => {
                 <img src={email} alt="Email" />
                 <div className="fl">
                   <div>ელ:ფოსტა</div>
-                  <div>Info@Seu.edu.com</div>
+                  <div>{contactData.email}</div>
                 </div>
               </div>
               <div className="smCont">
                 <img src={number} alt="Phone" />
                 <div className="fl">
                   <div>ნომერი</div>
-                  <div>995 599 00 00 00</div>
+                  <div>{contactData.number}</div>
                 </div>
               </div>{" "}
               <div className="smCont">
                 <img src={location} alt="Location" />
                 <div className="fl">
                   <div>მისამართი</div>
-                  <div>Tbilisi, Tsinandlis st.9</div>
+                  <div>{contactData.address}</div>
                 </div>
               </div>
             </div>

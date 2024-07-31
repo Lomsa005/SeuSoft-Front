@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import useContactData  from '../Api/Api';
 import flag from "media/GE.svg";
 import {
   FaFacebookF,
@@ -13,17 +12,8 @@ import { useAppContext } from './AppContext';
 export const Footer = () => {
   const { setActiveLink } = useAppContext();
 
-  const [contactData, setContactData] = useState({
-    title: '',
-    address: '',
-    email: '',
-    number: '',
-    fb: '',
-    ig: '',
-    twitter: '',
-    in: '',
-    copyright: '',
-  });
+  const contactData = useContactData();
+
   const handleLinkClick = (linkTitle) => {
     setActiveLink(linkTitle);
     window.scrollTo({
@@ -31,23 +21,7 @@ export const Footer = () => {
       behavior: 'smooth' 
     });
   };
-  useEffect(() => {
-    const fetchContactData = async () => {
-      try {
-        const response = await axios.get('http://127.0.0.1:8000/api/v1/contacts');
-        console.log('API Response:', response.data); // Add this line to see the actual response
-        if (response.data && response.data.data && response.data.data.length > 0) {
-          setContactData(response.data.data[0]);
-        } else {
-          console.error('No contact data received');
-        }
-      } catch (error) {
-        console.error('Error fetching contact data:', error);
-      }
-    };
   
-    fetchContactData();
-  }, []);
 
   return (
     <>
