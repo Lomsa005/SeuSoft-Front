@@ -1,15 +1,30 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { MainVideo } from "../Common/Video";
 import { ContactButton } from "../Common/contactButton";
 import { Boxes } from "../Common/boxes";
 import { Container } from "../Containers/Container";
 import { Contact } from "../Containers/Contacts/Contact";
+import { useAppContext } from '../Layout/AppContext';
 
 export const HomePage = () => {
   const [activeContainer, setActiveContainer] = useState(null);
   const [isContactVisible, setIsContactVisible] = useState(false);
-
-
+  const { activeLink, setActiveLink } = useAppContext();
+  const boxes = [
+    { id: 1, title: "პროდუქტები",  isimage: false },
+    { id: 2, title: "სერვისები", isimage: false },
+    { id: 3, title: "პორტფოლიო",  isimage: true },
+    { id: 4, title: "ჩვენ შესახებ",  isimage: false },
+  ];
+  useEffect(() => {
+    if (activeLink) {
+      const boxId = boxes.find(box => box.title === activeLink)?.id;
+      if (boxId) {
+        handleBoxClick(boxId, activeLink, boxes.find(box => box.id === boxId).isimage);
+      }
+      setActiveLink(null); // Reset the active link
+    }
+  }, [activeLink]);
   const handleBoxClick = (id, title, isimage) => {
     setActiveContainer({ id, title, isimage });
     setIsContactVisible(false);

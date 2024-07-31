@@ -7,8 +7,12 @@ import {
   FaTwitter,
   FaLinkedinIn,
 } from "react-icons/fa";
+import { useAppContext } from './AppContext';
+
 
 export const Footer = () => {
+  const { setActiveLink } = useAppContext();
+
   const [contactData, setContactData] = useState({
     title: '',
     address: '',
@@ -20,7 +24,13 @@ export const Footer = () => {
     in: '',
     copyright: '',
   });
-
+  const handleLinkClick = (linkTitle) => {
+    setActiveLink(linkTitle);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth' 
+    });
+  };
   useEffect(() => {
     const fetchContactData = async () => {
       try {
@@ -72,10 +82,10 @@ export const Footer = () => {
                 ლინკები<span className="linksHeaderDot"></span>
               </h4>
               <ul className="linksList">
-                <li>სერვისები</li>
-                <li>პროდუქტები</li>
-                <li>პორტფოლიო</li>
-                <li>ჩვენს შესახებ</li>
+              <li onClick={() => handleLinkClick("სერვისები")} style={{cursor: "pointer"}}>სერვისები</li>
+          <li onClick={() => handleLinkClick("პროდუქტები")} style={{cursor: "pointer"}}>პროდუქტები</li>
+          <li onClick={() => handleLinkClick("პორტფოლიო")} style={{cursor: "pointer"}}>პორტფოლიო</li>
+          <li onClick={() => handleLinkClick("ჩვენ შესახებ")} style={{cursor: "pointer"}}>ჩვენ შესახებ</li>
               </ul>
             </div>
             <div className="contacts">
