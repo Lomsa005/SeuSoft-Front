@@ -1,3 +1,5 @@
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import flag from "media/GE.svg";
 import {
   FaFacebookF,
@@ -7,6 +9,36 @@ import {
 } from "react-icons/fa";
 
 export const Footer = () => {
+  const [contactData, setContactData] = useState({
+    title: '',
+    address: '',
+    email: '',
+    number: '',
+    fb: '',
+    ig: '',
+    twitter: '',
+    in: '',
+    copyright: '',
+  });
+
+  useEffect(() => {
+    const fetchContactData = async () => {
+      try {
+        const response = await axios.get('http://127.0.0.1:8000/api/v1/contacts');
+        console.log('API Response:', response.data); // Add this line to see the actual response
+        if (response.data && response.data.data && response.data.data.length > 0) {
+          setContactData(response.data.data[0]);
+        } else {
+          console.error('No contact data received');
+        }
+      } catch (error) {
+        console.error('Error fetching contact data:', error);
+      }
+    };
+  
+    fetchContactData();
+  }, []);
+
   return (
     <>
       <div className="footerContainer">
@@ -15,25 +47,23 @@ export const Footer = () => {
             <div className="diamond"></div>
           </div>
           <div className="lines-container">
-    <div className="lines first-line">
-      <div className="l-line"></div>
-      <div className="r-line"></div>
-    </div>
-    <div className="lines">
-      <div className="l-line"></div>
-      <div className="r-line"></div>
-    </div>
-  </div>
+            <div className="lines first-line">
+              <div className="l-line"></div>
+              <div className="r-line"></div>
+            </div>
+            <div className="lines">
+              <div className="l-line"></div>
+              <div className="r-line"></div>
+            </div>
+          </div>
         </div>
         <div className="footer">
           <div className="description">
             <h3 className="descriptionHeader">
-              SeuSoft<span className="descriptionHeaderDot">.</span>
+              SeuSoft
             </h3>
             <p className="descriptionParagraph">
-              კომპანია რომელიც ორიენტირებულია
-              ხარისხის ზრდაზე, განვითარებაზე
-              და წარმატებაზე
+            {contactData.title}<span className="descriptionHeaderDot">.</span>
             </p>
           </div>
           <div className="contactsAndLinks">
@@ -53,32 +83,48 @@ export const Footer = () => {
                 დაგვიკავშირდი<span className="contactsHeaderDot"></span>
               </h4>
               <ul className="contactsList">
-                <li>თბილისი,წინანდლის N9</li>
-                <li>Info@Seu.edu.com</li>
+                <li>{contactData.address}</li>
+                <li>{contactData.email}</li>
                 <li>
-                  <a style={{textDecoration:"underline"}}>032 2 90 00 00</a>
+                  <a style={{textDecoration:"underline"}}>{contactData.number}</a>
                 </li>
                 <li className="ge">
-                    <img src={flag} alt="geo flag" />
-                    <span className="geSpan">GE</span>
+                  <img src={flag} alt="geo flag" />
+                  <span className="geSpan">GE</span>
                 </li>
               </ul>
             </div>
           </div>
         </div>
         <div className="social-icons">
-          <div className="soc">
-            <FaLinkedinIn />
-          </div>
-          <div className="soc">
-            <FaTwitter />
-          </div>
-          <div className="soc">
-            <FaInstagram />
-          </div>
-          <div className="soc">
-            <FaFacebookF />
-          </div>
+          {contactData.in && (
+            <div className="soc">
+              <a href={contactData.in} target="_blank" rel="noopener noreferrer">
+                <FaLinkedinIn />
+              </a>
+            </div>
+          )}
+          {contactData.twitter && (
+            <div className="soc">
+              <a href={contactData.twitter} target="_blank" rel="noopener noreferrer">
+                <FaTwitter />
+              </a>
+            </div>
+          )}
+          {contactData.ig && (
+            <div className="soc">
+              <a href={contactData.ig} target="_blank" rel="noopener noreferrer">
+                <FaInstagram />
+              </a>
+            </div>
+          )}
+          {contactData.fb && (
+            <div className="soc">
+              <a href={contactData.fb} target="_blank" rel="noopener noreferrer">
+                <FaFacebookF />
+              </a>
+            </div>
+          )}
         </div>
         <div className="footerlines" style={{ transform: "translateY(-5px)" }}>
           <div className="footer-line line-color"></div>
@@ -92,8 +138,7 @@ export const Footer = () => {
         </div>
         <div className="copyright">
           {" "}
-          <span style={{ fontFamily: "Tomorrow" }}>©</span> 2023 ყველა უფლება
-          დაცულია
+          <span style={{ fontFamily: "Tomorrow" }}>©</span> {contactData.copyright}
         </div>
       </div>
     </>

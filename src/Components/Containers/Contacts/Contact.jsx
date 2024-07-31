@@ -3,6 +3,7 @@ import { ContactBorder } from "./ContactBorder";
 import btnclose from "media/close.png";
 import email from "media/email.svg";
 import location from "media/location.svg";
+import axios from 'axios';
 import number from "media/number.svg";
 import "./Contact.scss";
 import PropTypes from "prop-types";
@@ -20,6 +21,30 @@ export const Contact = ({ isVisible, onClose }) => {
   if (!isVisible) return null;
 
  
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+  
+    const formData = {
+      name: document.getElementById('FirstName').value,
+      last_name: document.getElementById('LastName').value,
+      email: document.getElementById('Email').value,
+      number: document.getElementById('Phone').value,
+      service: document.getElementById('serviceName').value,
+      company: document.getElementById('CompanyName').value,
+      message: document.getElementById('Comment').value
+    };
+  
+    try {
+      const response = await axios.post(import.meta.env.VITE_API_ENDPOINT, formData);
+      console.log('Response from server:', response.data);
+    } catch (error) {
+      console.error('Error sending data:', error);
+      if (error.response) {
+        console.error('Response data:', error.response.data);
+        console.error('Response status:', error.response.status);
+      }
+    }
+  };
 
   const handleInputChange = (e) => {
     const { id, value } = e.target;
@@ -42,6 +67,7 @@ export const Contact = ({ isVisible, onClose }) => {
 
         <div className="ContactElements">
           <div className="scrollable-content">
+          <form onSubmit={handleSubmit}>
             <div className="ContactAboutus">
               <div className="Weare">
                 <div className="ws">
@@ -169,9 +195,10 @@ export const Contact = ({ isVisible, onClose }) => {
               </div>
             </div>
 
-            <div className="ContactBtn">
+            <div className="ContactBtn" onClick={handleSubmit}>
               <div>გაგზავნა</div>
             </div>
+            </form>
           </div>
         </div>
       </div>
