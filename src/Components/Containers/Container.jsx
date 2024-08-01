@@ -17,9 +17,8 @@ export const Container = ({ title, content, isVisible, onClose, isimage, images,
 
         <div className="content-wrapper">
           {!isimage ? (
-            <div className="scrollable-content" style={{ color: "white" }}>
-              {content}
-            </div>
+            <div className="scrollable-content" style={{ color: "white" }} dangerouslySetInnerHTML={{ __html: content }}/>
+
           ) : (
             <div
               className="scrollable-content scrollable-content-img"
@@ -27,7 +26,7 @@ export const Container = ({ title, content, isVisible, onClose, isimage, images,
             >
               {images.map((image, index) => (
                 <div key={index} className="portf">
-                  <img src={image} alt="" />
+                  <img src={`${import.meta.env.VITE_API_BACK}${image}`} alt="" />
                   <div className="title">{titles[index]}</div>
                 </div>
               ))}
