@@ -40,6 +40,7 @@ export const Contact = ({ isVisible, onClose }) => {
   
     try {
       const response = await axios.post(import.meta.env.VITE_API_ENDPOINT, formData);
+      console.log('Response from server:', response.data);
     } catch (error) {
       console.error('Error sending data:', error);
       if (error.response) {
