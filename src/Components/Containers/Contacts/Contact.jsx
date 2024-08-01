@@ -7,11 +7,11 @@ import axios from 'axios';
 import number from "media/number.svg";
 import "./Contact.scss";
 import PropTypes from "prop-types";
-import useContactData from '../../Api/Api';
+import {useData} from '../../Api/Api';
 
 export const Contact = ({ isVisible, onClose }) => {
   
-  const contactData = useContactData();
+  const {contactData} = useData();
 
   const [inputStates, setInputStates] = useState({
     FirstName: false,

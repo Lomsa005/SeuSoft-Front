@@ -1,32 +1,30 @@
-import { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import { MainVideo } from "../Common/Video";
 import { ContactButton } from "../Common/contactButton";
 import { Boxes } from "../Common/boxes";
 import { Container } from "../Containers/Container";
 import { Contact } from "../Containers/Contacts/Contact";
 import { useAppContext } from '../Layout/AppContext';
+import { useData } from '../Api/Api';
 
 export const HomePage = () => {
   const [activeContainer, setActiveContainer] = useState(null);
   const [isContactVisible, setIsContactVisible] = useState(false);
   const { activeLink, setActiveLink } = useAppContext();
-  const boxes = [
-    { id: 1, title: "პროდუქტები",  isimage: false },
-    { id: 2, title: "სერვისები", isimage: false },
-    { id: 3, title: "პორტფოლიო",  isimage: true },
-    { id: 4, title: "ჩვენ შესახებ",  isimage: false },
-  ];
+  const { boxesData, loading } = useData();
+
   useEffect(() => {
-    if (activeLink) {
-      const boxId = boxes.find(box => box.title === activeLink)?.id;
-      if (boxId) {
-        handleBoxClick(boxId, activeLink, boxes.find(box => box.id === boxId).isimage);
+    if (activeLink && boxesData.length > 0) {
+      const box = boxesData.find(box => box.title === activeLink);
+      if (box) {
+        handleBoxClick(box.id, box.title, box.isimage, box.images, box.titles);
       }
-      setActiveLink(null); // Reset the active link
+      setActiveLink(null);
     }
-  }, [activeLink]);
-  const handleBoxClick = (id, title, isimage) => {
-    setActiveContainer({ id, title, isimage });
+  }, [activeLink, boxesData, setActiveLink]);
+
+  const handleBoxClick = (id, title, isimage, images, titles) => {
+    setActiveContainer({ id, title, isimage, images, titles });
     setIsContactVisible(false);
   };
 
@@ -44,17 +42,13 @@ export const HomePage = () => {
   };
 
   const getContainerContent = (id) => {
-    return `შექმნას საერთაშორისოდ ცნობადი, სტუდენტსა და მის წარმატებაზე ორიენტირებული, თანამედროვე სტანდარტების მქონე აკადემიური გარემო,
-            რომელიც სტიმულს აძლევს სწავლას, სწავლებასა და კვლევას, შესაბამისად,
-            ყველას უქმნის საკუთარი პოტენციალის სრული რეალიზების შესაძლებლობას და
-            ამზადებს მაღალი კვალიფიკაციის მქონე კონკურენტუნარიან სპეციალისტებს
-            შრომის ბაზრისათვის. ევროპის უმაღლესი საგანმანათლებლო სივრცის
-            ღირებულებებსა და პრინციპებზე დაფუძნებული განათლების უზრუნველყოფა,
-            ინოვაციური და მოქნილი მიდგომების გამოყენება სტუდენტებისა და
-            საზოგადოების სხვადასხვა საჭიროებისა და მოთხოვნის საპასუხოდ, მომავალი
-            ტენდენციების განჭვრეტა და ხარისხის გაუმჯობესებაზე ფოკუსირება, სეუ-ს
-            მუდმივი მიზანია.`;
+    const box = boxesData.find(box => box.id === id);
+    return box ? box.body : "";
   };
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="mainContainer">
@@ -65,7 +59,8 @@ export const HomePage = () => {
         content={activeContainer ? getContainerContent(activeContainer.id) : ""}
         isVisible={!!activeContainer}
         onClose={handleCloseContainer}
-        
+        titles={activeContainer?.titles}
+        images={activeContainer?.images}
       />
       <Contact 
         isVisible={isContactVisible}

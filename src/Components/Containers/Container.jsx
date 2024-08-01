@@ -2,7 +2,7 @@ import btnclose from "media/close.png";
 import "./Container.scss";
 import PropTypes from "prop-types";
 
-export const Container = ({ title, content, isVisible, onClose, isimage }) => {
+export const Container = ({ title, content, isVisible, onClose, isimage, images, titles }) => {
   if (!isVisible) return null;
 
   return (
@@ -25,30 +25,12 @@ export const Container = ({ title, content, isVisible, onClose, isimage }) => {
               className="scrollable-content scrollable-content-img"
               style={{ color: "white" }}
             >
-              <div className="portf">
-                <img
-                  src="https://www.wilmarinc.com/hs-fs/hubfs/AdobeStock_177874292-1.jpeg?width=1200&height=744&name=AdobeStock_177874292-1.jpeg"
-                  alt=""
-                />
-
-                <div className="title">Apple.com</div>
-              </div>
-              <div className="portf">
-
-                <img
-                  src="https://www.hpcwire.com/wp-content/uploads/2018/11/shutterstock_1095831830-675x380.jpg"
-                  alt=""
-                />
-                <div className="title">Apple.com</div>
-              </div>
-              <div className="portf">
-
-                <img
-                  src="https://www.hpcwire.com/wp-content/uploads/2018/11/shutterstock_1095831830-675x380.jpg"
-                  alt=""
-                />
-                <div className="title">Apple.com</div>
-              </div>
+              {images.map((image, index) => (
+                <div key={index} className="portf">
+                  <img src={image} alt="" />
+                  <div className="title">{titles[index]}</div>
+                </div>
+              ))}
             </div>
           )}
         </div>
@@ -73,4 +55,6 @@ Container.propTypes = {
   isVisible: PropTypes.bool,
   onClose: PropTypes.func,
   isimage: PropTypes.bool,
+  images: PropTypes.arrayOf(PropTypes.string),
+  titles: PropTypes.arrayOf(PropTypes.string)
 };

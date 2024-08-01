@@ -1,4 +1,3 @@
-import useContactData  from '../Api/Api';
 import flag from "media/GE.svg";
 import {
   FaFacebookF,
@@ -7,12 +6,11 @@ import {
   FaLinkedinIn,
 } from "react-icons/fa";
 import { useAppContext } from './AppContext';
-
+import { useData } from '../Api/Api';
 
 export const Footer = () => {
   const { setActiveLink } = useAppContext();
-
-  const contactData = useContactData();
+  const { contactData, boxesData } = useData();
 
   const handleLinkClick = (linkTitle) => {
     setActiveLink(linkTitle);
@@ -56,10 +54,17 @@ export const Footer = () => {
                 ლინკები<span className="linksHeaderDot"></span>
               </h4>
               <ul className="linksList">
-              <li onClick={() => handleLinkClick("სერვისები")} style={{cursor: "pointer"}}>სერვისები</li>
-          <li onClick={() => handleLinkClick("პროდუქტები")} style={{cursor: "pointer"}}>პროდუქტები</li>
-          <li onClick={() => handleLinkClick("პორტფოლიო")} style={{cursor: "pointer"}}>პორტფოლიო</li>
-          <li onClick={() => handleLinkClick("ჩვენ შესახებ")} style={{cursor: "pointer"}}>ჩვენ შესახებ</li>
+              <ul className="linksList">
+  {boxesData.map((link, index) => (
+    <li 
+      key={index}
+      onClick={() => handleLinkClick(link.title)} 
+      style={{cursor: "pointer"}}
+    >
+      {link.title}
+    </li>
+  ))}
+</ul>
               </ul>
             </div>
             <div className="contacts">

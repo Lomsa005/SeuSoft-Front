@@ -1,7 +1,16 @@
-import { useState, useEffect } from 'react';
+import { createContext, useState, useEffect, useContext } from 'react';
 import axios from 'axios';
+import firstBox from "media/firstBox.png";
+import secondBox from "media/secondBox.png";
+import thirdBox from "media/thirdBox.png";
+import fourthBox from "media/fourthBox.png";
+import PropTypes from "prop-types"
 
-const useContactData = () => {
+const DataContext = createContext();
+const apiEndpoint = import.meta.env.VITE_API_ENDPOINT;
+const localImages = [firstBox, secondBox, thirdBox, fourthBox];
+
+export const DataProvider = ({ children }) => {
   const [contactData, setContactData] = useState({
     title: '',
     address: '',
@@ -13,25 +22,52 @@ const useContactData = () => {
     in: '',
     copyright: '',
   });
+  const [boxesData, setBoxesData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchContactData = async () => {
+    const fetchData = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:8000/api/v1/contacts');
-        if (response.data && response.data.data && response.data.data.length > 0) {
-          setContactData(response.data.data[0]);
+        const [contactResponse, boxesResponse] = await Promise.all([
+          axios.get(`${apiEndpoint}/contacts`),
+          axios.get(`${apiEndpoint}/show-links`)
+        ]);
+
+        if (contactResponse.data && contactResponse.data.data && contactResponse.data.data.length > 0) {
+          setContactData(contactResponse.data.data[0]);
         } else {
           console.error('No contact data received');
         }
+
+        if (boxesResponse.data) {
+          const processedData = boxesResponse.data.data.map((box, index) => ({
+            ...box,
+            image: index < 4 ? localImages[index] : localImages[3],
+            isimage: box.body === null
+          }));
+          setBoxesData(processedData);
+        } else {
+          console.error('No boxes data received or invalid format');
+        }
       } catch (error) {
-        console.error('Error fetching contact data:', error);
+        console.error('Error fetching data:', error);
+      } finally {
+        setLoading(false);
       }
     };
 
-    fetchContactData();
+    fetchData();
   }, []);
 
-  return contactData;
+  return (
+    <DataContext.Provider value={{ contactData, boxesData, loading }}>
+      {children}
+    </DataContext.Provider>
+  );
 };
 
-export default useContactData;
+export const useData = () => useContext(DataContext);
+
+DataProvider.propTypes = {
+  children: PropTypes.node,
+};

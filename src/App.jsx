@@ -1,6 +1,6 @@
 import { HomePage, Layout } from './Components';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-
+import { DataProvider } from './Components/Api/Api';
 
 function App() {
 
@@ -8,7 +8,7 @@ function App() {
     <>
       <Router>
       <Routes>
-        <Route path="/" element={<Layout> <HomePage/></Layout>} />
+        <Route path="/" element={<DataProvider><Layout> <HomePage/></Layout></DataProvider>} />
       </Routes>
     </Router>
     </>

@@ -1,27 +1,24 @@
-import firstBox from "media/firstBox.png";
-import secondBox from "media/secondBox.png";
-import thirdBox from "media/thirdBox.png";
-import fourthBox from "media/fourthBox.png";
-import PropTypes from "prop-types"
+import PropTypes from "prop-types";
+import { useData } from '../Api/Api';
 
 export const Boxes = ({ onBoxClick }) => {
-  const boxes = [
-    { id: 1, title: "პროდუქტები", image: firstBox, isimage: false  },
-    { id: 2, title: "სერვისები", image: secondBox, isimage: false  },
-    { id: 3, title: "პორტფოლიო", image: thirdBox, isimage: true },
-    { id: 4, title: "ჩვენ შესახებ", image: fourthBox, isimage: false  },
-  ];
+  const { boxesData } = useData();
 
   return (
     <div className="boxes">
-      {boxes.map((box) => (
+      {boxesData.map((box, index) => (
+        
         <div
-          key={box.id}
-          className={`boxContainer boxContainer${box.id}`}
-          onClick={() => onBoxClick(box.id, box.title, box.isimage)}
+          key={box.id || index}
+          className={`boxContainer boxContainer${Math.min(index + 1, 4)}`}
+          onClick={() => onBoxClick(box.id, box.title, box.isimage, box.images, box.titles)}
         >
-          <img className={`box box${box.id}`} src={box.image} alt={box.title} />
-          <p className={`boxParagraph boxParagraph${box.id}`}>{box.title}</p>
+          <img 
+            className={`box box${Math.min(index + 1, 4)}`} 
+            src={box.image} 
+            alt={box.title} 
+          />
+          <p className={`boxParagraph boxParagraph${Math.min(index + 1, 4)}`}>{box.title}</p>
         </div>
       ))}
     </div>
@@ -29,5 +26,5 @@ export const Boxes = ({ onBoxClick }) => {
 };
 
 Boxes.propTypes = {
-  onBoxClick: PropTypes.func
+  onBoxClick: PropTypes.func.isRequired
 };
