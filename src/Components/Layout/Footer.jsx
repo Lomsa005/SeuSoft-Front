@@ -1,16 +1,14 @@
+import React from 'react';
 import flag from "media/GE.svg";
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaTwitter,
-  FaLinkedinIn,
-} from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn } from "react-icons/fa";
 import { useAppContext } from './AppContext';
 import { useData } from '../Api/Api';
+import { useLanguage } from '../Common/LanguageContext';
 
 export const Footer = () => {
   const { setActiveLink } = useAppContext();
   const { contactData, boxesData } = useData();
+  const { isGeo, toggleLanguage } = useLanguage();
 
   const handleLinkClick = (linkTitle) => {
     setActiveLink(linkTitle);
@@ -19,7 +17,6 @@ export const Footer = () => {
       behavior: 'smooth' 
     });
   };
-  
 
   return (
     <>
@@ -45,31 +42,29 @@ export const Footer = () => {
               SeuSoft<span className="descriptionHeaderDot">.</span>
             </h3>
             <p className="descriptionParagraph">
-            {contactData.title}
+              {contactData.title}
             </p>
           </div>
           <div className="contactsAndLinks">
             <div className="links">
               <h4 className="linksHeader">
-                ლინკები<span className="linksHeaderDot"></span>
+                {isGeo ? 'ლინკები' : 'Links'}<span className="linksHeaderDot"></span>
               </h4>
               <ul className="linksList">
-              <ul className="linksList">
-  {boxesData.map((link, index) => (
-    <li 
-      key={index}
-      onClick={() => handleLinkClick(link.title)} 
-      style={{cursor: "pointer"}}
-    >
-      {link.title}
-    </li>
-  ))}
-</ul>
+                {boxesData.map((link, index) => (
+                  <li 
+                    key={index}
+                    onClick={() => handleLinkClick(link.title)} 
+                    style={{cursor: "pointer"}}
+                  >
+                    {link.title}
+                  </li>
+                ))}
               </ul>
             </div>
             <div className="contacts">
               <h4 className="linksHeader">
-                დაგვიკავშირდი<span className="contactsHeaderDot"></span>
+                {isGeo ? 'დაგვიკავშირდი' : 'Contact Us'}<span className="contactsHeaderDot"></span>
               </h4>
               <ul className="contactsList">
                 <li>{contactData.address}</li>
@@ -77,9 +72,9 @@ export const Footer = () => {
                 <li>
                   <a style={{textDecoration:"underline"}}>{contactData.number}</a>
                 </li>
-                <li className="ge">
+                <li className="ge" onClick={toggleLanguage}>
                   <img src={flag} alt="geo flag" />
-                  <span className="geSpan">GE</span>
+                  <span className="geSpan">{isGeo ? 'GE' : 'EN'}</span>
                 </li>
               </ul>
             </div>
