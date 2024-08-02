@@ -17,7 +17,7 @@ export const Container = ({ title, content, isVisible, onClose, isimage, images,
 
         <div className="content-wrapper">
           {!isimage ? (
-            <div className="scrollable-content" style={{ color: "white" }} dangerouslySetInnerHTML={{ __html: content }}/>
+            <div className="scrollable-content Backcontent" style={{ color: "white" }} dangerouslySetInnerHTML={{ __html: content }}/>
 
           ) : (
             <div

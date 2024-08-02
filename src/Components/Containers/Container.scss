@@ -417,3 +417,103 @@
     height: calc(100% - 125px);
   }
 }
+
+//unreset tags
+
+.Backcontent h1, 
+.Backcontent h2, 
+.Backcontent h3, 
+.Backcontent h4, 
+.Backcontent h5, 
+.Backcontent h6, 
+.Backcontent p, 
+.Backcontent blockquote, 
+.Backcontent pre, 
+.Backcontent a, 
+.Backcontent abbr, 
+.Backcontent acronym, 
+.Backcontent address, 
+.Backcontent big, 
+.Backcontent cite, 
+.Backcontent code, 
+.Backcontent del, 
+.Backcontent dfn, 
+.Backcontent em, 
+.Backcontent img, 
+.Backcontent ins, 
+.Backcontent kbd, 
+.Backcontent q, 
+.Backcontent s, 
+.Backcontent samp, 
+.Backcontent small, 
+.Backcontent strike, 
+.Backcontent strong, 
+.Backcontent sub, 
+.Backcontent sup, 
+.Backcontent tt, 
+.Backcontent var, 
+.Backcontent b, 
+.Backcontent u, 
+.Backcontent i, 
+.Backcontent center, 
+.Backcontent dl, 
+.Backcontent dt, 
+.Backcontent dd, 
+.Backcontent ol, 
+.Backcontent ul, 
+.Backcontent li, 
+.Backcontent fieldset, 
+.Backcontent form, 
+.Backcontent label, 
+.Backcontent legend, 
+.Backcontent table, 
+.Backcontent caption, 
+.Backcontent tbody, 
+.Backcontent tfoot, 
+.Backcontent thead, 
+.Backcontent tr, 
+.Backcontent th, 
+.Backcontent td, 
+.Backcontent article, 
+.Backcontent aside, 
+.Backcontent canvas, 
+.Backcontent details, 
+.Backcontent embed, 
+.Backcontent figure, 
+.Backcontent figcaption, 
+.Backcontent footer, 
+.Backcontent header, 
+.Backcontent hgroup, 
+.Backcontent menu, 
+.Backcontent nav, 
+.Backcontent output, 
+.Backcontent ruby, 
+.Backcontent section, 
+.Backcontent summary, 
+.Backcontent time, 
+.Backcontent mark, 
+.Backcontent audio, 
+.Backcontent video {
+  all: revert;
+  color: inherit;
+}
+
+.Backcontent a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.Backcontent ol, 
+.Backcontent ul {
+  list-style: revert;
+}
+
+.Backcontent blockquote, 
+.Backcontent q {
+  quotes: revert;
+}
+
+.Backcontent table {
+  border-collapse: revert;
+  border-spacing: revert;
+}
