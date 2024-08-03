@@ -17,7 +17,7 @@
 
 .btnContact {
   --slant: 28.2px;
-  font-family: "BPG ExtraSquare Mtavruli";
+  font-family: var(--font-family);
   font-size: 18px;
   padding: 0.4em 1.2em;
   width: 192px;
@@ -25,11 +25,12 @@
   border: none;
   color: #000;
   font-style: normal;
-  font-weight: 400;
+  font-weight: var(--font-weight-normal);
   line-height: normal;
   cursor: pointer;
   clip-path: polygon(0 0, calc(103% - var(--slant)) 0, 108% var(--slant), 100% 100%, var(--slant) 109%, 0 calc(118% - var(--slant)));
   background-color: #56f1ff;
+  text-transform: uppercase;
 }
 
 .little-rectangle {
@@ -74,7 +75,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   color: #9feeff;
-  font-family: "BPG ExtraSquare Mtavruli";
+  font-family: var(--font-family);
   font-size: 100%;
   font-style: normal;
   font-weight: 400;

@@ -1,6 +1,10 @@
+:root {
+  --font-family: 'BPG ExtraSquare Mtavruli', sans-serif;
+}
+
 body {
   background-color: black;
-  font-family: "BPG ExtraSquare Mtavruli", sans-serif;
+  font-family: var(--font-family), sans-serif;
 }
 
 #root {

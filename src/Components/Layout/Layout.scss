@@ -208,7 +208,7 @@ nav {
 
 .descriptionParagraph {
   color: #fff;
-  font-family: "BPG ExtraSquare Mtavruli";
+  font-family: var(--font-family);
   font-size: 20px;
   font-weight: 400;
   line-height: 125%;
@@ -216,9 +216,9 @@ nav {
 
 .linksHeader {
   color: #fff;
-  font-family: "BPG ExtraSquare Mtavruli";
+  font-family: var(--font-family);
   font-size: 18px;
-  font-weight: 400;
+  font-weight: var(--font-weight-medium);
   letter-spacing: -0.09px;
   margin-bottom: 17px;
   display: flex;
@@ -247,7 +247,7 @@ nav {
 
 .linksList {
   color: #fff;
-  font-family: "BPG ExtraSquare Mtavruli";
+  font-family: var(--font-family);
   font-size: 14px;
   font-weight: 400;
   line-height: 236.3%;
@@ -260,7 +260,7 @@ nav {
 
 .contactsList {
   color: #fff;
-  font-family: "BPG ExtraSquare Mtavruli";
+  font-family: var(--font-family);
   font-size: 14px;
   font-weight: 400;
   line-height: 236.3%;
@@ -273,17 +273,19 @@ nav {
 
 .ge {
   color: #fff;
+  width: fit-content;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
   display: flex;
-  align-items: center;
   cursor: pointer;
+  align-items: center;
 }
 
 .geSpan {
-  margin-bottom: -3px;
+  margin-bottom: -5px;
+  margin-left: 3px;
 }
 
 .social-icons {
@@ -362,7 +364,7 @@ nav {
 
 .copyright {
   color: #fff;
-  font-family: "BPG ExtraSquare Mtavruli";
+  font-family: var(--font-family);
   font-size: 14px;
   line-height: 10px;
   margin-top: 13px;

@@ -1,5 +1,4 @@
-// src/components/Contact.js
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { ContactBorder } from "./ContactBorder";
 import btnclose from "media/close.png";
 import email from "media/email.svg";
@@ -75,11 +74,11 @@ export const Contact = ({ isVisible, onClose }) => {
               <div className="ContactAboutus">
                 <div className="Weare">
                   <div className="ws">
-                    {isGeo ? 'ჩვენ' : 'We'}{" "}
+                    {isGeo ? 'ჩვენ' : 'We are'}{" "}
                     <span style={{ fontFamily: "Tomorrow", fontWeight: "500" }}>
                       SeuSoft
                     </span>{" "}
-                    {isGeo ? 'ვართ' : 'are'}
+                    {isGeo ? 'ვართ' : null}
                   </div>
                   <div className="progress-bar-container">
                     <div className="progress-bar">
@@ -187,7 +186,7 @@ export const Contact = ({ isVisible, onClose }) => {
                 </div>
                 <div className="longLine fill">
                   <div className="label cc">
-                    <label htmlFor="Comment">{isGeo ? 'დაწერეთ კომენტარი' : 'Write a Comment'}</label>
+                    <label htmlFor="Comment">{isGeo ? 'დაწერეთ კომენტარი' : 'Message'}</label>
                     <textarea
                       id="Comment"
                       className="p"
@@ -198,7 +197,7 @@ export const Contact = ({ isVisible, onClose }) => {
                 </div>
               </div>
               <div className="ContactBtn" onClick={handleSubmit}>
-                <div>{isGeo ? 'გაგზავნა' : 'Send'}</div>
+                <div>{isGeo ? 'გაგზავნა' : 'Send Message'}</div>
               </div>
             </form>
           </div>

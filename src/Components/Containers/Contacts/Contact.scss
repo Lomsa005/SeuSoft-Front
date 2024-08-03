@@ -58,7 +58,7 @@
   .ws {
     font-size: 14px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: var(--font-weight-small);
     line-height: normal;
     margin-left: auto;
   }
@@ -191,12 +191,12 @@
     div:first-child {
       font-size: 20px;
       font-style: normal;
-      font-weight: 400;
+      font-weight: var(--font-weight-small);
       line-height: normal;
       margin-bottom: 5px;
     }
     div:last-child {
-      font-family: Tomorrow;
+      font-family: "Tomorrow";
       font-size: 14px;
       font-style: normal;
       font-weight: 500;
@@ -240,7 +240,7 @@
       color: #fff;
       font-size: 12px;
       font-style: normal;
-      font-weight: 400;
+      font-weight: var(--font-weight-small);
       width: max-content;
       line-height: 20px;
       white-space: nowrap;
@@ -249,9 +249,9 @@
     .p {
       color: #00f0ff;
       font-size: 12px;
-      font-family: "BPG ExtraSquare Mtavruli";
+      font-family: var(--font-family);
       font-style: normal;
-      font-weight: 400;
+      font-weight: var(--font-weight-small);
       line-height: 20px;
       background: transparent;
       border: 0px;

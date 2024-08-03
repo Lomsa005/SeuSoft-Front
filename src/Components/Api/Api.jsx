@@ -43,7 +43,7 @@ export const DataProvider = ({ children }) => {
           const processedData = boxesResponse.data.data.map((box, index) => ({
             ...box,
             image: index < 4 ? localImages[index] : localImages[3],
-            isimage: box.body === null
+            isimage: box.bodyEn === null || box.bodyGe === null 
           }));
           setBoxesData(processedData);
         } else {

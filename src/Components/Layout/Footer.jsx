@@ -1,4 +1,3 @@
-import React from 'react';
 import flag from "media/GE.svg";
 import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn } from "react-icons/fa";
 import { useAppContext } from './AppContext';
@@ -48,23 +47,23 @@ export const Footer = () => {
           <div className="contactsAndLinks">
             <div className="links">
               <h4 className="linksHeader">
-                {isGeo ? 'ლინკები' : 'Links'}<span className="linksHeaderDot"></span>
+                {isGeo ? 'ლინკები' : 'Link'}<span className="linksHeaderDot" style={isGeo ? {} : { marginTop: "2px" }}></span>
               </h4>
               <ul className="linksList">
                 {boxesData.map((link, index) => (
                   <li 
                     key={index}
-                    onClick={() => handleLinkClick(link.title)} 
+                    onClick={() => handleLinkClick(isGeo ? link.titleGe : link.titleEn)} 
                     style={{cursor: "pointer"}}
                   >
-                    {link.title}
+                    {isGeo ? link.titleGe : link.titleEn}
                   </li>
                 ))}
               </ul>
             </div>
             <div className="contacts">
               <h4 className="linksHeader">
-                {isGeo ? 'დაგვიკავშირდი' : 'Contact Us'}<span className="contactsHeaderDot"></span>
+                {isGeo ? 'დაგვიკავშირდი' : 'Contact us'}<span className="contactsHeaderDot" style={isGeo ? {} : { marginTop: "2px" }}></span>
               </h4>
               <ul className="contactsList">
                 <li>{contactData.address}</li>
@@ -74,7 +73,7 @@ export const Footer = () => {
                 </li>
                 <li className="ge" onClick={toggleLanguage}>
                   <img src={flag} alt="geo flag" />
-                  <span className="geSpan">{isGeo ? 'GE' : 'EN'}</span>
+                  <span className="geSpan" style={isGeo ? {} : { marginBottom: "-1px" }}>{isGeo ? 'GE' : 'EN'}</span>
                 </li>
               </ul>
             </div>

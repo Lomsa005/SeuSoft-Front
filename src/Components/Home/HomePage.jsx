@@ -6,25 +6,27 @@ import { Container } from "../Containers/Container";
 import { Contact } from "../Containers/Contacts/Contact";
 import { useAppContext } from '../Layout/AppContext';
 import { useData } from '../Api/Api';
+import { useLanguage } from "../Common/LanguageContext";
 
 export const HomePage = () => {
   const [activeContainer, setActiveContainer] = useState(null);
   const [isContactVisible, setIsContactVisible] = useState(false);
   const { activeLink, setActiveLink } = useAppContext();
   const { boxesData, loading } = useData();
+  const { isGeo } = useLanguage();
 
   useEffect(() => {
     if (activeLink && boxesData.length > 0) {
-      const box = boxesData.find(box => box.title === activeLink);
+      const box = boxesData.find(box => (isGeo ? box.titleGe : box.titleEn) === activeLink);
       if (box) {
-        handleBoxClick(box.id, box.title, box.isimage, box.images, box.titles);
+        handleBoxClick(box.id, box.titleEn, box.titleGe, box.bodyEn, box.bodyGe, box.isimage, box.images, box.titlesEn, box.titlesGe);
       }
       setActiveLink(null);
     }
-  }, [activeLink, boxesData, setActiveLink]);
+  }, [activeLink, boxesData, setActiveLink, isGeo]);
 
-  const handleBoxClick = (id, title, isimage, images, titles) => {
-    setActiveContainer({ id, title, isimage, images, titles });
+  const handleBoxClick = (id, titleEn, titleGe, bodyEn, bodyGe, isimage, images, titlesEn, titlesGe) => {
+    setActiveContainer({ id, titleEn, titleGe, bodyEn, bodyGe, isimage, images, titlesEn, titlesGe });
     setIsContactVisible(false);
   };
 
@@ -43,7 +45,7 @@ export const HomePage = () => {
 
   const getContainerContent = (id) => {
     const box = boxesData.find(box => box.id === id);
-    return box ? box.body : "";
+    return box ? (!isGeo ? box.bodyEn : box.bodyGe) : "";
   };
 
   if (loading) {
@@ -54,12 +56,12 @@ export const HomePage = () => {
     <div className="mainContainer">
       <Boxes onBoxClick={handleBoxClick} />
       <Container
-        title={activeContainer?.title}
+        title={!isGeo ? activeContainer?.titleEn : activeContainer?.titleGe}
         isimage={activeContainer?.isimage}
         content={activeContainer ? getContainerContent(activeContainer.id) : ""}
         isVisible={!!activeContainer}
         onClose={handleCloseContainer}
-        titles={activeContainer?.titles}
+        titles={!isGeo ? activeContainer?.titlesEn : activeContainer?.titlesGe}
         images={activeContainer?.images}
       />
       <Contact 

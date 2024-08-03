@@ -1,19 +1,49 @@
-import React, { createContext, useState, useContext, useEffect } from 'react';
+import { createContext, useState, useContext, useEffect } from 'react';
+
+const fontSettings = {
+  eng: {
+    family: "'Tomorrow', sans-serif",
+    weights: {
+      normal: 600,
+      medium: 700,
+      small: 500,
+    }
+  },
+  geo: {
+    family: "'BPG ExtraSquare Mtavruli', sans-serif",
+    weights: {
+      normal: 400,
+      medium: 400,
+      small: 400,
+    }
+  }
+};
 
 const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
-  const [isGeo, setIsGeo] = useState(true);
+  const [isGeo, setIsGeo] = useState(false);
 
   useEffect(() => {
     const savedLanguage = localStorage.getItem('language');
-    setIsGeo(savedLanguage === 'geo');
+    const newIsGeo = savedLanguage === 'geo';
+    setIsGeo(newIsGeo);
+    updateFontSettings(newIsGeo);
   }, []);
 
   const toggleLanguage = () => {
-    const newLanguage = isGeo ? 'eng' : 'geo';
-    setIsGeo(!isGeo);
-    localStorage.setItem('language', newLanguage);
+    const newIsGeo = !isGeo;
+    setIsGeo(newIsGeo);
+    updateFontSettings(newIsGeo);
+    localStorage.setItem('language', newIsGeo ? 'geo' : 'eng');
+  };
+
+  const updateFontSettings = (isGeorgian) => {
+    const settings = isGeorgian ? fontSettings.geo : fontSettings.eng;
+    document.documentElement.style.setProperty('--font-family', settings.family);
+    document.documentElement.style.setProperty('--font-weight-normal', settings.weights.normal);
+    document.documentElement.style.setProperty('--font-weight-medium', settings.weights.medium);
+    document.documentElement.style.setProperty('--font-weight-small', settings.weights.small);
   };
 
   return (

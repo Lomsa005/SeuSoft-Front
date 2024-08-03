@@ -1,8 +1,10 @@
 import PropTypes from "prop-types";
 import { useData } from '../Api/Api';
+import { useLanguage } from "./LanguageContext";
 
 export const Boxes = ({ onBoxClick }) => {
   const { boxesData } = useData();
+  const { isGeo } = useLanguage();
 
   return (
     <div className="boxes">
@@ -11,14 +13,14 @@ export const Boxes = ({ onBoxClick }) => {
         <div
           key={box.id || index}
           className={`boxContainer boxContainer${Math.min(index + 1, 4)}`}
-          onClick={() => onBoxClick(box.id, box.title, box.isimage, box.images, box.titles)}
+          onClick={() => onBoxClick(box.id, box.titleEn, box.titleGe, box.bodyEn, box.bodyGe, box.isimage, box.images, box.titlesEn, box.titlesGe)}
         >
           <img 
             className={`box box${Math.min(index + 1, 4)}`} 
             src={box.image} 
-            alt={box.title} 
+            alt={box.titleEn} 
           />
-          <p className={`boxParagraph boxParagraph${Math.min(index + 1, 4)}`}>{box.title}</p>
+          <p className={`boxParagraph boxParagraph${Math.min(index + 1, 4)}`}>{!isGeo ? box.titleEn : box.titleGe}</p>
         </div>
       ))}
     </div>
