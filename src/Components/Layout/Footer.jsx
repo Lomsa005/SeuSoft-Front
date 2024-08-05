@@ -38,10 +38,10 @@ export const Footer = () => {
         <div className="footer">
           <div className="description">
             <h3 className="descriptionHeader">
-              SeuSoft<span className="descriptionHeaderDot">.</span>
+              {contactData?.name}<span className="descriptionHeaderDot">.</span>
             </h3>
             <p className="descriptionParagraph">
-              {contactData.title}
+            {isGeo ? contactData?.titleGe: contactData?.titleEn}
             </p>
           </div>
           <div className="contactsAndLinks">
@@ -66,10 +66,10 @@ export const Footer = () => {
                 {isGeo ? 'დაგვიკავშირდი' : 'Contact us'}<span className="contactsHeaderDot" style={isGeo ? {} : { marginTop: "2px" }}></span>
               </h4>
               <ul className="contactsList">
-                <li>{contactData.address}</li>
-                <li>{contactData.email}</li>
+                <li>{isGeo ? contactData?.addressGe: contactData?.addressEn}</li>
+                <li>{contactData?.email}</li>
                 <li>
-                  <a style={{textDecoration:"underline"}}>{contactData.number}</a>
+                  <a style={{textDecoration:"underline"}}>{contactData?.number}</a>
                 </li>
                 <li className="ge" onClick={toggleLanguage}>
                   <img src={flag} alt="geo flag" />
