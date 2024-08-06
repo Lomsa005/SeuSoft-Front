@@ -19,14 +19,14 @@ export const HomePage = () => {
     if (activeLink && boxesData.length > 0) {
       const box = boxesData.find(box => (isGeo ? box.titleGe : box.titleEn) === activeLink);
       if (box) {
-        handleBoxClick(box.id, box.titleEn, box.titleGe, box.bodyEn, box.bodyGe, box.isimage, box.images, box.titlesEn, box.titlesGe);
+        handleBoxClick(box.id, box.titleEn, box.titleGe, box.bodyEn, box.bodyGe, box.isimage, box.images, box.titlesEn, box.titlesGe, box.href);
       }
       setActiveLink(null);
     }
   }, [activeLink, boxesData, setActiveLink, isGeo]);
 
-  const handleBoxClick = (id, titleEn, titleGe, bodyEn, bodyGe, isimage, images, titlesEn, titlesGe) => {
-    setActiveContainer({ id, titleEn, titleGe, bodyEn, bodyGe, isimage, images, titlesEn, titlesGe });
+  const handleBoxClick = (id, titleEn, titleGe, bodyEn, bodyGe, isimage, images, titlesEn, titlesGe, href) => {
+    setActiveContainer({ id, titleEn, titleGe, bodyEn, bodyGe, isimage, images, titlesEn, titlesGe, href });
     setIsContactVisible(false);
   };
 
@@ -62,6 +62,7 @@ export const HomePage = () => {
         isVisible={!!activeContainer}
         onClose={handleCloseContainer}
         titles={!isGeo ? activeContainer?.titlesEn : activeContainer?.titlesGe}
+        href={activeContainer?.href}
         images={activeContainer?.images}
       />
       <Contact 

@@ -2,7 +2,7 @@ import btnclose from "media/close.png";
 import "./Container.scss";
 import PropTypes from "prop-types";
 
-export const Container = ({ title, content, isVisible, onClose, isimage, images, titles }) => {
+export const Container = ({ title, content, isVisible, onClose, isimage, images, titles, href }) => {
   if (!isVisible) return null;
 
   return (
@@ -25,10 +25,10 @@ export const Container = ({ title, content, isVisible, onClose, isimage, images,
               style={{ color: "white" }}
             >
               {images.map((image, index) => (
-                <div key={index} className="portf">
-                  <img src={`${import.meta.env.VITE_API_BACK}${image}`} alt="" />
+                <a key={index} className="portf" href={href[index]} target="_blank">
+                  <img src={`${image}`} alt="" />
                   <div className="title">{titles[index]}</div>
-                </div>
+                </a>
               ))}
             </div>
           )}
@@ -55,5 +55,6 @@ Container.propTypes = {
   onClose: PropTypes.func,
   isimage: PropTypes.bool,
   images: PropTypes.arrayOf(PropTypes.string),
-  titles: PropTypes.arrayOf(PropTypes.string)
+  titles: PropTypes.arrayOf(PropTypes.string),
+  href: PropTypes.arrayOf(PropTypes.string)
 };

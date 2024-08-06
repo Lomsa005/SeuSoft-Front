@@ -107,7 +107,7 @@ export const Contact = ({ isVisible, onClose }) => {
                   <img src={location} alt="Location" />
                   <div className="fl">
                     <div>{isGeo ? 'მისამართი' : 'Address'}</div>
-                    <div>{contactData.address}</div>
+                    <div>{isGeo ? contactData.addressGe : contactData.addressEn}</div>
                   </div>
                 </div>
               </div>

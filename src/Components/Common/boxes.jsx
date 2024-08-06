@@ -13,7 +13,7 @@ export const Boxes = ({ onBoxClick }) => {
         <div
           key={box.id || index}
           className={`boxContainer boxContainer${Math.min(index + 1, 4)}`}
-          onClick={() => onBoxClick(box.id, box.titleEn, box.titleGe, box.bodyEn, box.bodyGe, box.isimage, box.images, box.titlesEn, box.titlesGe)}
+          onClick={() => onBoxClick(box.id, box.titleEn, box.titleGe, box.bodyEn, box.bodyGe, box.isimage, box.images, box.titlesEn, box.titlesGe, box.href)}
         >
           <img 
             className={`box box${Math.min(index + 1, 4)}`} 
