@@ -1,4 +1,4 @@
-import  { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { MainVideo } from "../Common/Video";
 import { ContactButton } from "../Common/contactButton";
 import { Boxes } from "../Common/boxes";
@@ -11,9 +11,18 @@ import { useLanguage } from "../Common/LanguageContext";
 export const HomePage = () => {
   const [activeContainer, setActiveContainer] = useState(null);
   const [isContactVisible, setIsContactVisible] = useState(false);
+  const [showBoxes, setShowBoxes] = useState(false);
   const { activeLink, setActiveLink } = useAppContext();
   const { boxesData, loading } = useData();
   const { isGeo } = useLanguage();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowBoxes(true);
+    }, 800);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     if (activeLink && boxesData.length > 0) {
@@ -54,7 +63,7 @@ export const HomePage = () => {
 
   return (
     <div className="mainContainer">
-      <Boxes onBoxClick={handleBoxClick} />
+      {showBoxes && <Boxes onBoxClick={handleBoxClick} />}
       <Container
         title={!isGeo ? activeContainer?.titleEn : activeContainer?.titleGe}
         isimage={activeContainer?.isimage}

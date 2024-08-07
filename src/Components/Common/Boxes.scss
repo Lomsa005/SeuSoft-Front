@@ -1,0 +1,10 @@
+.boxContainer {
+    transform: translateY(100%);
+    opacity: 0;
+    transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+  
+    &.visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
