@@ -7,11 +7,14 @@ import { Contact } from "../Containers/Contacts/Contact";
 import { useAppContext } from '../Layout/AppContext';
 import { useData } from '../Api/Api';
 import { useLanguage } from "../Common/LanguageContext";
+import './container.scss';
+
 
 export const HomePage = () => {
   const [activeContainer, setActiveContainer] = useState(null);
   const [isContactVisible, setIsContactVisible] = useState(false);
   const [showBoxes, setShowBoxes] = useState(false);
+  const [activeBoxId, setActiveBoxId] = useState(null); // No change needed here
   const { activeLink, setActiveLink } = useAppContext();
   const { boxesData, loading } = useData();
   const { isGeo } = useLanguage();
@@ -35,17 +38,20 @@ export const HomePage = () => {
   }, [activeLink, boxesData, setActiveLink, isGeo]);
 
   const handleBoxClick = (id, titleEn, titleGe, bodyEn, bodyGe, isimage, images, titlesEn, titlesGe, href) => {
+    setActiveBoxId(id.toString());
     setActiveContainer({ id, titleEn, titleGe, bodyEn, bodyGe, isimage, images, titlesEn, titlesGe, href });
     setIsContactVisible(false);
   };
 
   const handleCloseContainer = () => {
     setActiveContainer(null);
+    setActiveBoxId(null);
   };
 
   const handleContactClick = () => {
     setIsContactVisible(true);
     setActiveContainer(null);
+    setActiveBoxId(null);
   };
 
   const handleCloseContact = () => {
@@ -63,7 +69,8 @@ export const HomePage = () => {
 
   return (
     <div className="mainContainer">
-      {showBoxes && <Boxes onBoxClick={handleBoxClick} />}
+      {showBoxes && <Boxes onBoxClick={handleBoxClick} activeBoxId={activeBoxId} />}
+      <div className="none">
       <Container
         title={!isGeo ? activeContainer?.titleEn : activeContainer?.titleGe}
         isimage={activeContainer?.isimage}
@@ -74,6 +81,7 @@ export const HomePage = () => {
         href={activeContainer?.href}
         images={activeContainer?.images}
       />
+      </div>
       <Contact 
         isVisible={isContactVisible}
         onClose={handleCloseContact}

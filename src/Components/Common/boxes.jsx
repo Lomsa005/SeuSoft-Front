@@ -4,7 +4,7 @@ import { useData } from '../Api/Api';
 import { useLanguage } from "./LanguageContext";
 import './Boxes.scss';
 
-export const Boxes = ({ onBoxClick }) => {
+export const Boxes = ({ onBoxClick, activeBoxId }) => {
   const { boxesData } = useData();
   const { isGeo } = useLanguage();
   const [visibleBoxes, setVisibleBoxes] = useState([]);
@@ -14,27 +14,35 @@ export const Boxes = ({ onBoxClick }) => {
       boxesData.forEach((_, index) => {
         setTimeout(() => {
           setVisibleBoxes(prev => [...prev, index]);
-        }, 3000 + index * 500); // 3 seconds initial delay, then 0.5 second between each box
+        }, 3000 + index * 500);
       });
     };
 
     showBoxesOneByOne();
 
     return () => {
-      // Clear any ongoing timeouts if the component unmounts
       boxesData.forEach((_, index) => {
         clearTimeout(3000 + index * 500);
       });
     };
   }, [boxesData]);
 
+  const handleBoxClick = (box) => {
+    onBoxClick(box.id, box.titleEn, box.titleGe, box.bodyEn, box.bodyGe, box.isimage, box.images, box.titlesEn, box.titlesGe, box.href);
+  };
+
   return (
     <div className="boxes">
       {boxesData.map((box, index) => (
         <div
           key={box.id || index}
-          className={`boxContainer boxContainer${Math.min(index + 1, 4)} ${visibleBoxes.includes(index) ? 'visible' : ''}`}
-          onClick={() => onBoxClick(box.id, box.titleEn, box.titleGe, box.bodyEn, box.bodyGe, box.isimage, box.images, box.titlesEn, box.titlesGe, box.href)}
+          className={`
+            boxContainer 
+            boxContainer${Math.min(index + 1, 4)} 
+            ${visibleBoxes.includes(index) ? 'visible' : ''} 
+            ${activeBoxId === box.id.toString() ? 'active' : ''} 
+          `}
+          onClick={() => handleBoxClick(box)}
         >
           <img 
             className={`box box${Math.min(index + 1, 4)}`} 
@@ -51,5 +59,6 @@ export const Boxes = ({ onBoxClick }) => {
 };
 
 Boxes.propTypes = {
-  onBoxClick: PropTypes.func.isRequired
+  onBoxClick: PropTypes.func.isRequired,
+  activeBoxId: PropTypes.string
 };
