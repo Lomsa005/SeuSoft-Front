@@ -7,6 +7,8 @@ import { Contact } from "../Containers/Contacts/Contact";
 import { useAppContext } from '../Layout/AppContext';
 import { useData } from '../Api/Api';
 import { useLanguage } from "../Common/LanguageContext";
+import './container.scss';
+
 
 
 export const HomePage = () => {
