@@ -26,7 +26,7 @@ export const Container = ({ title, content, isVisible, onClose, isimage, images,
             >
               {images.map((image, index) => (
                 <a key={index} className="portf" href={href[index]} target="_blank">
-                  <img src={`${image}`} alt="" />
+                  <img src={`http://seusoft.ge${image}`} alt="" />
                   <div className="title">{titles[index]}</div>
                 </a>
               ))}
