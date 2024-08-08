@@ -5,6 +5,16 @@
   margin-top: 126px;
   z-index: 3;
   transform: translate(5%, 0%);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  pointer-events: none;
+}
+
+.container.visible {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
 }
 
 .border {
@@ -415,6 +425,12 @@
     padding-left: 15px;
     width: calc(100% - 30px);
     height: calc(100% - 125px);
+  }
+}
+
+@media (min-width:900px) {
+  .container{
+    height: calc(var(--vh, 1vh) * 77 - 140px);
   }
 }
 

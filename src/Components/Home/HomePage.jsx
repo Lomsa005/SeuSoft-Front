@@ -12,7 +12,9 @@ export const HomePage = () => {
   const [activeContainer, setActiveContainer] = useState(null);
   const [isContactVisible, setIsContactVisible] = useState(false);
   const [showBoxes, setShowBoxes] = useState(false);
-  const [activeBoxId, setActiveBoxId] = useState(null); // No change needed here
+  const [activeBoxId, setActiveBoxId] = useState(null);
+  const [isScaled, setIsScaled] = useState(false);
+  const [containerVisible, setContainerVisible] = useState(false);
   const { activeLink, setActiveLink } = useAppContext();
   const { boxesData, loading } = useData();
   const { isGeo } = useLanguage();
@@ -39,17 +41,26 @@ export const HomePage = () => {
     setActiveBoxId(id.toString());
     setActiveContainer({ id, titleEn, titleGe, bodyEn, bodyGe, isimage, images, titlesEn, titlesGe, href });
     setIsContactVisible(false);
+    setIsScaled(true);
+    
+    setTimeout(() => {
+      setContainerVisible(true);
+    }, 800); 
   };
 
   const handleCloseContainer = () => {
+    setContainerVisible(false);
     setActiveContainer(null);
     setActiveBoxId(null);
+    setIsScaled(false);
   };
 
   const handleContactClick = () => {
     setIsContactVisible(true);
     setActiveContainer(null);
     setActiveBoxId(null);
+    setIsScaled(false);
+    setContainerVisible(false);
   };
 
   const handleCloseContact = () => {
@@ -67,25 +78,25 @@ export const HomePage = () => {
 
   return (
     <div className="mainContainer">
-      {showBoxes && <Boxes onBoxClick={handleBoxClick} activeBoxId={activeBoxId} />}
       <Container
         title={!isGeo ? activeContainer?.titleEn : activeContainer?.titleGe}
         isimage={activeContainer?.isimage}
         content={activeContainer ? getContainerContent(activeContainer.id) : ""}
-        isVisible={!!activeContainer}
+        isVisible={!!activeContainer && containerVisible}
         onClose={handleCloseContainer}
         titles={!isGeo ? activeContainer?.titlesEn : activeContainer?.titlesGe}
         href={activeContainer?.href}
         images={activeContainer?.images}
       />
-      <Contact 
+      <Contact
         isVisible={isContactVisible}
         onClose={handleCloseContact}
       />
-      <div className="main">
+      <div className={`main ${isScaled ? "scaled" : ""}`}>
         <MainVideo />
-        <ContactButton onClick={handleContactClick} />
+        {showBoxes && <Boxes onBoxClick={handleBoxClick} activeBoxId={activeBoxId} />}
       </div>
+      <ContactButton onClick={handleContactClick} />
     </div>
   );
 };

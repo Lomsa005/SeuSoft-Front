@@ -1,5 +1,5 @@
 .boxContainer {
-  transform: translateY(55vh);
+  transform: translateY(15vh);
   opacity: 0;
   transition: transform 1.1s ease-out, opacity 1.1s ease-out;
 
@@ -36,5 +36,11 @@
   }
   100% {
     transform: translateY(0);
+  }
+}
+
+@media (min-width:900px) {
+  .edgeBox {
+    top: -6px;
   }
 }

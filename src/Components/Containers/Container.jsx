@@ -6,7 +6,7 @@ export const Container = ({ title, content, isVisible, onClose, isimage, images,
   if (!isVisible) return null;
 
   return (
-    <div className="container">
+    <div className={`container ${isVisible ? 'visible' : ''}`}>
       <div className="backdrop">
         <div className="Tflex">
           <div className="Theader">{title}</div>

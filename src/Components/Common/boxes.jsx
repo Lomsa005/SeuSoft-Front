@@ -13,7 +13,7 @@ export const Boxes = ({ onBoxClick, activeBoxId }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setVisibleBoxes(true);
-    }, 2600);
+    }, 2700);
 
     return () => clearTimeout(timer);
   }, []);

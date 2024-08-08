@@ -1,6 +1,9 @@
 .main {
   position: relative;
   height: 105vh;
+  transition: transform 0.8s ease-in-out; 
+  transform-origin: bottom;
+  z-index: 0;
 }
 
 .main-video {
@@ -12,7 +15,7 @@
 .btnContainer {
   position: absolute;
   right: 3%;
-  bottom: 7%;
+  bottom: 2%;
 }
 
 .btnContact {
@@ -252,6 +255,9 @@
     font-size: 16px;
   }
 
+  .btnContainer {
+    bottom: 18%;
+  }
   .main-video {
     height: 85vh;
   }
@@ -304,5 +310,14 @@
 @media (min-width:2000px) {
   .boxParagraph {
     font-size: 20px;
+  }
+}
+
+@media (min-width:900px) {
+  .main.scaled {
+    transform: scale(0.4); 
+    height: 100vh;
+    top: -10px;
+    transform-origin: bottom;
   }
 }
