@@ -5,10 +5,12 @@ import secondBox from "media/secondBox.png";
 import thirdBox from "media/thirdBox.png";
 import fourthBox from "media/fourthBox.png";
 import PropTypes from "prop-types"
+import sphereee from "media/sphereee.gif";
+
 
 const DataContext = createContext();
 const apiEndpoint = import.meta.env.VITE_API_ENDPOINT;
-const localImages = [firstBox, secondBox, thirdBox, fourthBox];
+const localImages = [sphereee];
 
 export const DataProvider = ({ children }) => {
   const [contactData, setContactData] = useState({
@@ -42,7 +44,7 @@ export const DataProvider = ({ children }) => {
         if (boxesResponse.data) {
           const processedData = boxesResponse.data.data.map((box, index) => ({
             ...box,
-            image: index < 4 ? localImages[index] : localImages[3],
+            image: index < 4 ? localImages[0] : localImages[0],
             isimage: box.bodyEn === null || box.bodyGe === null 
           }));
           setBoxesData(processedData);

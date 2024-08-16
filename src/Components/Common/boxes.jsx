@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { useData } from "../Api/Api";
 import { useLanguage } from "./LanguageContext";
 import "./Boxes.scss";
+import sphereee from "media/sphereee.gif";
 
 export const Boxes = ({ onBoxClick, activeBoxId }) => {
   const { boxesData } = useData();
@@ -36,6 +37,12 @@ export const Boxes = ({ onBoxClick, activeBoxId }) => {
 
   return (
     <div className="boxes">
+      <img src={sphereee} alt="" />
+      <img src={sphereee} alt="" />
+      <img src={sphereee} alt="" />
+
+      <img src={sphereee} alt="" />
+
       {boxesData.map((box, index) => (
         <div
           key={box.id || index}
