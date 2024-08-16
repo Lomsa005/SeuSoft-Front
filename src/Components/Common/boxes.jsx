@@ -40,7 +40,6 @@ export const Boxes = ({ onBoxClick, activeBoxId }) => {
       <img src={sphereee} alt="" />
       <img src={sphereee} alt="" />
       <img src={sphereee} alt="" />
-
       <img src={sphereee} alt="" />
 
       {boxesData.map((box, index) => (
@@ -61,9 +60,9 @@ export const Boxes = ({ onBoxClick, activeBoxId }) => {
             src={box.image}
             alt={box.titleEn}
           />
-          <p className={`boxParagraph boxParagraph${Math.min(index + 1, 4)}`}>
+          {/* <p className={`boxParagraph boxParagraph${Math.min(index + 1, 4)}`}>
             {!isGeo ? box.titleEn : box.titleGe}
-          </p>
+          </p> */}
         </div>
       ))}
     </div>
