@@ -1,16 +1,12 @@
 import { createContext, useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import firstBox from "media/firstBox.png";
-import secondBox from "media/secondBox.png";
-import thirdBox from "media/thirdBox.png";
-import fourthBox from "media/fourthBox.png";
 import PropTypes from "prop-types"
-import sphereee from "media/sphereee.gif";
+import sphere from "media/sphere.gif";
 
 
 const DataContext = createContext();
 const apiEndpoint = import.meta.env.VITE_API_ENDPOINT;
-const localImages = [sphereee];
+const localImages = [sphere];
 
 export const DataProvider = ({ children }) => {
   const [contactData, setContactData] = useState({
@@ -42,9 +38,9 @@ export const DataProvider = ({ children }) => {
         }
 
         if (boxesResponse.data) {
-          const processedData = boxesResponse.data.data.map((box, index) => ({
+          const processedData = boxesResponse.data.data.map((box) => ({
             ...box,
-            image: index < 4 ? localImages[0] : localImages[0],
+            image: localImages[0],
             isimage: box.bodyEn === null || box.bodyGe === null 
           }));
           setBoxesData(processedData);

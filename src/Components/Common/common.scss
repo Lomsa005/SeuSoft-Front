@@ -70,7 +70,7 @@
   width: 110%;
   cursor: pointer;
   -webkit-user-drag: none;
-  filter:drop-shadow(0 0 .75rem #4deeea)
+  filter: drop-shadow(0 0 .75rem #4deeea)
 }
 
 .boxParagraph {
@@ -78,7 +78,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: #9feeff;
+  color: #fff;
   font-family: var(--font-family);
   font-size: 100%;
   font-style: normal;
@@ -90,26 +90,22 @@
 
 .boxParagraph1 {
   left: auto;
-  right: -5%;
-  transform: translate(2%, -30%);
+  transform: translate(0%, -50%);
 }
 
 .boxParagraph2 {
   left: auto;
-  right: -5%;
-  transform: translate(4.5%, -30%);
+  transform: translate(0%, -50%);
 }
 
 .boxParagraph3 {
   left: auto;
-  right: 5%;
-  transform: translate(-3%, -30%);
+  transform: translate(0%, -50%);
 }
 
 .boxParagraph4 {
   left: auto;
-  right: 5%;
-  transform: translate(-2%, -30%);
+  transform: translate(0%, -50%);
 }
 
 @media (max-width: 1440px) {
@@ -124,26 +120,18 @@
 
   .boxParagraph {
     width: 130px;
-    font-size: 17px;
+    font-size: 20px;
   }
 
-  .boxParagraph1 {
-    transform: translate(26%, -30%);
-  }
-
-  .boxParagraph2 {
-    transform: translate(27%, -30%);
-  }
-
-  .boxParagraph3 {
-    transform: translate(15%, -30%);
-  }
-
-  .boxParagraph4 {
-    transform: translate(15%, -30%);
-  }
 }
 
+@media (min-width: 1440px) {
+
+  .boxParagraph {
+    font-size: 25px;
+  }
+
+}
 @media (max-width: 860px) {
   .boxes {
     width: 600px;
@@ -155,24 +143,9 @@
   }
 
   .boxParagraph {
-    font-size: 14.5px;
+    font-size: 17px;
   }
 
-  .boxParagraph1 {
-    transform: translate(29.5%, -30%);
-  }
-
-  .boxParagraph2 {
-    transform: translate(30%, -30%);
-  }
-
-  .boxParagraph3 {
-    transform: translate(20%, -30%);
-  }
-
-  .boxParagraph4 {
-    transform: translate(20%, -30%);
-}
 }
 
 @media (max-width: 651px) {
@@ -192,24 +165,9 @@
   }
 
   .boxParagraph {
-    font-size: 13px;
+    font-size: 14.5px;
   }
 
-  .boxParagraph1 {
-    transform: translate(35%, -30%);
-  }
-
-  .boxParagraph2 {
-    transform: translate(37%, -30%);
-  }
-
-  .boxParagraph3 {
-    transform: translate(26.5%, -30%);
-  }
-
-  .boxParagraph4 {
-    transform: translate(28%, -30%);
-  }
 }
 
 @media (max-width: 554px) {
@@ -230,20 +188,8 @@
   .boxParagraph {
     width: 87px;
   }
-
-  .boxParagraph1 {
-    transform: translate(34%, -30%);
-  }
-
-  .boxParagraph3 {
-    transform: translate(23%, -30%);
-}
-
-  .boxParagraph4 {
-    transform: translate(25%, -30%);
-  }
   .boxParagraph {
-    font-size: 10px;
+    font-size: 13px;
   }
 
 }
@@ -286,31 +232,14 @@
 
   .boxParagraph {
     width: 110px;
-    font-size: 14px;
-  }
-  
-  .boxParagraph1 {
-    transform: translate(-18%, -30%);
-  }
-
-  .boxParagraph2 {
-    transform: translate(-12%, -30%);
-  }
-
-  
-  .boxParagraph3 {
-    transform: translate(-20%, -30%);
-  }
-  
-  .boxParagraph4 {
-    transform: translate(-17%, -30%);
+    font-size: 18px;
   }
 }
 
 
 @media (min-width:2000px) {
   .boxParagraph {
-    font-size: 20px;
+    font-size: 30px;
   }
 }
 
