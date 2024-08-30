@@ -1,47 +1,49 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react';
 import video from "media/mainVideo.mp4";
 
-export const MainVideo = () => {
+export const MainVideo = ({ videoOpacity }) => {
   const videoRef = useRef(null);
-  
+  const [hasPlayedOnce, setHasPlayedOnce] = useState(false);
+
   useEffect(() => {
     const videoElement = videoRef.current;
+    if (!videoElement) return;
 
-    const attemptPlay = () => {
-      videoElement.play().catch(error => {
-        console.error('Error attempting to play the video:', error)
-      })
-    }
+    const handlePlay = () => {
+      if (hasPlayedOnce) {
+        videoElement.currentTime = 3.6;
+      } else {
+        videoElement.currentTime = 0;
+        setHasPlayedOnce(true);
+      }
+    };
 
-    if (videoElement) {
-      
-      videoElement.load()
+    const handleTimeUpdate = () => {
+      if (videoElement.currentTime >= 13.8) {
+        videoElement.currentTime = 3.6;
+      }
+    };
 
-      attemptPlay()
+    videoElement.addEventListener('play', handlePlay);
+    videoElement.addEventListener('timeupdate', handleTimeUpdate);
 
-      const intervalId = setInterval(() => {
-        if (videoElement.paused) {
-          attemptPlay()
-        } else {
-          clearInterval(intervalId)
-        }
-      }, 1000)
+    return () => {
+      videoElement.removeEventListener('play', handlePlay);
+      videoElement.removeEventListener('timeupdate', handleTimeUpdate);
+    };
+  }, [hasPlayedOnce]);
 
-      return () => clearInterval(intervalId)
-    }
-  }, [])
-  
   return (
     <video
-    ref={videoRef}
-    src={video}
-    autoPlay
-    muted
-    loop
-    playsInline
-    // controlsList="nodownload"
-    className="main-video"
-    preload="auto"
+      ref={videoRef}
+      src={video}
+      autoPlay
+      muted
+      loop
+      playsInline
+      className={`main-video ${videoOpacity === 0 ? 'fade-out' : ''}`}
+      style={{ opacity: videoOpacity, transition: 'opacity 0.1s ease-in-out' }}
+      preload="auto"
     />
   );
 };

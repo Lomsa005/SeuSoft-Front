@@ -7,6 +7,7 @@ import { Contact } from "../Containers/Contacts/Contact";
 import { useAppContext } from '../Layout/AppContext';
 import { useData } from '../Api/Api';
 import { useLanguage } from "../Common/LanguageContext";
+import bg from "media/bg.png"
 
 export const HomePage = () => {
   const [activeContainer, setActiveContainer] = useState(null);
@@ -18,13 +19,22 @@ export const HomePage = () => {
   const { activeLink, setActiveLink } = useAppContext();
   const { boxesData, loading } = useData();
   const { isGeo } = useLanguage();
+  const [showBg, setShowBg] = useState(false);
+  const [videoOpacity, setVideoOpacity] = useState(1); 
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    const bgTimer = setTimeout(() => {
+      setShowBg(true);
+    }, 2000);
+
+    const boxesTimer = setTimeout(() => {
       setShowBoxes(true);
     }, 800);
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(bgTimer);
+      clearTimeout(boxesTimer);
+    };
   }, []);
 
   useEffect(() => {
@@ -37,6 +47,18 @@ export const HomePage = () => {
     }
   }, [activeLink, boxesData, setActiveLink, isGeo]);
 
+  useEffect(() => {
+    let timer;
+    if (isScaled) {
+      setVideoOpacity(0.2);
+    } else {
+      timer = setTimeout(() => {
+        setVideoOpacity(1);
+      }, 380);
+    }
+    return () => clearTimeout(timer);
+  }, [isScaled]);
+
   const handleBoxClick = (id, titleEn, titleGe, bodyEn, bodyGe, isimage, images, titlesEn, titlesGe, href) => {
     setActiveBoxId(id.toString());
     setActiveContainer({ id, titleEn, titleGe, bodyEn, bodyGe, isimage, images, titlesEn, titlesGe, href });
@@ -45,22 +67,28 @@ export const HomePage = () => {
     
     setTimeout(() => {
       setContainerVisible(true);
-    }, 800); 
+    }, 100); 
   };
 
   const handleCloseContainer = () => {
-    setContainerVisible(false);
-    setActiveContainer(null);
+    setTimeout(() => {
+      setContainerVisible(false);
+      setActiveContainer(null);
+
+    }, 350); 
     setActiveBoxId(null);
     setIsScaled(false);
   };
 
   const handleContactClick = () => {
     setIsContactVisible(true);
-    setActiveContainer(null);
     setActiveBoxId(null);
     setIsScaled(false);
-    setContainerVisible(false);
+    setTimeout(() => {
+      setActiveContainer(null);
+
+      setContainerVisible(false);
+    }, 350); 
   };
 
   const handleCloseContact = () => {
@@ -77,7 +105,7 @@ export const HomePage = () => {
   }
 
   return (
-    <div className="mainContainer">
+    <div className="mainContainer" style={{backgroundImage: showBg ? `url(${bg})` : 'none'}}>
       <Container
         title={!isGeo ? activeContainer?.titleEn : activeContainer?.titleGe}
         isimage={activeContainer?.isimage}
@@ -93,8 +121,8 @@ export const HomePage = () => {
         onClose={handleCloseContact}
       />
       <div className={`main ${isScaled ? "scaled" : ""}`}>
-        <MainVideo />
-        {showBoxes && <Boxes onBoxClick={handleBoxClick} activeBoxId={activeBoxId} />}
+        <MainVideo videoOpacity={videoOpacity} />
+        {showBoxes && <Boxes onBoxClick={handleBoxClick} activeBoxId={activeBoxId}/>}
       </div>
       <ContactButton onClick={handleContactClick} />
     </div>

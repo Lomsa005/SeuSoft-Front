@@ -26,13 +26,13 @@
     transform: translateY(0);
   }
   100% {
-    transform: translateY(-10px);
+    transform: translateY(-20px);
   }
 }
 
 @keyframes moveDown {
   0% {
-    transform: translateY(-10px);
+    transform: translateY(-20px);
   }
   100% {
     transform: translateY(0);
@@ -41,6 +41,6 @@
 
 @media (min-width:900px) {
   .edgeBox {
-    top: -6px;
+    top: 0px;
   }
 }

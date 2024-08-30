@@ -1,13 +1,14 @@
 import btnclose from "media/close.png";
 import "./Container.scss";
 import PropTypes from "prop-types";
+import backdrop from "media/backdrop.png"
 
 export const Container = ({ title, content, isVisible, onClose, isimage, images, titles, href }) => {
   if (!isVisible) return null;
 
   return (
     <div className={`container ${isVisible ? 'visible' : ''}`}>
-      <div className="backdrop">
+      <div className="backdrop" style={{backgroundImage: `url(${backdrop})`}}>
         <div className="Tflex">
           <div className="Theader">{title}</div>
           <img src={btnclose} alt="close button" onClick={onClose} />
