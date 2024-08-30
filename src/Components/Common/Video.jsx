@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import video from "media/mainVideo.mp4";
+import PropTypes from "prop-types";
 
 export const MainVideo = ({ videoOpacity }) => {
   const videoRef = useRef(null);
@@ -46,4 +47,8 @@ export const MainVideo = ({ videoOpacity }) => {
       preload="auto"
     />
   );
+};
+
+MainVideo.propTypes = {
+  videoOpacity: PropTypes.number,
 };
