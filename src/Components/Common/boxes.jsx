@@ -18,6 +18,13 @@ export const Boxes = ({ onBoxClick, activeBoxId }) => {
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    // Reset Closeanimation when activeBoxId changes
+    if (activeBoxId === null) {
+      setCloseanimation(false);
+    }
+  }, [activeBoxId]);
+
   const handleBoxClick = (box) => {
     onBoxClick(
       box.id,
@@ -31,18 +38,18 @@ export const Boxes = ({ onBoxClick, activeBoxId }) => {
       box.titlesGe,
       box.href
     );
-    setCloseanimation(true)
+    setCloseanimation(true);
   };
 
   return (
-    <div className="boxes">
+    <div className="boxes" style={Closeanimation ? { transform: 'translate(-50%, -17%)' } : { transform: 'translate(-50%, -50%)' }}>
       {boxesData.map((box, index) => (
         <div
           key={box.id || index}
           className={`
             boxContainer 
             ${visibleBoxes ? "visible" : ""} 
-            ${activeBoxId === box.id.toString() ? "active" : Closeanimation ? "nonactive" : " "} 
+            ${activeBoxId === box.id.toString() ? "active" : "nonactive"} 
             ${index === 0 || index === boxesData.length - 1 ? "edgeBox" : ""}
           `}
           style={{ transitionDelay: `${index * 0.2}s` }}
