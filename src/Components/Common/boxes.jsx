@@ -49,7 +49,7 @@ export const Boxes = ({ onBoxClick, activeBoxId }) => {
           className={`
             boxContainer 
             ${visibleBoxes ? "visible" : ""} 
-            ${activeBoxId === box.id.toString() ? "active" : "nonactive"} 
+            ${activeBoxId === box.id.toString() ? "active" : Closeanimation ? "nonactive" : " "}
             ${index === 0 || index === boxesData.length - 1 ? "edgeBox" : ""}
           `}
           style={{ transitionDelay: `${index * 0.2}s` }}
