@@ -1,15 +1,32 @@
 .ContactBorder {
   position: absolute;
   z-index: 5;
-  top: 50px;
   width: 95%;
-  height: calc(calc(var(--vh, 1vh) * 99) - 140px);
+  height: calc(var(--vh, 1vh) * 99 - 209px);
   transform: translate(2.5%, 0%);
+  top: calc(100vh - 500px);
+  /* Initial state for animation */
+  transform-origin: bottom right;
+  transition: all 0.5s ease-in-out; /* Added transition for all properties */
+  opacity: 0;
+  transform: scale(0); 
+  pointer-events: none;
 
   svg {
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
   }
+}
+
+
+.ContactBorder.visible {
+  top: 130px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  opacity: 1;
+  transform: scale(1) translate(2.5%, 0%);
+  pointer-events: auto;
 }
 
 .CloseBtn {
@@ -71,6 +88,8 @@
   }
 }
 
+/* Previous CSS */
+
 .progress-bar-container {
   width: 281px;
   height: 34px;
@@ -87,20 +106,21 @@
 }
 
 .progress {
-  width: 174px;
   height: 100%;
   background-color: #28bcf7;
   border-radius: 2px;
   box-shadow: 0 0 7px 1px rgba(18, 82, 245, 1);
+  transition: width 0.5s ease-in-out; /* Add transition for smooth width change */
 }
 
 .glow-effect {
   position: absolute;
   width: 87px;
   height: 24px;
-  left: 64.5px;
+  /*   left: 64.5px; */
   top: -12.8px;
   overflow: hidden;
+  transition: left 0.5s ease-in-out; /* Add transition for smooth left change */
 }
 
 .glow-effect::before {
@@ -110,12 +130,7 @@
   height: 6px;
   left: 9px;
   top: 9px;
-  background: linear-gradient(
-    90deg,
-    rgba(152, 249, 255, 0.5) 0%,
-    rgba(152, 249, 255, 1) 52.65%,
-    rgba(152, 249, 255, 0.35) 100%
-  );
+  
   border-radius: 50%/100%;
   filter: blur(4.5px);
 }
@@ -127,14 +142,7 @@
   height: 4px;
   left: 16px;
   top: 10px;
-  background: linear-gradient(
-    90deg,
-    rgba(152, 249, 255, 0) 0%,
-    rgba(152, 249, 255, 1) 29.21%,
-    rgba(152, 249, 255, 1) 48.98%,
-    rgba(152, 249, 255, 1) 63.07%,
-    rgba(152, 249, 255, 0) 100%
-  );
+  
   border-radius: 50%/100%;
   filter: blur(1.5px);
 }
@@ -143,8 +151,9 @@
   position: absolute;
   width: 16px;
   height: 16px;
-  left: 165px;
+  /*   left: 165px; */
   top: -9.5px;
+  transition: left 0.5s ease-in-out; /* Add transition for smooth left change */
 }
 
 .handle::before {
@@ -174,7 +183,6 @@
   filter: blur(2px);
   mix-blend-mode: hard-light;
 }
-
 .smCont {
   display: flex;
   flex-direction: row;
@@ -221,6 +229,11 @@
   width: fit-content;
   width: -moz-fit-content;
 
+  cursor: text;
+
+  .label {
+    position: relative;
+  }
   .filled {
     width: 256px;
     height: 4px;
@@ -244,11 +257,20 @@
       width: max-content;
       line-height: 20px;
       white-space: nowrap;
-      margin-right: 17px;
+      margin-right: 17px; position: absolute;
+      top: 0;
+      left: 0;
+      transition: transform 0.3s ease, font-size 0.3s ease;
+      transform-origin: top left;
+      pointer-events: none;
+    }
+    label.focused {
+      transform: translateY(-100%) scale(0.95);
     }
     .p {
       color: #00f0ff;
-      font-size: 12px;
+      font-size: 16px;
+      transform: translateY(5px);
       font-family: var(--font-family);
       font-style: normal;
       font-weight: var(--font-weight-small);
@@ -325,7 +347,7 @@
 @media (max-height: 715px) {
   .ContactElements {
     .scrollable-content {
-      height: calc(calc(var(--vh, 1vh) * 98) - 265px);
+      height: calc(calc(var(--vh, 1vh) * 98) - 325px);
     }
   }
 }

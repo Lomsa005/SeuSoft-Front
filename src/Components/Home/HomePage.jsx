@@ -36,6 +36,7 @@ export const HomePage = () => {
       clearTimeout(boxesTimer);
     };
   }, []);
+  
 
   useEffect(() => {
     if (activeLink && boxesData.length > 0) {
@@ -81,14 +82,20 @@ export const HomePage = () => {
   };
 
   const handleContactClick = () => {
-    setIsContactVisible(true);
-    setActiveBoxId(null);
-    setIsScaled(false);
-    setTimeout(() => {
-      setActiveContainer(null);
-
-      setContainerVisible(false);
-    }, 350); 
+  
+    if (isContactVisible) {
+      setIsContactVisible(false);
+    }else{
+      setIsContactVisible(true);
+      setActiveBoxId(null);
+      setIsScaled(false); // Ensure the main content is not scaled when contact is opened
+      
+      setTimeout(() => {
+        setActiveContainer(null);
+        setContainerVisible(false);
+      }, 350); 
+    }
+    
   };
 
   const handleCloseContact = () => {

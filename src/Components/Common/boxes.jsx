@@ -41,6 +41,11 @@ export const Boxes = ({ onBoxClick, activeBoxId }) => {
     setCloseanimation(true);
   };
 
+  const shouldMirror = (index, total) => {
+    const half = Math.ceil(total / 2);
+    return index >= half;
+  };
+
   return (
     <div className="boxes" style={Closeanimation ? { transform: 'translate(-50%, -17%)' } : { transform: 'translate(-50%, -50%)' }}>
       {boxesData.map((box, index) => (
@@ -59,6 +64,7 @@ export const Boxes = ({ onBoxClick, activeBoxId }) => {
             className={`box box${Math.min(index + 1, 4)}`}
             src={box.image}
             alt={box.titleEn}
+            style={shouldMirror(index, boxesData.length) ? { transform: 'scaleX(-1)' } : {}}
           />
           <p className={`boxParagraph boxParagraph${Math.min(index + 1, 4)}`}>
             {!isGeo ? box.titleEn : box.titleGe}

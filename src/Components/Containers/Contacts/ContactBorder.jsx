@@ -7,7 +7,7 @@ export const ContactBorder = () => {
         height="100%"
         preserveAspectRatio="none"
         viewBox="0 0 1370 601"
-        fill="rgba(0, 0, 0, 0.55)"
+        fill="#00000094"
       >
         <g filter="url(#filter0_b_681_731)">
           <path
