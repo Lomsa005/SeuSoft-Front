@@ -44,7 +44,7 @@ export const Boxes = ({ onBoxClick, activeBoxId }) => {
         centeredSlides: true,
         slidesPerView: 'auto',
         loop: true,
-        spaceBetween: 20,
+        spaceBetween: 0,
         grabCursor: true,
       });
     } else if (swiperRef.current) {
@@ -109,7 +109,7 @@ export const Boxes = ({ onBoxClick, activeBoxId }) => {
           </div>
         ))
       ) : (
-        <div className="swiper-container">
+        <div className="swiper-container" >
           <div className="swiper-wrapper">
             {boxesData.map((box, index) => (
               <div

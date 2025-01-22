@@ -1,4 +1,4 @@
-.boxContainer {
+.swiper-backface-hidden .swiper-slide.boxContainer {
   transform: translateY(15vh);
   opacity: 0;
   transition: transform 1.1s ease-out, opacity 1.1s ease-out;
@@ -20,6 +20,7 @@
     top: 0px;
   }
 }
+
 
 @keyframes moveUp {
   0% {

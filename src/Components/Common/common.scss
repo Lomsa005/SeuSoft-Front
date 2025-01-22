@@ -317,7 +317,7 @@
   .boxContainer {
     flex: 0 0 50%;
     scroll-snap-align: center;
-    margin: 0 ;
+    margin: 0 10px;
     width: 30%;
     transition: transform 0.3s ease;
     
@@ -339,6 +339,7 @@
 .swiper-slide {
   flex-shrink: 0;
   display: flex!important;
+  transition-property: all!important;
 }
 
 .swiper-horizontal {

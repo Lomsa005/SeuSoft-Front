@@ -600,6 +600,7 @@ nav {
   }
 }
 
+
 @media (max-width: 362px) {
   .contacts {
     margin-left: 10%;
@@ -610,6 +611,7 @@ nav {
   }
 }
 
+
 @media (max-width: 314px) {
   .contacts {
     margin-left: 8%;
@@ -617,5 +619,11 @@ nav {
 
   nav .underline-decoration .blur-effect.active {
     height: 290px;
+  }
+}
+
+@media (max-width: 350px) {
+  nav .underline-decoration .line-secondary.active{
+    transform: translate(-5px, 0px) scaleX(1);
   }
 }
