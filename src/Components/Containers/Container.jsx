@@ -59,7 +59,7 @@ export const Container = ({
                 <div key={index} className="portf">
                   <a href={href[index]} target="_blank" rel="noopener noreferrer">
                     <img
-                      src={`http://localhost:8000${image}`}
+                      src={`https://seusoft.demo-instaymate.com${image}`}
                       alt={`img-${index}`}
                     />
                   </a>
@@ -115,7 +115,7 @@ export const Container = ({
                     {image && (
                       <img
                         className="type3-image"
-                        src={`http://localhost:8000${image}`}
+                        src={`https://seusoft.demo-instaymate.com${image}`}
                         alt={`img-${index}`}
                       />
                     )}
