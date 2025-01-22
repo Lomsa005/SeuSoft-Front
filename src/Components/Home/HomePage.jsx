@@ -42,7 +42,7 @@ export const HomePage = () => {
     if (activeLink && boxesData.length > 0) {
       const box = boxesData.find(box => (isGeo ? box.titleGe : box.titleEn) === activeLink);
       if (box) {
-        handleBoxClick(box.id, box.titleEn, box.titleGe, box.bodyEn, box.bodyGe, box.isimage, box.images, box.titlesEn, box.titlesGe, box.href);
+        handleBoxClick(box.id, box.titleEn, box.titleGe, box.bodyEn, box.bodyGe, box.isimage, box.images, box.titlesEn, box.titlesGe, box.href, box.type, box.aboutEn, box.aboutGe);
       }
       setActiveLink(null);
     }
@@ -60,9 +60,9 @@ export const HomePage = () => {
     return () => clearTimeout(timer);
   }, [isScaled]);
 
-  const handleBoxClick = (id, titleEn, titleGe, bodyEn, bodyGe, isimage, images, titlesEn, titlesGe, href) => {
+  const handleBoxClick = (id, titleEn, titleGe, bodyEn, bodyGe, isimage, images, titlesEn, titlesGe, href, type, aboutEn, aboutGe) => {
     setActiveBoxId(id.toString());
-    setActiveContainer({ id, titleEn, titleGe, bodyEn, bodyGe, isimage, images, titlesEn, titlesGe, href });
+    setActiveContainer({ id, titleEn, titleGe, bodyEn, bodyGe, isimage, images, titlesEn, titlesGe, href, type, aboutEn, aboutGe });
     setIsContactVisible(false);
     setIsScaled(true);
     
@@ -111,6 +111,7 @@ export const HomePage = () => {
     return <div>Loading...</div>;
   }
 
+
   return (
     <div className="mainContainer" style={{backgroundImage: showBg ? `url(${bg})` : 'none'}}>
       <Container
@@ -122,6 +123,8 @@ export const HomePage = () => {
         titles={!isGeo ? activeContainer?.titlesEn : activeContainer?.titlesGe}
         href={activeContainer?.href}
         images={activeContainer?.images}
+        type={activeContainer?.type}
+        about={!isGeo ? activeContainer?.aboutEn : activeContainer?.aboutGe}
       />
       <Contact
         isVisible={isContactVisible}

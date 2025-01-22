@@ -17,6 +17,14 @@
   position: absolute;
   right: 3%;
   bottom: 2%;
+  cursor: pointer;
+  display: inline-block;
+
+  &:hover {
+    .svg-path {
+      fill: url(#contact-gradient);
+    }
+  }
 }
 
 .btnContact {
@@ -32,9 +40,18 @@
   font-weight: var(--font-weight-normal);
   line-height: normal;
   cursor: pointer;
-  clip-path: polygon(0 0, calc(103% - var(--slant)) 0, 108% var(--slant), 100% 100%, var(--slant) 109%, 0 calc(118% - var(--slant)));
-  background-color: #56f1ff;
   text-transform: uppercase;
+}
+
+.svg-path {
+  transition: fill 0.3s ease;
+}
+
+.contact-text {
+  font-family: inherit; 
+  font-size: 16px; 
+  fill: #ffffff; 
+  pointer-events: none; 
 }
 
 .little-rectangle {
@@ -243,7 +260,7 @@
   }
 }
 
-@media (min-width:900px) {
+@media (min-width:100px) {
   .main.scaled {
     transform: scale(0.4); 
     height: 100vh;

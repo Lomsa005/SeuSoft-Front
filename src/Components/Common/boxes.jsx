@@ -13,15 +13,16 @@ export const Boxes = ({ onBoxClick, activeBoxId }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setVisibleBoxes(true);
-    }, 3000);
+    }, 3500);
 
     return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
-    // Reset Closeanimation when activeBoxId changes
     if (activeBoxId === null) {
       setCloseanimation(false);
+    }else{
+      setCloseanimation(true);
     }
   }, [activeBoxId]);
 
@@ -36,7 +37,10 @@ export const Boxes = ({ onBoxClick, activeBoxId }) => {
       box.images,
       box.titlesEn,
       box.titlesGe,
-      box.href
+      box.href,
+      box.type,
+      box.aboutEn,
+      box.aboutGe
     );
     setCloseanimation(true);
   };

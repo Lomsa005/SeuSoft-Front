@@ -42,8 +42,16 @@ nav {
       height: 2px;
       background: radial-gradient(#1e98db, #1e98db00);
       filter: blur(0.5px);
-      transform: translate(28px, 0px);
+      transform: translate(28px, 0px) scaleX(0);
+      transform-origin: center;
+      transition: transform 1s ease-in-out;
+
+      &.active {
+        transform: translate(28px, 0px) scaleX(1);
+      }
     }
+
+    
 
     .line-secondary {
       opacity: 0.6;
@@ -51,7 +59,13 @@ nav {
       filter: blur(0.5px);
       width: 267.717px;
       height: 2px;
-      transform: translate(-28px, 0px);
+      transform: translate(-28px, 0px) scaleX(0);
+      transform-origin: center;
+      transition: transform 1s ease-in-out;
+    
+      &.active {
+        transform: translate(-28px, 0px) scaleX(1);
+      }
     }
 
     .blur-effect {
@@ -63,6 +77,12 @@ nav {
       left: 50%;
       top: 50%;
       transform: translate(-70%, -50%);
+      height: 0;
+      transition: height 1s ease-in-out;
+    
+      &.active {
+        height: 453px;
+      }
     }
 
     .line-container {
