@@ -46,6 +46,8 @@ export const Boxes = ({ onBoxClick, activeBoxId }) => {
         loop: true,
         spaceBetween: 0,
         grabCursor: true,
+        speed:3000,
+        allowTouchMove:true
       });
     } else if (swiperRef.current) {
       swiperRef.current.destroy(true, true);

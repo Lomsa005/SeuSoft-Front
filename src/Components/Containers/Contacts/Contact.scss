@@ -394,9 +394,10 @@
     .fl {
       flex-direction: row;
       column-gap: 9px;
+      align-items: center;
 
       div:first-child {
-        margin-bottom: -5px;
+        margin-bottom: -2px;
         font-size: 18px;
         font-style: normal;
         font-weight: 500;
