@@ -8,87 +8,123 @@ export const Boxes = ({ onBoxClick, activeBoxId }) => {
   const { boxesData } = useData();
   const { isGeo } = useLanguage();
   const [visibleBoxes, setVisibleBoxes] = useState(false);
-  const [Closeanimation, setCloseanimation] = useState(false);
-  const [duplicatedBoxes, setDuplicatedBoxes] = useState([]);
+  const [closeAnimation, setCloseAnimation] = useState(false);
   const boxesRef = useRef(null);
-  const [isMobileWidth, setIsMobileWidth] = useState(window.innerWidth <= 554.1);
+  const [isMobileWidth, setIsMobileWidth] = useState(
+    window.innerWidth <= 554.1
+  );
+  const scrollPosition = useRef(0);
+  const boxWidth = useRef(0);
+  const isScrolling = useRef(false);
 
+  // Extended boxes state with 5 copies for better scroll illusion
+  const [extendedBoxesData, setExtendedBoxesData] = useState(() => [
+    ...boxesData,
+    ...boxesData,
+    ...boxesData,
+    ...boxesData,
+    ...boxesData,
+    ...boxesData,
+    ...boxesData,
+  ]);
+  console.log(boxesData)
+
+  // Update extended data when source changes
+  useEffect(() => {
+    setExtendedBoxesData([...boxesData, ...boxesData, ...boxesData, ...boxesData, ...boxesData, ...boxesData, ...boxesData]);
+  }, [boxesData]);
+
+  // Measure box width and handle resize
   useEffect(() => {
     const handleResize = () => {
       setIsMobileWidth(window.innerWidth <= 554.1);
+      if (boxesRef.current?.children?.[0]) {
+        boxWidth.current = boxesRef.current.children[0].offsetWidth;
+      }
     };
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [boxesData]);
 
+  // Initial visibility timeout
   useEffect(() => {
-    if (boxesData.length > 0 && isMobileWidth) {
-      setDuplicatedBoxes([...boxesData, ...boxesData]);
-    } else {
-      setDuplicatedBoxes(boxesData);
-    }
-  }, [boxesData, isMobileWidth]);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setVisibleBoxes(true);
-    }, 3500);
+    const timer = setTimeout(() => setVisibleBoxes(true), 3500);
     return () => clearTimeout(timer);
   }, []);
 
+  // Close animation handler
   useEffect(() => {
-    setCloseanimation(activeBoxId !== null);
+    setCloseAnimation(activeBoxId !== null);
   }, [activeBoxId]);
 
+  // Scroll handler with edge detection
   const handleScroll = useCallback(() => {
-    if (!isMobileWidth) return;
+    if (!boxesRef.current || !isMobileWidth || isScrolling.current) return;
 
-    const container = boxesRef.current;
-    if (!container) return;
+    const { scrollLeft, clientWidth, scrollWidth } = boxesRef.current;
+    const buffer = 100; // Pixel buffer for edge detection
+    const singleSetWidth = boxWidth.current * boxesData.length;
+    const scrollDelta = scrollLeft - scrollPosition.current;
 
-    const scrollLeft = container.scrollLeft;
-    const boxWidth = container.offsetWidth / 3; // Now accurate due to CSS fix
-    const totalBoxesWidth = boxWidth * boxesData.length;
-
-    // Reset to the middle of duplicated content when reaching edges
-    if (scrollLeft <= 0) {
-      container.scrollLeft = totalBoxesWidth;
-    } else if (scrollLeft >= totalBoxesWidth * 2 - container.offsetWidth) {
-      container.scrollLeft = totalBoxesWidth - container.offsetWidth;
+    // Right edge detection
+    if (scrollLeft + clientWidth >= scrollWidth - buffer && scrollDelta > 0) {
+      isScrolling.current = true;
+      setExtendedBoxesData(prev => [...prev, ...boxesData]);
     }
-  }, [isMobileWidth, boxesData.length]);
 
+    // Left edge detection
+    if (scrollLeft <= buffer && scrollDelta < 0) {
+      isScrolling.current = true;
+      setExtendedBoxesData(prev => [...boxesData, ...prev]);
+      // boxesRef.current.scrollLeft = scrollLeft + (singleSetWidth * 2);
+    }
+
+    scrollPosition.current = scrollLeft;
+  }, [isMobileWidth, boxesData]);
+
+  // Reset scroll flag after update
   useEffect(() => {
-    if (isMobileWidth) {
-      const container = boxesRef.current;
-      container?.addEventListener('scroll', handleScroll);
-      return () => container?.removeEventListener('scroll', handleScroll);
+    if (isScrolling.current) {
+      isScrolling.current = false;
     }
-  }, [isMobileWidth, handleScroll]);
+  }, [extendedBoxesData]);
 
+  // Initial scroll position
   useEffect(() => {
-    if (isMobileWidth && boxesRef.current && duplicatedBoxes.length > 0) {
-      // Start at the beginning of the first duplicated set for seamless scroll
-      boxesRef.current.scrollLeft = boxesRef.current.offsetWidth;
+    if (isMobileWidth && boxesRef.current) {
+      const middlePosition = (boxesRef.current.scrollWidth - boxesRef.current.clientWidth) / 2;
+      boxesRef.current.scrollLeft = middlePosition;
     }
-  }, [isMobileWidth, duplicatedBoxes]);
+  }, [isMobileWidth, boxesData]);
 
+  // Scroll event listener
+  useEffect(() => {
+    const boxesElement = boxesRef.current;
+    if (!boxesElement) return;
+
+    boxesElement.addEventListener("scroll", handleScroll);
+    return () => boxesElement.removeEventListener("scroll", handleScroll);
+  }, [handleScroll]);
+
+  // Box click handler
   const handleBoxClick = (box) => {
+    const originalBox = boxesData.find((b) => b.id === box.id);
     onBoxClick(
-      box.id,
-      box.titleEn,
-      box.titleGe,
-      box.bodyEn,
-      box.bodyGe,
-      box.isimage,
-      box.images,
-      box.titlesEn,
-      box.titlesGe,
-      box.href,
-      box.type,
-      box.aboutEn,
-      box.aboutGe
+      originalBox.id,
+      originalBox.titleEn,
+      originalBox.titleGe,
+      originalBox.bodyEn,
+      originalBox.bodyGe,
+      originalBox.isimage,
+      originalBox.images,
+      originalBox.titlesEn,
+      originalBox.titlesGe,
+      originalBox.href,
+      originalBox.type,
+      originalBox.aboutEn,
+      originalBox.aboutGe
     );
   };
 
@@ -96,32 +132,40 @@ export const Boxes = ({ onBoxClick, activeBoxId }) => {
     <div
       className="boxes"
       ref={boxesRef}
-      style={Closeanimation ? { transform: 'translate(-50%, -17%)' } : { transform: 'translate(-50%, -50%)' }}
+      style={
+        closeAnimation
+          ? { transform: "translate(-50%, -17%)" }
+          : { transform: "translate(-50%, -50%)" }
+      }
     >
-      {duplicatedBoxes.map((box, index) => {
-        const originalIndex = index % boxesData.length;
-        return (
-          <div
-            key={`${box.id}-${index}`}
-            className={`
-              boxContainer
-              ${visibleBoxes ? "visible" : ""}
-              ${activeBoxId === box.id.toString() ? "active" : Closeanimation ? "nonactive" : ""}
-            `}
-            style={{ transitionDelay: `${originalIndex * 0.2}s` }}
-            onClick={() => handleBoxClick(box)}
+      {extendedBoxesData.map((box, index) => (
+        <div
+          key={`${box.id}-${index}`}
+          className={`boxContainer ${visibleBoxes ? "visible" : ""} ${
+            activeBoxId === box.id.toString()
+              ? "active"
+              : closeAnimation
+              ? "nonactive"
+              : ""
+          }`}
+          style={{ transitionDelay: `${(index % boxesData.length) * 0.2}s` }}
+          onClick={() => handleBoxClick(box)}
+        >
+          <img
+            className={`box box${Math.min((index % boxesData.length) + 1, 4)}`}
+            src={box.image}
+            alt={isGeo ? box.titleGe : box.titleEn}
+          />
+          <p
+            className={`boxParagraph boxParagraph${Math.min(
+              (index % boxesData.length) + 1,
+              4
+            )}`}
           >
-            <img
-              className={`box box${Math.min(originalIndex + 1, 4)}`}
-              src={box.image}
-              alt={isGeo ? box.titleGe : box.titleEn}
-            />
-            <p className={`boxParagraph boxParagraph${Math.min(originalIndex + 1, 4)}`}>
-              {!isGeo ? box.titleEn : box.titleGe}
-            </p>
-          </div>
-        );
-      })}
+            {!isGeo ? box.titleEn : box.titleGe}
+          </p>
+        </div>
+      ))}
     </div>
   );
 };

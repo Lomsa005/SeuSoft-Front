@@ -255,13 +255,6 @@
     height: 100vh;
   }
 
-  .boxes {
-    width: 280px;
-    gap: 3px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    top: 40%;
-  }
 
   .boxContainer {
     margin: 0px;
