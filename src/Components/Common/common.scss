@@ -192,51 +192,7 @@
 
 }
 
-@media (max-width: 554px) {
-  .btnContainer {
-    display: block;
-    margin: auto;
-    padding: 33px 3px 24px;
-    width: 98%;
-    text-align: center;
-    background-color: #070E14;
-    position: unset;
-    justify-items: center;
-    place-items: center;
-    text-align: -webkit-center;
 
-    svg.svg-large{
-      display: block;
-      width: 280px;
-      height: 50px;
-    }
-    svg:hover{
-      .svg-path {
-        fill: url(#contact-gradients);
-      }
-    }
-    svg.svg-small{
-      display: none;
-    }
-  }
-
-  .boxes {
-    width: 338px;
-    gap: 38px;
-  }
-
-  .box {
-    width: 105px;
-  }
-
-  .boxParagraph {
-    width: 87px;
-  }
-  .boxParagraph {
-    font-size: 11px;
-  }
-
-}
 
 @media (max-width: 454px) {
 
@@ -276,14 +232,16 @@
 
 @media (max-width: 554px) {
   .btnContainer {
-    display: block;
+    display: grid;
     margin: auto;
     padding: 33px 3px 24px;
     width: 98%;
     text-align: center;
     background-color: #070E14;
-    position: unset;
+    position: static;
     justify-items: center;
+    place-items: center;
+    text-align: -webkit-center;
 
     svg.svg-large{
       display: block;
@@ -304,6 +262,7 @@
     display: flex;
     overflow-x: auto;
     width: 100%;
+    height: inherit;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
@@ -346,4 +305,8 @@
 
 .swiper-horizontal {
   scroll-snap-type: x mandatory;
+}
+
+.swiper-wrapper {
+  transition-timing-function: ease-in-out!important;
 }

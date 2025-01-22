@@ -45,9 +45,8 @@ export const Boxes = ({ onBoxClick, activeBoxId }) => {
         slidesPerView: 'auto',
         loop: true,
         spaceBetween: 0,
-        grabCursor: true,
-        speed:2200,
-        allowTouchMove:true
+        speed:400,
+
       });
     } else if (swiperRef.current) {
       swiperRef.current.destroy(true, true);
@@ -79,7 +78,7 @@ export const Boxes = ({ onBoxClick, activeBoxId }) => {
       ref={boxesRef}
       style={
         closeAnimation
-          ? { transform: "translate(-50%, -17%)" }
+          ? isLargeWidth ? { transform: "translate(-50%, -17%)" } : { transform: "translate(-50%, -42%)" }
           : { transform: "translate(-50%, -50%)" }
       }
     >
