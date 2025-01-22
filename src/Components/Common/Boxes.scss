@@ -1,4 +1,4 @@
-.swiper-backface-hidden .swiper-slide.boxContainer {
+.swiper-backface-hidden .swiper-slide.boxContainer, .boxContainer {
   transform: translateY(15vh);
   opacity: 0;
   transition: transform 1.1s ease-out, opacity 1.1s ease-out;
