@@ -13,6 +13,8 @@ export const Boxes = ({ onBoxClick, activeBoxId }) => {
   const [isMobileWidth, setIsMobileWidth] = useState(
     window.innerWidth <= 554.1
   );
+  const [isLargeWidth, setIsLargeWidth] = useState(window.innerWidth > 554.1);
+
   const scrollPosition = useRef(0);
   const boxWidth = useRef(0);
   const isScrolling = useRef(false);
@@ -42,6 +44,7 @@ export const Boxes = ({ onBoxClick, activeBoxId }) => {
   useEffect(() => {
     const handleResize = () => {
       setIsMobileWidth(window.innerWidth <= 554.1);
+      setIsLargeWidth(window.innerWidth > 554.1);
       if (boxesRef.current?.children?.[0]) {
         boxWidth.current = boxesRef.current.children[0].offsetWidth;
       }
@@ -96,8 +99,7 @@ export const Boxes = ({ onBoxClick, activeBoxId }) => {
       const centerBoxIndex = Math.floor(boxesData.length * 3.5); // Center of the 4th set
 
       // Scroll to the center box
-      const middlePosition =
-        centerBoxIndex * boxWidth.current;
+      const middlePosition = centerBoxIndex * boxWidth.current;
       boxesRef.current.scrollLeft = middlePosition;
       scrollPosition.current = middlePosition;
     }
@@ -135,42 +137,78 @@ export const Boxes = ({ onBoxClick, activeBoxId }) => {
       className="boxes"
       ref={boxesRef}
       style={
-        closeAnimation
+        closeAnimation && !isLargeWidth
           ? { transform: "translate(-50%, -17%)" }
           : { transform: "translate(-50%, -50%)" }
       }
     >
-      {extendedBoxesData.map((box, index) => (
-        <div
-          key={`${box.id}-${index}`}
-          className={`boxContainer ${visibleBoxes ? "visible" : ""} ${
-            activeBoxId === box.id.toString()
-              ? "active"
-              : closeAnimation
-              ? "nonactive"
-              : ""
-          }`}
-          style={{ transitionDelay: `${(index % boxesData.length) * 0.2}s` }}
-          onClick={() => handleBoxClick(box)}
-        >
-          <img
-            className={`box box${Math.min(
-              (index % boxesData.length) + 1,
-              4
-            )}`}
-            src={box.image}
-            alt={isGeo ? box.titleGe : box.titleEn}
-          />
-          <p
-            className={`boxParagraph boxParagraph${Math.min(
-              (index % boxesData.length) + 1,
-              4
-            )}`}
-          >
-            {!isGeo ? box.titleEn : box.titleGe}
-          </p>
-        </div>
-      ))}
+      {isLargeWidth
+        ? boxesData.map((box, index) => (
+            <div
+              key={`${box.id}-${index}`}
+              className={`boxContainer ${visibleBoxes ? "visible" : ""} ${
+                activeBoxId === box.id.toString()
+                  ? "active"
+                  : closeAnimation
+                  ? "nonactive"
+                  : ""
+              }`}
+              style={{
+                transitionDelay: `${(index % boxesData.length) * 0.2}s`,
+              }}
+              onClick={() => handleBoxClick(box)}
+            >
+              <img
+                className={`box box${Math.min(
+                  (index % boxesData.length) + 1,
+                  4
+                )}`}
+                src={box.image}
+                alt={isGeo ? box.titleGe : box.titleEn}
+              />
+              <p
+                className={`boxParagraph boxParagraph${Math.min(
+                  (index % boxesData.length) + 1,
+                  4
+                )}`}
+              >
+                {!isGeo ? box.titleEn : box.titleGe}
+              </p>
+            </div>
+          ))
+        : extendedBoxesData.map((box, index) => (
+            <div
+              key={`${box.id}-${index}`}
+              className={`boxContainer ${visibleBoxes ? "visible" : ""} ${
+                activeBoxId === box.id.toString()
+                  ? "active"
+                  : closeAnimation
+                  ? "nonactive"
+                  : ""
+              }`}
+              style={{
+                transitionDelay: `${(index % boxesData.length) * 0.2}s`,
+              }}
+              onClick={() => handleBoxClick(box)}
+            >
+              <img
+                className={`box box${Math.min(
+                  (index % boxesData.length) + 1,
+                  4
+                )}`}
+                src={box.image}
+                alt={isGeo ? box.titleGe : box.titleEn}
+              />
+              <p
+                className={`boxParagraph boxParagraph${Math.min(
+                  (index % boxesData.length) + 1,
+                  4
+                )}`}
+              >
+                {!isGeo ? box.titleEn : box.titleGe}
+              </p>
+            </div>
+          ))}
     </div>
   );
 };
