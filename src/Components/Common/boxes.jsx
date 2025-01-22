@@ -17,7 +17,6 @@ export const Boxes = ({ onBoxClick, activeBoxId }) => {
   const boxWidth = useRef(0);
   const isScrolling = useRef(false);
 
-  // Extended boxes state with 5 copies for better scroll illusion
   const [extendedBoxesData, setExtendedBoxesData] = useState(() => [
     ...boxesData,
     ...boxesData,
@@ -27,14 +26,19 @@ export const Boxes = ({ onBoxClick, activeBoxId }) => {
     ...boxesData,
     ...boxesData,
   ]);
-  console.log(boxesData)
 
-  // Update extended data when source changes
   useEffect(() => {
-    setExtendedBoxesData([...boxesData, ...boxesData, ...boxesData, ...boxesData, ...boxesData, ...boxesData, ...boxesData]);
+    setExtendedBoxesData([
+      ...boxesData,
+      ...boxesData,
+      ...boxesData,
+      ...boxesData,
+      ...boxesData,
+      ...boxesData,
+      ...boxesData,
+    ]);
   }, [boxesData]);
 
-  // Measure box width and handle resize
   useEffect(() => {
     const handleResize = () => {
       setIsMobileWidth(window.innerWidth <= 554.1);
@@ -48,58 +52,57 @@ export const Boxes = ({ onBoxClick, activeBoxId }) => {
     return () => window.removeEventListener("resize", handleResize);
   }, [boxesData]);
 
-  // Initial visibility timeout
   useEffect(() => {
     const timer = setTimeout(() => setVisibleBoxes(true), 3500);
     return () => clearTimeout(timer);
   }, []);
 
-  // Close animation handler
   useEffect(() => {
     setCloseAnimation(activeBoxId !== null);
   }, [activeBoxId]);
 
-  // Scroll handler with edge detection
   const handleScroll = useCallback(() => {
     if (!boxesRef.current || !isMobileWidth || isScrolling.current) return;
 
     const { scrollLeft, clientWidth, scrollWidth } = boxesRef.current;
-    const buffer = 100; // Pixel buffer for edge detection
-    const singleSetWidth = boxWidth.current * boxesData.length;
+    const buffer = 100;
     const scrollDelta = scrollLeft - scrollPosition.current;
 
-    // Right edge detection
-    if (scrollLeft + clientWidth >= scrollWidth - buffer && scrollDelta > 0) {
+    if (
+      scrollLeft + clientWidth >= scrollWidth - buffer &&
+      scrollDelta > 0
+    ) {
       isScrolling.current = true;
-      setExtendedBoxesData(prev => [...prev, ...boxesData]);
+      setExtendedBoxesData((prev) => [...prev, ...boxesData, ...boxesData]);
     }
 
-    // Left edge detection
     if (scrollLeft <= buffer && scrollDelta < 0) {
       isScrolling.current = true;
-      setExtendedBoxesData(prev => [...boxesData, ...prev]);
-      // boxesRef.current.scrollLeft = scrollLeft + (singleSetWidth * 2);
+      setExtendedBoxesData((prev) => [...prev, ...boxesData, ...boxesData]);
     }
 
     scrollPosition.current = scrollLeft;
   }, [isMobileWidth, boxesData]);
 
-  // Reset scroll flag after update
   useEffect(() => {
     if (isScrolling.current) {
       isScrolling.current = false;
     }
   }, [extendedBoxesData]);
 
-  // Initial scroll position
   useEffect(() => {
     if (isMobileWidth && boxesRef.current) {
-      const middlePosition = (boxesRef.current.scrollWidth - boxesRef.current.clientWidth) / 2;
+      // Calculate the index of the box to be centered
+      const centerBoxIndex = Math.floor(boxesData.length * 3.5); // Center of the 4th set
+
+      // Scroll to the center box
+      const middlePosition =
+        centerBoxIndex * boxWidth.current;
       boxesRef.current.scrollLeft = middlePosition;
+      scrollPosition.current = middlePosition;
     }
   }, [isMobileWidth, boxesData]);
 
-  // Scroll event listener
   useEffect(() => {
     const boxesElement = boxesRef.current;
     if (!boxesElement) return;
@@ -108,7 +111,6 @@ export const Boxes = ({ onBoxClick, activeBoxId }) => {
     return () => boxesElement.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
 
-  // Box click handler
   const handleBoxClick = (box) => {
     const originalBox = boxesData.find((b) => b.id === box.id);
     onBoxClick(
@@ -152,7 +154,10 @@ export const Boxes = ({ onBoxClick, activeBoxId }) => {
           onClick={() => handleBoxClick(box)}
         >
           <img
-            className={`box box${Math.min((index % boxesData.length) + 1, 4)}`}
+            className={`box box${Math.min(
+              (index % boxesData.length) + 1,
+              4
+            )}`}
             src={box.image}
             alt={isGeo ? box.titleGe : box.titleEn}
           />

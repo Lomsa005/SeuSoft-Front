@@ -585,20 +585,18 @@ nav {
     height: 366px;
   }
 
-  nav .underline-decoration .line-primary {
-    width: 217.801px;
-    transform: translate(38px, 0px);
-  }
-
-  nav .underline-decoration .line-secondary {
-    width: 225.757px;
-    transform: translate(0px, 0px);
-  }
+  
 }
 
 @media (max-width: 382px) {
   nav .underline-decoration .blur-effect.active {
-    height: 340px;
+    height: 290px;
+  }
+  nav .underline-decoration .line-secondary{
+    width: 215.757px;
+  }
+  nav .underline-decoration .line-secondary.active{
+    transform: translate(-14px, 0px) scaleX(1);
   }
 }
 
