@@ -47,14 +47,14 @@ export const Container = ({
         <div className="content-wrapper">
           {type === 1 && (
             <div
-              className="scrollable-content Backcontent"
+              className="scrollable-content Backcontent mt"
               style={{ color: "white" }}
               dangerouslySetInnerHTML={{ __html: content }}
             />
           )}
 
           {type === 2 && (
-            <div className="scrollable-content scrollable-content-img">
+            <div className="scrollable-content scrollable-content-img mt">
               {images.map((image, index) => (
                 <div key={index} className="portf">
                   <a href={href[index]} target="_blank" rel="noopener noreferrer">

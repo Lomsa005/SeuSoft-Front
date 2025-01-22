@@ -137,7 +137,7 @@ export const Boxes = ({ onBoxClick, activeBoxId }) => {
       className="boxes"
       ref={boxesRef}
       style={
-        closeAnimation && !isLargeWidth
+        closeAnimation 
           ? { transform: "translate(-50%, -17%)" }
           : { transform: "translate(-50%, -50%)" }
       }
