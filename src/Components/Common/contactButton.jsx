@@ -6,13 +6,9 @@ export const ContactButton = ({ onClick }) => {
   const { isGeo } = useLanguage();
 
   return (
-    <div className="btnContainer" onClick={onClick}>
-      <svg width="192" height="64" viewBox="0 0 192 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <div className="btnContainer" >
+      <svg width="192" height="64" viewBox="0 0 192 64" fill="none" className="svg-small" xmlns="http://www.w3.org/2000/svg" onClick={onClick}>
         <defs>
-          {/* <linearGradient id="contact-gradient" gradientTransform="rotate(265)" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#56F1FF" />
-            <stop offset="100%" stopColor="#000" />
-          </linearGradient> */}
           <linearGradient xmlns="http://www.w3.org/2000/svg" id="contact-gradient"  x1="444.062" y1="-12.1094" x2="90.062" y2="171.575" gradientUnits="userSpaceOnUse">
           <stop stopColor="#56F1FF"/>
           <stop offset="1"/>
@@ -24,6 +20,25 @@ export const ContactButton = ({ onClick }) => {
           stroke="#56F1FF"
         />
         <text
+          x="50%"
+          y="50%"
+          textAnchor="middle"
+          dominantBaseline="middle"
+          className="contact-text"
+          style={!isGeo ? { letterSpacing: "3.2px" } : {}}
+        >
+          {isGeo ? "კონტაქტი" : "CONTACT"}
+        </text>
+      </svg>
+
+
+      <svg xmlns="http://www.w3.org/2000/svg" width="280" height="50" viewBox="0 0 280 50" fill="none" className="svg-large" onClick={onClick}>
+      <linearGradient xmlns="http://www.w3.org/2000/svg" id="contact-gradients" x1="448.062" y1="-12.1094" x2="94.062" y2="171.575" gradientUnits="userSpaceOnUse">
+        <stop stopColor="#56F1FF"/>
+        <stop offset="1"/>
+        </linearGradient>
+      <path d="M0.5 6C0.5 2.96243 2.96243 0.5 6 0.5H245.988C246.714 0.5 247.433 0.643791 248.103 0.923076L276.115 12.595C278.165 13.4489 279.5 15.4515 279.5 17.6719V44C279.5 47.0376 277.038 49.5 274 49.5H253.854C253.267 49.5 252.792 49.0243 252.792 48.4375C252.792 47.2984 251.868 46.375 250.729 46.375H217.396C216.257 46.375 215.333 47.2984 215.333 48.4375C215.333 49.0243 214.858 49.5 214.271 49.5H31.2365C30.4272 49.5 29.6278 49.3214 28.8955 48.9769L3.65895 37.1061C1.73079 36.1991 0.5 34.26 0.5 32.1292V6Z" stroke="#56F1FF" className="svg-path"/>
+      <text
           x="50%"
           y="50%"
           textAnchor="middle"

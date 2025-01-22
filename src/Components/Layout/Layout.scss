@@ -506,7 +506,7 @@ nav {
     width: 92%;
   }
 
-  nav .underline-decoration .blur-effect {
+  nav .underline-decoration .blur-effect.active {
     height: 438px;
   }
   .lines-container {
@@ -581,7 +581,7 @@ nav {
     margin-left: 4.5%;
   }
 
-  nav .underline-decoration .blur-effect {
+  nav .underline-decoration .blur-effect.active {
     height: 366px;
   }
 
@@ -597,7 +597,7 @@ nav {
 }
 
 @media (max-width: 382px) {
-  nav .underline-decoration .blur-effect {
+  nav .underline-decoration .blur-effect.active {
     height: 340px;
   }
 }
@@ -607,7 +607,7 @@ nav {
     margin-left: 10%;
   }
 
-  nav .underline-decoration .blur-effect {
+  nav .underline-decoration .blur-effect.active {
     height: 300px;
   }
 }
@@ -617,7 +617,7 @@ nav {
     margin-left: 8%;
   }
 
-  nav .underline-decoration .blur-effect {
+  nav .underline-decoration .blur-effect.active {
     height: 290px;
   }
 }
