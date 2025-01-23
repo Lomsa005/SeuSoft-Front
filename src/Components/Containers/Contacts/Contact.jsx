@@ -52,9 +52,11 @@ export const Contact = ({ isVisible, onClose }) => {
         contactBorder.classList.add('visible');
       }, 1);
     } else {
-      setTimeout(() => {
-        contactBorder.classList.remove('visible');
-      }, 1);
+      if(contactBorder){
+        setTimeout(() => {
+          contactBorder.classList.remove('visible');
+        }, 1);
+      }
       setTimeout(() => {
         setIsFocused(isVisible);
       }, 500)
