@@ -23,6 +23,9 @@ export const Contact = ({ isVisible, onClose }) => {
     Comment: ''
   });
 
+  const [errors, setErrors] = useState({});
+  const [errorMessage, setErrorMessage] = useState('');
+
   const [isFocused, setIsFocused] = useState(isVisible);
   const contactBorderRef = useRef(null);
   const [progress, setProgress] = useState(0);
@@ -110,6 +113,8 @@ export const Contact = ({ isVisible, onClose }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setErrors({});
+    setErrorMessage('');
 
     try {
       const response = await axios.post(`${import.meta.env.VITE_API_ENDPOINT}/contacts`, formData);
@@ -142,6 +147,12 @@ export const Contact = ({ isVisible, onClose }) => {
       if (error.response) {
         console.error('Response data:', error.response.data);
         console.error('Response status:', error.response.status);
+        if (error.response.data.errors) {
+          setErrors(error.response.data.errors);
+        }
+        if (error.response.data.message) {
+          setErrorMessage(error.response.data.message);
+        }
       }
     }
   };
@@ -225,6 +236,7 @@ export const Contact = ({ isVisible, onClose }) => {
                     />
                   </div>
                   <div className={formData.FirstName !== '' ? "filled" : "notfill"}></div>
+                  {errors.name && <div className="error" style={{color: 'red'}}>{errors.name[0]}</div>}
                 </div>
                 <div className="fill" onClick={() => handleLineClick('LastName')}>
                   <div className="label">
@@ -241,6 +253,7 @@ export const Contact = ({ isVisible, onClose }) => {
                     />
                   </div>
                   <div className={formData.LastName !== '' ? "filled" : "notfill"}></div>
+                  {errors.last_name && <div className="error" style={{color: 'red'}}>{errors.last_name[0]}</div>}
                 </div>
                 <div className="fill" onClick={() => handleLineClick('Email')}>
                   <div className="label">
@@ -257,6 +270,7 @@ export const Contact = ({ isVisible, onClose }) => {
                     />
                   </div>
                   <div className={formData.Email !== '' ? "filled" : "notfill"}></div>
+                  {errors.email && <div className="error" style={{color: 'red'}}>{errors.email[0]}</div>}
                 </div>
                 <div className="fill" onClick={() => handleLineClick('Phone')}>
                   <div className="label">
@@ -273,6 +287,7 @@ export const Contact = ({ isVisible, onClose }) => {
                     />
                   </div>
                   <div className={formData.Phone !== '' ? "filled" : "notfill"}></div>
+                  {errors.phone && <div className="error" style={{color: 'red'}}>{errors.phone[0]}</div>}
                 </div>
                 <div className="fill" onClick={() => handleLineClick('serviceName')}>
                   <div className="label">
@@ -289,6 +304,7 @@ export const Contact = ({ isVisible, onClose }) => {
                     />
                   </div>
                   <div className={formData.serviceName !== '' ? "filled" : "notfill"}></div>
+                  {errors.service && <div className="error" style={{color: 'red'}}>{errors.service[0]}</div>}
                 </div>
                 <div className="fill" onClick={() => handleLineClick('CompanyName')}>
                   <div className="label">
@@ -305,6 +321,7 @@ export const Contact = ({ isVisible, onClose }) => {
                     />
                   </div>
                   <div className={formData.CompanyName !== '' ? "filled" : "notfill"}></div>
+                  {errors.company && <div className="error" style={{color: 'red'}}>{errors.company[0]}</div>}
                 </div>
                 <div className="longLine fill" onClick={() => handleLineClick('Comment')}>
                   <div className="label cc">
@@ -320,8 +337,14 @@ export const Contact = ({ isVisible, onClose }) => {
                     ></textarea>
                   </div>
                   <div className={formData.Comment !== '' ? "filled" : "notfill"}></div>
+                  {errors.message && <div className="error" style={{color: 'red'}}>{errors.message[0]}</div>}
                 </div>
               </div>
+              {errorMessage && (
+                  <div className="error-message" style={{ color: 'red', marginBottom: '10px' }}>
+                    {errorMessage}
+                  </div>
+                )}
               <div className="ContactBtn" onClick={handleSubmit}>
                 <div>{isGeo ? 'გაგზავნა' : 'Send Message'}</div>
               </div>
