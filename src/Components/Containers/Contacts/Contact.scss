@@ -268,6 +268,7 @@
   flex-direction: column;
   width: fit-content;
   width: -moz-fit-content;
+  position: relative;
 
   cursor: text;
 
@@ -285,6 +286,12 @@
     margin-left: 2px;
   }
 
+  .fier{
+    color: rgb(251, 0, 250);
+    font-size: 13px;
+    position: absolute;
+    bottom: -20px;
+  }
   .label:first-child {
     display: flex;
     flex-direction: row;
