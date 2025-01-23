@@ -159,7 +159,7 @@ export const Contact = ({ isVisible, onClose }) => {
     const { id, value } = e.target;
     const newStates = {
       ...inputStates,
-      [id]: value.trim() !== ''
+      [id]: value
     };
     setInputStates(newStates);
     localStorage.setItem('formData', JSON.stringify(newStates));
