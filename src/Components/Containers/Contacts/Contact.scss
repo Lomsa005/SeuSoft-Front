@@ -1,33 +1,67 @@
-.ContactBorder {
-  position: absolute;
-  z-index: 5;
-  width: 95%;
-  height: calc(var(--vh, 1vh) * 99 - 209px);
-  transform: translate(2.5%, 0%);
-  top: calc(100vh - 500px);
-  /* Initial state for animation */
-  transform-origin: bottom right;
-  transition: all 0.5s ease-in-out; /* Added transition for all properties */
-  opacity: 0;
-  transform: scale(0); 
-  pointer-events: none;
+@media (min-width:554px) {
+  .ContactBorder {
+    position: absolute;
+    z-index: 5;
+    width: 95%;
+    height: calc(var(--vh, 1vh) * 99 - 209px);
+    transform: translate(2.5%, 0%);
+    top: initial;
+    bottom: 0;
+    right: 0;
+    transform-origin: 100% 100%;
+    transition: all 0.5s ease-in-out;
+    opacity: 0;
+    transform: scale(0);
+    pointer-events: none;
+  }
 
-  svg {
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(2px);
+  .ContactBorder.visible {
+    top: 130px;
+    bottom: initial;
+    right: initial;
+    left: 0;
+    opacity: 1;
+    transform: scale(1) translate(2.5%, 0%);
+    pointer-events: auto;
   }
 }
 
 
-.ContactBorder.visible {
-  top: 130px;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  opacity: 1;
-  transform: scale(1) translate(2.5%, 0%);
-  pointer-events: auto;
+@media (max-width:554px) {
+  .ContactBorder {
+    position: absolute;
+    z-index: 5;
+    width: 95%;
+    height: calc(var(--vh, 1vh) * 99 - 209px);
+    transform: translate(2.5%, 0%);
+    transform-origin: 50% 122%;
+    top: initial;
+    bottom: 0;
+    transition: all 0.5s ease-in-out;
+    opacity: 0;
+    transform: scale(0);
+    pointer-events: none;
+  }
+
+  .ContactBorder.visible {
+    top: 130px;
+    bottom: initial;
+    right: initial;
+    left: 0;
+    opacity: 1;
+    transform: scale(1) translate(2.5%, 0%);
+    pointer-events: auto;
+  }
+
 }
+
+@media (max-height:854px){
+
+  .ContactBorder{
+    transform-origin: 50% 115%;
+  }
+}
+
 
 .CloseBtn {
   position: absolute;
@@ -44,6 +78,7 @@
   transform: translateX(7.25%);
   top: calc(6% + 43px);
   color: #fff;
+
   .scrollable-content {
     width: 100%;
     height: 100%;
@@ -56,6 +91,7 @@
     justify-content: space-around;
   }
 }
+
 .ContactAboutus {
   display: flex;
   flex-direction: row;
@@ -79,10 +115,12 @@
     line-height: normal;
     margin-left: auto;
   }
+
   .ws:first-child {
     margin-bottom: -5px;
     margin-left: 0px;
   }
+
   .ws:last-child {
     margin-top: -2px;
   }
@@ -110,7 +148,8 @@
   background-color: #28bcf7;
   border-radius: 2px;
   box-shadow: 0 0 7px 1px rgba(18, 82, 245, 1);
-  transition: width 0.5s ease-in-out; /* Add transition for smooth width change */
+  transition: width 0.5s ease-in-out;
+  /* Add transition for smooth width change */
 }
 
 .glow-effect {
@@ -120,7 +159,8 @@
   /*   left: 64.5px; */
   top: -12.8px;
   overflow: hidden;
-  transition: left 0.5s ease-in-out; /* Add transition for smooth left change */
+  transition: left 0.5s ease-in-out;
+  /* Add transition for smooth left change */
 }
 
 .glow-effect::before {
@@ -130,7 +170,7 @@
   height: 6px;
   left: 9px;
   top: 9px;
-  
+
   border-radius: 50%/100%;
   filter: blur(4.5px);
 }
@@ -142,7 +182,7 @@
   height: 4px;
   left: 16px;
   top: 10px;
-  
+
   border-radius: 50%/100%;
   filter: blur(1.5px);
 }
@@ -153,7 +193,8 @@
   height: 16px;
   /*   left: 165px; */
   top: -9.5px;
-  transition: left 0.5s ease-in-out; /* Add transition for smooth left change */
+  transition: left 0.5s ease-in-out;
+  /* Add transition for smooth left change */
 }
 
 .handle::before {
@@ -162,11 +203,9 @@
   width: 16px;
   height: 16px;
   border-radius: 16px;
-  background: radial-gradient(
-    5941.67% 44.93% at 50% 0%,
-    #73c7f6 0%,
-    rgba(112, 203, 254, 0.78) 100%
-  );
+  background: radial-gradient(5941.67% 44.93% at 50% 0%,
+      #73c7f6 0%,
+      rgba(112, 203, 254, 0.78) 100%);
   mix-blend-mode: hard-light;
   filter: blur(4.5px);
 }
@@ -183,6 +222,7 @@
   filter: blur(2px);
   mix-blend-mode: hard-light;
 }
+
 .smCont {
   display: flex;
   flex-direction: row;
@@ -191,6 +231,7 @@
   img {
     margin-right: 25px;
   }
+
   .fl {
     display: flex;
     flex-direction: column;
@@ -203,6 +244,7 @@
       line-height: normal;
       margin-bottom: 5px;
     }
+
     div:last-child {
       font-family: "Tomorrow";
       font-size: 14px;
@@ -234,6 +276,7 @@
   .label {
     position: relative;
   }
+
   .filled {
     width: 256px;
     height: 4px;
@@ -243,6 +286,7 @@
     margin-top: 20px;
     margin-left: 2px;
   }
+
   .label:first-child {
     display: flex;
     flex-direction: row;
@@ -257,16 +301,19 @@
       width: max-content;
       line-height: 20px;
       white-space: nowrap;
-      margin-right: 17px; position: absolute;
+      margin-right: 17px;
+      position: absolute;
       top: 0;
       left: 0;
       transition: transform 0.3s ease, font-size 0.3s ease;
       transform-origin: top left;
       pointer-events: none;
     }
+
     label.focused {
       transform: translateY(-100%) scale(0.95);
     }
+
     .p {
       color: #00f0ff;
       font-size: 16px;
@@ -283,15 +330,17 @@
       width: -webkit-fill-available;
     }
   }
-  .cc{
-    width: -webkit-fill-available!important;
 
-    .p{
-      height: 1.7em!important;
-      line-height: 16px!important;
+  .cc {
+    width: -webkit-fill-available !important;
+
+    .p {
+      height: 1.7em !important;
+      line-height: 16px !important;
       resize: none
     }
   }
+
   .notfill {
     border-radius: 57px;
     background: #000;
@@ -304,7 +353,8 @@
 }
 
 .longLine,
-.longLine .notfill, .longLine .filled {
+.longLine .notfill,
+.longLine .filled {
   width: 552px;
 }
 
@@ -359,38 +409,46 @@
 }
 
 @media (max-width: 675px) {
+
   .longLine,
-  .longLine .notfill, .longLine .filled {
+  .longLine .notfill,
+  .longLine .filled {
     width: 256px;
   }
+
   .ContactElements {
     .scrollable-content {
       padding-right: 10px;
       justify-content: flex-start;
     }
   }
+
   .ContactBorder {
     top: 126px;
     height: calc(calc(var(--vh, 1vh) * 98) - 140px);
-  }  
+  }
 }
 
 @media (max-width: 590px) {
   .Weare {
     margin-bottom: 5px;
   }
+
   .ContactAboutus {
     flex-direction: column;
     row-gap: 33px;
     margin-bottom: 62px;
   }
+
   .smCont {
     width: 100%;
     align-items: center;
+
     img {
       width: 30px;
       height: 30px;
     }
+
     .fl {
       flex-direction: row;
       column-gap: 9px;
@@ -403,6 +461,7 @@
         font-weight: 500;
         line-height: normal;
       }
+
       div:last-child {
         color: #fff;
         font-size: 12px;
@@ -412,6 +471,7 @@
       }
     }
   }
+
   .FillContact {
     display: flex;
     flex-direction: column;
@@ -421,10 +481,12 @@
     row-gap: 40px;
     margin-bottom: 40px;
   }
+
   .ContactBtn div {
     width: 162px;
     height: 43px;
   }
+
   .none {
     display: none;
   }
@@ -434,6 +496,7 @@
   .ContactBorder {
     height: calc(var(--vh, 1vh) * 92 - 230px);
   }
+
   .ContactElements {
     .scrollable-content {
       height: calc(calc(var(--vh, 1vh) * 98) - 400px);

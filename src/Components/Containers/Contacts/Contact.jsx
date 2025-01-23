@@ -46,17 +46,20 @@ export const Contact = ({ isVisible, onClose }) => {
 
   useEffect(() => {
     const contactBorder = contactBorderRef.current;
-    setIsFocused(isVisible);
-    if (contactBorder) {
-      if (isFocused) {
+    if (isVisible) {
+      setIsFocused(isVisible);
+      setTimeout(() => {
         contactBorder.classList.add('visible');
-      } else {
-        const timer = setTimeout(() => {
-          contactBorder.classList.remove('visible');
-        }, 500);
-        return () => clearTimeout(timer);
-      }
+      }, 1);
+    } else {
+      setTimeout(() => {
+        contactBorder.classList.remove('visible');
+      }, 1);
+      setTimeout(() => {
+        setIsFocused(isVisible);
+      }, 500)
     }
+    
   }, [isFocused, isVisible]);
 
   useEffect(() => {
