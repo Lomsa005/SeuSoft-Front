@@ -5,9 +5,7 @@
     width: 95%;
     height: calc(var(--vh, 1vh) * 99 - 209px);
     transform: translate(2.5%, 0%);
-    top: initial;
-    bottom: 0;
-    right: 0;
+    bottom: 30px;
     transform-origin: 100% 100%;
     transition: all 0.5s ease-in-out;
     opacity: 0;
