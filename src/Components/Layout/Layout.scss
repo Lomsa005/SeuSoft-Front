@@ -629,3 +629,10 @@ nav {
     transform: translate(-5px, 0px) scaleX(1);
   }
 }
+
+
+@media (max-width: 554px) {
+  .diamond-container{
+    visibility: hidden;
+  }
+}
