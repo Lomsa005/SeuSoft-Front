@@ -235,7 +235,7 @@ export const Contact = ({ isVisible, onClose }) => {
                       onChange={handleInputChange}
                       onFocus={() => handleInputFocus('FirstName')}
                       onBlur={() => handleInputBlur('FirstName')}
-                      defaultValue={JSON.parse(localStorage.getItem('formData'))?.FirstName ? JSON.parse(localStorage.getItem('formData')).FirstName : ''}
+                      value={inputRefs.FirstName.current?.value || JSON.parse(localStorage.getItem('formData'))?.FirstName || ''}
                     />
                   </div>
                   <div className={inputStates.FirstName ? "filled" : "notfill"}></div>
@@ -251,7 +251,7 @@ export const Contact = ({ isVisible, onClose }) => {
                       onChange={handleInputChange}
                       onFocus={() => handleInputFocus('LastName')}
                       onBlur={() => handleInputBlur('LastName')}
-                      defaultValue={JSON.parse(localStorage.getItem('formData'))?.LastName ? JSON.parse(localStorage.getItem('formData')).LastName : ''}
+                      value={inputRefs.LastName.current?.value || JSON.parse(localStorage.getItem('formData'))?.LastName || ''}
                     />
                   </div>
                   <div className={inputStates.LastName ? "filled" : "notfill"}></div>
@@ -267,7 +267,7 @@ export const Contact = ({ isVisible, onClose }) => {
                       onChange={handleInputChange}
                       onFocus={() => handleInputFocus('Email')}
                       onBlur={() => handleInputBlur('Email')}
-                      defaultValue={JSON.parse(localStorage.getItem('formData'))?.Email ? JSON.parse(localStorage.getItem('formData')).Email : ''}
+                      value={inputRefs.Email.current?.value || JSON.parse(localStorage.getItem('formData'))?.Email || ''}
                     />
                   </div>
                   <div className={inputStates.Email ? "filled" : "notfill"}></div>
@@ -283,7 +283,7 @@ export const Contact = ({ isVisible, onClose }) => {
                       onChange={handleInputChange}
                       onFocus={() => handleInputFocus('Phone')}
                       onBlur={() => handleInputBlur('Phone')}
-                      defaultValue={JSON.parse(localStorage.getItem('formData'))?.Phone ? JSON.parse(localStorage.getItem('formData')).Phone : ''}
+                      value={inputRefs.Phone.current?.value || JSON.parse(localStorage.getItem('formData'))?.Phone || ''}
                     />
                   </div>
                   <div className={inputStates.Phone ? "filled" : "notfill"}></div>
@@ -299,7 +299,7 @@ export const Contact = ({ isVisible, onClose }) => {
                       onChange={handleInputChange}
                       onFocus={() => handleInputFocus('serviceName')}
                       onBlur={() => handleInputBlur('serviceName')}
-                      defaultValue={JSON.parse(localStorage.getItem('formData'))?.serviceName ? JSON.parse(localStorage.getItem('formData')).serviceName : ''}
+                      value={inputRefs.serviceName.current?.value || JSON.parse(localStorage.getItem('formData'))?.serviceName || ''}
                     />
                   </div>
                   <div className={inputStates.serviceName ? "filled" : "notfill"}></div>
@@ -315,7 +315,7 @@ export const Contact = ({ isVisible, onClose }) => {
                       onChange={handleInputChange}
                       onFocus={() => handleInputFocus('CompanyName')}
                       onBlur={() => handleInputBlur('CompanyName')}
-                      defaultValue={JSON.parse(localStorage.getItem('formData'))?.CompanyName ? JSON.parse(localStorage.getItem('formData')).CompanyName : ''}
+                      value={inputRefs.CompanyName.current?.value || JSON.parse(localStorage.getItem('formData'))?.CompanyName || ''}
                     />
                   </div>
                   <div className={inputStates.CompanyName ? "filled" : "notfill"}></div>
@@ -330,7 +330,7 @@ export const Contact = ({ isVisible, onClose }) => {
                       onChange={handleInputChange}
                       onFocus={() => handleInputFocus('Comment')}
                       onBlur={() => handleInputBlur('Comment')}
-                      defaultValue={JSON.parse(localStorage.getItem('formData'))?.Comment ? JSON.parse(localStorage.getItem('formData')).Comment : ''}
+                      value={inputRefs.Comment.current?.value || JSON.parse(localStorage.getItem('formData'))?.Comment || ''}
                     ></textarea>
                   </div>
                   <div className={inputStates.Comment ? "filled" : "notfill"}></div>
