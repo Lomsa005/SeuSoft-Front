@@ -117,7 +117,15 @@ export const Contact = ({ isVisible, onClose }) => {
     setErrorMessage('');
 
     try {
-      const response = await axios.post(`${import.meta.env.VITE_API_ENDPOINT}/contacts`, formData);
+      const response = await axios.post(`${import.meta.env.VITE_API_ENDPOINT}/contacts`, {
+        name: formData.FirstName,
+        last_name: formData.LastName,
+        email: formData.Email,
+        company: formData.CompanyName,
+        service: formData.serviceName,
+        phone: formData.Phone,
+        message: formData.Comment
+      });
       console.log('Response from server:', response.data);
 
       // Clear form data from localStorage after successful submission
