@@ -98,6 +98,12 @@ export const Boxes = ({ onBoxClick, activeBoxId }) => {
               className={`box box${Math.min((index % boxesData.length) + 1, 4)}`}
               src={box.image}
               alt={isGeo ? box.titleGe : box.titleEn}
+              style={{
+                transform:
+                  index >= boxesData.length - Math.ceil(boxesData.length / 2) && isLargeWidth
+                    ? "scale3d(-1, 1, 1)"
+                    : "none",
+              }}
             />
             <p
               className={`boxParagraph boxParagraph${Math.min(
