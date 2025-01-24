@@ -316,8 +316,8 @@
 
   .title{
     position: absolute;
-    bottom: 3px;
-    left: 4px;
+    bottom: 0px;
+    left: 0.5px;
     display: flex;
     cursor: pointer;
     width: 147px;
@@ -345,8 +345,8 @@
   .title-about{
     position: absolute;
     cursor: pointer;
-    bottom: 3px;
-    right: 4px;
+    bottom: 0px;
+    right: 2px;
     display: flex;
     width: 100px;
     height: 31px;
@@ -376,6 +376,20 @@
       height: 20px;
     }
   }
+}
+
+@media (max-width: 380px) {
+  .portf{ 
+    .title{
+      width: 110px;
+      font-size: 12.5px;
+
+  }
+  .title-about{
+    width: 90px;
+    font-size: 12.5px;
+
+}}
 }
 
 .portf::before {
