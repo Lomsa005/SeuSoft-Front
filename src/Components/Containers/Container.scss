@@ -223,9 +223,15 @@
   border-radius: 2px;
 }
 
-.scrollable-content::-webkit-scrollbar-thumb, .about-content::-webkit-scrollbar-thumb {
+.scrollable-content::-webkit-scrollbar-thumb {
   border: 8px solid #28bcf7;
   min-height: 103px;
+  cursor: pointer;
+  border-radius: 57px;
+}
+.about-content::-webkit-scrollbar-thumb{
+  min-height: 30px;
+  border: 8px solid #28bcf7;
   cursor: pointer;
   border-radius: 57px;
 }
