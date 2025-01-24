@@ -123,7 +123,7 @@ export const Contact = ({ isVisible, onClose }) => {
         email: formData.Email,
         company: formData.CompanyName,
         service: formData.serviceName,
-        phone: formData.Phone,
+        number: formData.Phone,
         message: formData.Comment
       });
       console.log('Response from server:', response.data);
