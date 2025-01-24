@@ -285,7 +285,7 @@ export const Contact = ({ isVisible, onClose }) => {
                     <label ref={labelRefs.Phone} htmlFor="Phone" className={formData.Phone !== '' ? 'focused' : ''}>{isGeo ? 'ტელეფონის ნომერი' : 'Phone Number'}</label>
                     <input
                       ref={inputRefs.Phone}
-                      type="tel"
+                      type="number"
                       id="Phone"
                       className="p"
                       onChange={handleInputChange}
