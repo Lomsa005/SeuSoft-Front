@@ -230,11 +230,21 @@
     padding: 33px 3px 24px;
     width: 98%;
     text-align: center;
-    background-color: #070e14;
+    background-color: black; /* Fallback background color (important!) */
     position: static;
     justify-items: center;
     place-items: center;
     text-align: -webkit-center;
+    --color-start: #000000; /* Initial color values */
+    --color-end: #000000;
+    background-image: radial-gradient(circle at top center, var(--color-start), var(--color-end)); /* Use var() here */
+    transition: --color-start 0.5s ease, --color-end 0.5s ease; /* Transition the variables */
+  
+
+  &.act {
+      --color-start: #001624; /* Change the variable values when .act is applied */
+      --color-end: #000000;
+  }
 
     svg.svg-large {
       display: block;
@@ -306,6 +316,8 @@
   .main.scaled {
     // Remove scaling transform when active on mobile
     height: auto;
+    top: 15px;
+    
   }
   .active-mode {
     .boxes {
@@ -324,3 +336,4 @@
     }
   }
 }
+

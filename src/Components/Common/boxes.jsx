@@ -80,7 +80,7 @@ export const Boxes = ({ onBoxClick, activeBoxId }) => {
         closeAnimation
           ? isLargeWidth 
             ? { transform: "translate(-50%, -17%)" } 
-            : { transform: "translate(-50%, -42%)" }
+            : { transform: "translate(-50%, -75%)" }
           : { transform: "translate(-50%, -50%)" }
       }
     >

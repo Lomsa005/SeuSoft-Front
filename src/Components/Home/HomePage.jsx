@@ -37,6 +37,7 @@ export const HomePage = () => {
     };
   }, []);
   
+  
 
   useEffect(() => {
     if (activeLink && boxesData.length > 0) {
@@ -134,7 +135,7 @@ export const HomePage = () => {
       <MainVideo videoOpacity={videoOpacity} />
         {showBoxes && <Boxes onBoxClick={handleBoxClick} activeBoxId={activeBoxId}/>}
       </div>
-      <ContactButton onClick={handleContactClick} />
+      <ContactButton onClick={handleContactClick} change={isScaled}/>
     </div>
   );
 };

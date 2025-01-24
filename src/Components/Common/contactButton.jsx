@@ -2,11 +2,11 @@ import "./common.scss";
 import Proptypes from "prop-types";
 import { useLanguage } from "./LanguageContext";
 
-export const ContactButton = ({ onClick }) => {
+export const ContactButton = ({ onClick, change }) => {
   const { isGeo } = useLanguage();
 
   return (
-    <div className="btnContainer" >
+    <div className={`btnContainer  ${!change ? "act"  : ""}`} >
       <svg width="192" height="64" viewBox="0 0 192 64" fill="none" className="svg-small" xmlns="http://www.w3.org/2000/svg" onClick={onClick}>
         <defs>
           <linearGradient xmlns="http://www.w3.org/2000/svg" id="contact-gradient"  x1="444.062" y1="-12.1094" x2="90.062" y2="171.575" gradientUnits="userSpaceOnUse">
@@ -54,5 +54,6 @@ export const ContactButton = ({ onClick }) => {
 };
 
 ContactButton.propTypes = {
-  onClick: Proptypes.func
+  onClick: Proptypes.func,
+  change: Proptypes.bool
 };
