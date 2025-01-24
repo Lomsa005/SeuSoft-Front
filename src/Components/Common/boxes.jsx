@@ -52,7 +52,7 @@ export const Boxes = ({ onBoxClick, activeBoxId }) => {
       swiperRef.current.destroy(true, true);
       swiperRef.current = null;
     }
-  }, [isMobileWidth, boxesData]);
+  }, [isMobileWidth, boxesData,activeBoxId ]);
 
   const handleBoxClick = (box) => {
     onBoxClick(
