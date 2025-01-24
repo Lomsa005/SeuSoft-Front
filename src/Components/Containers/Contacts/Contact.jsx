@@ -368,27 +368,12 @@ export const Contact = ({ isVisible, onClose }) => {
                   onClick={handleSubmit}
                 >
                   <div className="btn-content">
-                    {isSuccess && (
-                      <div className="explosion">
-                        {[...Array(20)].map((_, i) => (
-                          <div 
-                            key={i} 
-                            className="particle"
-                            style={{
-                              '--x': Math.random() * 200 - 100 + 'px',
-                              '--y': Math.random() * 200 - 100 + 'px'
-                            }}
-                          />
-                        ))}
-                      </div>
-                    )}
                     {isSuccess 
                       ? (isGeo ? 'გაგზავნილია!' : 'Sent!') 
                       : isSending 
                       ? (isGeo ? 'გაგზავნა...' : 'Sending...') 
                       : (isGeo ? 'გაგზავნა' : 'Send Message')}
                   </div>
-                  {isSending && <div className="rainbow-bar" />}
                 </div>
               </div>
             </form>
