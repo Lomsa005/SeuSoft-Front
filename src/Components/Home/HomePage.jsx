@@ -130,8 +130,8 @@ export const HomePage = () => {
         isVisible={isContactVisible}
         onClose={handleCloseContact}
       />
-      <div className={`main ${isScaled ? "scaled" : ""}`}>
-        <MainVideo videoOpacity={videoOpacity} />
+      <div className={`main ${isScaled ? "scaled" : ""} ${activeBoxId ? "active-mode" : ""}`}>
+      <MainVideo videoOpacity={videoOpacity} />
         {showBoxes && <Boxes onBoxClick={handleBoxClick} activeBoxId={activeBoxId}/>}
       </div>
       <ContactButton onClick={handleContactClick} />

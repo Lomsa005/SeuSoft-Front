@@ -1,7 +1,7 @@
 .main {
   position: relative;
   height: 105vh;
-  transition: transform 0.4s ease-in-out; 
+  transition: transform 0.4s ease-in-out;
   transform-origin: bottom;
   z-index: 0;
 }
@@ -18,13 +18,13 @@
   right: 3%;
   bottom: 2%;
   display: inline-block;
-  svg{
+  svg {
     cursor: pointer;
-    &.svg-large{
+    &.svg-large {
       display: none;
     }
   }
-  
+
   svg:hover {
     .svg-path {
       fill: url(#contact-gradient);
@@ -53,10 +53,10 @@
 }
 
 .contact-text {
-  font-family: inherit; 
-  font-size: 16px; 
-  fill: #ffffff; 
-  pointer-events: none; 
+  font-family: inherit;
+  font-size: 16px;
+  fill: #ffffff;
+  pointer-events: none;
 }
 
 .little-rectangle {
@@ -144,15 +144,12 @@
     width: 130px;
     font-size: 16px;
   }
-
 }
 
 @media (min-width: 1440px) {
-
   .boxParagraph {
     font-size: 22px;
   }
-
 }
 @media (max-width: 860px) {
   .boxes {
@@ -167,7 +164,6 @@
   .boxParagraph {
     font-size: 15px;
   }
-
 }
 
 @media (max-width: 651px) {
@@ -189,13 +185,9 @@
   .boxParagraph {
     font-size: 13px;
   }
-
 }
 
-
-
 @media (max-width: 454px) {
-
   .main-video {
     height: 100vh;
   }
@@ -204,23 +196,21 @@
     height: 100vh;
   }
 
-
   .boxParagraph {
     width: 110px;
     font-size: 18px;
   }
 }
 
-
-@media (min-width:2000px) {
+@media (min-width: 2000px) {
   .boxParagraph {
     font-size: 30px;
   }
 }
 
-@media (min-width:100px) {
+@media (min-width: 100px) {
   .main.scaled {
-    transform: scale(0.4); 
+    transform: scale(0.4);
     height: 100vh;
     top: -20px;
     transform-origin: bottom;
@@ -231,29 +221,32 @@
 }
 
 @media (max-width: 554px) {
+  .scrollable-content {
+    height: 95%;
+  }
   .btnContainer {
     display: grid;
     margin: auto;
     padding: 33px 3px 24px;
     width: 98%;
     text-align: center;
-    background-color: #070E14;
+    background-color: #070e14;
     position: static;
     justify-items: center;
     place-items: center;
     text-align: -webkit-center;
 
-    svg.svg-large{
+    svg.svg-large {
       display: block;
       width: 280px;
       height: 50px;
     }
-    svg:hover{
+    svg:hover {
       .svg-path {
         fill: url(#contact-gradients);
       }
     }
-    svg.svg-small{
+    svg.svg-small {
       display: none;
     }
   }
@@ -281,8 +274,6 @@
     margin: 0 10px;
     width: 30%;
     transition: transform 0.3s ease;
-    
-    
   }
 
   .box {
@@ -299,8 +290,8 @@
 
 .swiper-slide {
   flex-shrink: 0;
-  display: flex!important;
-  transition-property: all!important;
+  display: flex !important;
+  transition-property: all !important;
 }
 
 .swiper-horizontal {
@@ -308,5 +299,27 @@
 }
 
 .swiper-wrapper {
-  transition-timing-function: ease-in-out!important;
+  transition-timing-function: ease-in-out !important;
+}
+
+@media (max-width: 554px) {
+  .main.scaled {
+    // Remove scaling transform when active on mobile
+    height: auto;
+  }
+  .active-mode {
+    .boxes {
+      // Force flex layout for active mobile state
+      flex-wrap: nowrap;
+      overflow: visible;
+      padding: 0 5%;
+    }
+
+    .boxContainer {
+      // Show 4 boxes side-by-side
+      flex: 0 0 40% !important;
+      margin: 0 1% !important;
+      opacity: 1 !important;
+    }
+  }
 }

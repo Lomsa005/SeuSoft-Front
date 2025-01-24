@@ -78,11 +78,13 @@ export const Boxes = ({ onBoxClick, activeBoxId }) => {
       ref={boxesRef}
       style={
         closeAnimation
-          ? isLargeWidth ? { transform: "translate(-50%, -17%)" } : { transform: "translate(-50%, -42%)" }
+          ? isLargeWidth 
+            ? { transform: "translate(-50%, -17%)" } 
+            : { transform: "translate(-50%, -42%)" }
           : { transform: "translate(-50%, -50%)" }
       }
     >
-      {isLargeWidth ? (
+      {isLargeWidth || (isMobileWidth && activeBoxId) ? (
         boxesData.map((box, index) => (
           <div
             key={`${box.id}-${index}`}
@@ -116,7 +118,7 @@ export const Boxes = ({ onBoxClick, activeBoxId }) => {
           </div>
         ))
       ) : (
-        <div className="swiper-container" >
+        <div className="swiper-container">
           <div className="swiper-wrapper">
             {boxesData.map((box, index) => (
               <div
