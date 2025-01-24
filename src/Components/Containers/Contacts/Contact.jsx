@@ -6,7 +6,7 @@ import location from "media/location.svg";
 import axios from 'axios';
 import number from "media/number.svg";
 import "./Contact.scss";
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 import { useData } from '../../Api/Api';
 import { useLanguage } from '../../Common/LanguageContext';
 
@@ -25,12 +25,13 @@ export const Contact = ({ isVisible, onClose }) => {
 
   const [errors, setErrors] = useState({});
   const [errorMessage, setErrorMessage] = useState('');
+  const [isSending, setIsSending] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const [isFocused, setIsFocused] = useState(isVisible);
   const contactBorderRef = useRef(null);
   const [progress, setProgress] = useState(0);
 
-  // Load saved form data from localStorage on component mount
   useEffect(() => {
     const savedFormData = JSON.parse(localStorage.getItem('formData'));
     if (savedFormData) {
@@ -115,6 +116,8 @@ export const Contact = ({ isVisible, onClose }) => {
     e.preventDefault();
     setErrors({});
     setErrorMessage('');
+    setIsSending(true);
+    setIsSuccess(false);
 
     try {
       const response = await axios.post(`${import.meta.env.VITE_API_ENDPOINT}/contacts`, {
@@ -126,9 +129,7 @@ export const Contact = ({ isVisible, onClose }) => {
         number: formData.Phone,
         message: formData.Comment
       });
-      console.log('Response from server:', response.data);
 
-      // Clear form data from localStorage after successful submission
       localStorage.removeItem('formData');
       setFormData({
         FirstName: '',
@@ -140,21 +141,23 @@ export const Contact = ({ isVisible, onClose }) => {
         Comment: ''
       });
 
-      // Resetting labels
       for (const key in labelRefs) {
         if (labelRefs[key].current) {
           labelRefs[key].current.classList.remove('focused');
         }
       }
 
-      // Reset progress bar
       setProgress(0);
+      setIsSending(false);
+      setIsSuccess(true);
+      setTimeout(() => setIsSuccess(false), 2000);
 
     } catch (error) {
       console.error('Error sending data:', error);
+      setIsSending(false);
+      setIsSuccess(false);
+      
       if (error.response) {
-        console.error('Response data:', error.response.data);
-        console.error('Response status:', error.response.status);
         if (error.response.data.errors) {
           setErrors(error.response.data.errors);
         }
@@ -348,15 +351,45 @@ export const Contact = ({ isVisible, onClose }) => {
                   {errors.message && <div className="error fier" >{errors.message[0]}</div>}
                 </div>
               </div>
-              <div style={{position: "relative",marginTop: '10px'}}>
-              {errorMessage && (
-                  <div className="error-message" style={{ marginBottom: '10px', color: "#fb00fa", fontSize: "13px", position: "absolute", top: "-20px" }}>
+              <div style={{position: "relative", marginTop: '10px'}}>
+                {errorMessage && (
+                  <div className="error-message" style={{ 
+                    marginBottom: '10px', 
+                    color: "#fb00fa", 
+                    fontSize: "13px", 
+                    position: "absolute", 
+                    top: "-20px" 
+                  }}>
                     {errorMessage}
                   </div>
                 )}
-              <div className="ContactBtn" onClick={handleSubmit}>
-                <div>{isGeo ? 'გაგზავნა' : 'Send Message'}</div>
-              </div>
+                <div 
+                  className={`ContactBtn ${isSending ? 'sending' : ''} ${isSuccess ? 'success' : ''}`}
+                  onClick={handleSubmit}
+                >
+                  <div className="btn-content">
+                    {isSuccess && (
+                      <div className="explosion">
+                        {[...Array(20)].map((_, i) => (
+                          <div 
+                            key={i} 
+                            className="particle"
+                            style={{
+                              '--x': Math.random() * 200 - 100 + 'px',
+                              '--y': Math.random() * 200 - 100 + 'px'
+                            }}
+                          />
+                        ))}
+                      </div>
+                    )}
+                    {isSuccess 
+                      ? (isGeo ? 'გაგზავნილია!' : 'Sent!') 
+                      : isSending 
+                      ? (isGeo ? 'გაგზავნა...' : 'Sending...') 
+                      : (isGeo ? 'გაგზავნა' : 'Send Message')}
+                  </div>
+                  {isSending && <div className="rainbow-bar" />}
+                </div>
               </div>
             </form>
           </div>

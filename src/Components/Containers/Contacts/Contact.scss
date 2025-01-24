@@ -530,3 +530,133 @@
   fill: rgb(0 0 0 / 55%);
   -webkit-backdrop-filter: blur(3px);
 }
+
+.ContactBtn {
+  position: relative;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  perspective: 1000px;
+
+  &:hover:not(.sending):not(.success) {
+    transform: translateY(-2px);
+  }
+
+  &.sending {
+    animation: shake 0.8s infinite, colorPulse 1s infinite;
+    cursor: progress;
+
+    .rainbow-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 3px;
+      width: 100%;
+      background: linear-gradient(
+        90deg,
+        #081800 0%, /* Darker Green */
+        #1E1400 20%, /* Darker Brownish */
+        #04001A 40%, /* Darker Blue */
+        #1A1A1A 60%, /* Darker Gray */
+        #1B0021 80%, /* Darker Purpleish */
+        #001409 100% /* Darker Green Blue */
+      );
+      animation: rainbowSlide 1.5s linear infinite;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(
+        45deg,
+        #800000 0%, /* Darker Red */
+        #808000 15%, /* Darker Yellow */
+        #008000 30%, /* Darker Green */
+        #008080 45%, /* Darker Cyan */
+        #000080 60%, /* Darker Blue */
+        #800080 75%, /* Darker Magenta */
+        #800000 90%  /* Darker Red */
+      );
+      mix-blend-mode: overlay;
+      opacity: 0.5;
+      animation: hueRotate 2s linear infinite;
+    }
+  }
+
+  &.success {
+    animation: explode 0.8s ease-out;
+    background: #008044 !important; /* Darker Green Success */
+    cursor: default;
+
+    .btn-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .explosion {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .particle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 8px;
+      height: 8px;
+      background: radial-gradient(circle, #fff 20%, rgba(255,255,255,0) 70%);
+      border-radius: 50%;
+      animation: particlePop 0.8s ease-out forwards;
+    }
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-3px); }
+  75% { transform: translateX(3px); }
+}
+
+@keyframes colorPulse {
+  0% { background-color: #000080; } /* Dark Blue */
+  50% { background-color: #000040; } /* Even Darker Blue */
+  100% { background-color: #000080; } /* Dark Blue */
+}
+
+@keyframes rainbowSlide {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes hueRotate {
+  from { filter: hue-rotate(0deg); }
+  to { filter: hue-rotate(360deg); }
+}
+
+@keyframes explode {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); box-shadow: 0 0 40px rgba(255,255,255,0.5); }
+  100% { transform: scale(1); }
+}
+
+@keyframes particlePop {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(
+      calc(-50% + var(--x)),
+      calc(-50% + var(--y))
+    ) scale(2);
+  }
+}
