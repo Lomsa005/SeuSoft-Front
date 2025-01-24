@@ -11,7 +11,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<LanguageProvider><DataProvider><Layout> <HomePage/></Layout></DataProvider></LanguageProvider>} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="/*" element={<NotFound />} />
         </Routes>
       </Router>
     </>
