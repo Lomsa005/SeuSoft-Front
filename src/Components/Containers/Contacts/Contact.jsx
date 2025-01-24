@@ -348,13 +348,15 @@ export const Contact = ({ isVisible, onClose }) => {
                   {errors.message && <div className="error fier" >{errors.message[0]}</div>}
                 </div>
               </div>
+              <div style={{position: "relative",marginTop: '10px'}}>
               {errorMessage && (
-                  <div className="error-message" style={{ marginBottom: '10px', color: "#fb00fa", fontSize: "13px" }}>
+                  <div className="error-message" style={{ marginBottom: '10px', color: "#fb00fa", fontSize: "13px", position: "absolute", top: "-20px" }}>
                     {errorMessage}
                   </div>
                 )}
               <div className="ContactBtn" onClick={handleSubmit}>
                 <div>{isGeo ? 'გაგზავნა' : 'Send Message'}</div>
+              </div>
               </div>
             </form>
           </div>
