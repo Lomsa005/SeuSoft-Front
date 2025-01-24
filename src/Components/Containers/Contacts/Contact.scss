@@ -1,4 +1,4 @@
-@media (min-width:554px) {
+@media (min-width: 554px) {
   .ContactBorder {
     position: absolute;
     z-index: 5;
@@ -24,8 +24,7 @@
   }
 }
 
-
-@media (max-width:554px) {
+@media (max-width: 554px) {
   .ContactBorder {
     position: absolute;
     z-index: 5;
@@ -50,16 +49,12 @@
     transform: scale(1) translate(2.5%, 0%);
     pointer-events: auto;
   }
-  @media (max-height:854px){
-
-  .ContactBorder{
-    transform-origin: 50% 115%;
+  @media (max-height: 854px) {
+    .ContactBorder {
+      transform-origin: 50% 115%;
+    }
   }
 }
-
-}
-
-
 
 .CloseBtn {
   position: absolute;
@@ -82,7 +77,7 @@
     height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
-    padding-right: 20px;
+    padding-right: 30px;
     display: flex;
     height: calc(calc(var(--vh, 1vh) * 98) - 340px);
     flex-direction: column;
@@ -201,9 +196,11 @@
   width: 16px;
   height: 16px;
   border-radius: 16px;
-  background: radial-gradient(5941.67% 44.93% at 50% 0%,
-      #73c7f6 0%,
-      rgba(112, 203, 254, 0.78) 100%);
+  background: radial-gradient(
+    5941.67% 44.93% at 50% 0%,
+    #73c7f6 0%,
+    rgba(112, 203, 254, 0.78) 100%
+  );
   mix-blend-mode: hard-light;
   filter: blur(4.5px);
 }
@@ -286,7 +283,7 @@
     margin-left: 2px;
   }
 
-  .fier{
+  .fier {
     color: rgb(251, 0, 250);
     font-size: 13px;
     position: absolute;
@@ -342,7 +339,7 @@
     .p {
       height: 1.7em !important;
       line-height: 16px !important;
-      resize: none
+      resize: none;
     }
   }
 
@@ -414,7 +411,6 @@
 }
 
 @media (max-width: 675px) {
-
   .longLine,
   .longLine .notfill,
   .longLine .filled {
@@ -497,20 +493,39 @@
   }
 }
 
-@media (max-width: 454px) {
-  .ContactBorder {
-    height: calc(var(--vh, 1vh) * 92 - 230px);
-  }
-
+@media (max-width: 554px) {
   .ContactElements {
+    height: -webkit-fill-available;
     .scrollable-content {
-      height: calc(calc(var(--vh, 1vh) * 98) - 400px);
+      height: calc(100% - 60px);
     }
   }
 }
 
+@media (max-width: 352px) {
+  .ContactBorder {
+    .filled {
+      width: 206px;
+    }
+    .longLine .filled {
+      width: 206px;
+    }
+    .notfill {
+      width: 206px;
+    }
+    .label:first-child {
+      width: 206px;
+    }
+    .progress-bar-container {
+      width: 230px;
+    }
+    .progress-bar{
+      width: 230px;
+    }
+  }
+}
 
-.svg-border{
+.svg-border {
   backdrop-filter: blur(3px);
   fill: rgb(0 0 0 / 55%);
   -webkit-backdrop-filter: blur(3px);
