@@ -13,6 +13,7 @@ export const Boxes = ({ onBoxClick, activeBoxId }) => {
   const [closeAnimation, setCloseAnimation] = useState(false);
   const boxesRef = useRef(null);
   const swiperRef = useRef(null);
+  const swiperContainerRef = useRef(null);
   const [isMobileWidth, setIsMobileWidth] = useState(
     window.innerWidth <= 554.1
   );
@@ -38,21 +39,28 @@ export const Boxes = ({ onBoxClick, activeBoxId }) => {
     setCloseAnimation(activeBoxId !== null);
   }, [activeBoxId]);
 
+  // Fixed Swiper initialization and cleanup
   useEffect(() => {
-    if (isMobileWidth && boxesData.length > 0) {
-      swiperRef.current = new Swiper(".swiper-container", {
+    let swiperInstance = null;
+
+    if (isMobileWidth && boxesData.length > 0 && swiperContainerRef.current) {
+      swiperInstance = new Swiper(swiperContainerRef.current, {
         centeredSlides: true,
         slidesPerView: 'auto',
         loop: true,
         spaceBetween: 0,
-        speed:400,
-
+        speed: 400,
       });
-    } else if (swiperRef.current) {
-      swiperRef.current.destroy(true, true);
-      swiperRef.current = null;
+      swiperRef.current = swiperInstance;
     }
-  }, [isMobileWidth, boxesData,activeBoxId ]);
+
+    return () => {
+      if (swiperInstance) {
+        swiperInstance.destroy(true, true);
+        swiperRef.current = null;
+      }
+    };
+  }, [isMobileWidth, boxesData, activeBoxId]); // activeBoxId triggers cleanup when slides change
 
   const handleBoxClick = (box) => {
     onBoxClick(
@@ -81,7 +89,7 @@ export const Boxes = ({ onBoxClick, activeBoxId }) => {
           ? isLargeWidth 
             ? { transform: "translate(-50%, -17%)" } 
             : { transform: "translate(-50%, -75%)" }
-          : { transform: "translate(-50%, -50%)" }
+          : { transform: "translate(-50%, -54%)" }
       }
     >
       {isLargeWidth || (isMobileWidth && activeBoxId) ? (
@@ -118,7 +126,7 @@ export const Boxes = ({ onBoxClick, activeBoxId }) => {
           </div>
         ))
       ) : (
-        <div className="swiper-container">
+        <div className="swiper-container" ref={swiperContainerRef}>
           <div className="swiper-wrapper">
             {boxesData.map((box, index) => (
               <div

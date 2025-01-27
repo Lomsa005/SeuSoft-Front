@@ -14,7 +14,7 @@ export const Container = ({
   titles,
   href,
   type,
-  about
+  about,
 }) => {
   const [showAbout, setShowAbout] = useState([]);
 
@@ -33,10 +33,7 @@ export const Container = ({
   if (!isVisible) return null;
   return (
     <div className={`container ${isVisible ? "visible" : ""}`}>
-      <div
-        className="backdrop"
-        style={{ backgroundImage: `url(${backdrop})` }}
-      >
+      <div className="backdrop" style={{ backgroundImage: `url(${backdrop})` }}>
         <div className="Tflex">
           <div className="Theader">{title}</div>
           <img src={btnclose} alt="close button" onClick={onClose} />
@@ -46,18 +43,26 @@ export const Container = ({
 
         <div className="content-wrapper">
           {type === 1 && (
-            <div
-              className="scrollable-content Backcontent mt"
-              style={{ color: "white" }}
-              dangerouslySetInnerHTML={{ __html: content }}
-            />
+            <>
+              <div className="scrollable-content Backcontent mt">
+                <div
+                  style={{ color: "white" }}
+                  className="cont"
+                  dangerouslySetInnerHTML={{ __html: content }}
+                />
+              </div>
+            </>
           )}
 
           {type === 2 && (
             <div className="scrollable-content scrollable-content-img mt">
               {images.map((image, index) => (
                 <div key={index} className="portf">
-                  <a href={href[index]} target="_blank" rel="noopener noreferrer">
+                  <a
+                    href={href[index]}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <img
                       src={`https://seusoft.demo-instaymate.com/public${image}`}
                       alt={`img-${index}`}
@@ -92,9 +97,7 @@ export const Container = ({
                         }}
                       />
                     </div>
-                    <div className="about-content">
-                      {about[index]}
-                    </div>
+                    <div className="about-content">{about[index]}</div>
                   </div>
                 </div>
               ))}
@@ -107,8 +110,11 @@ export const Container = ({
                 <div key={index} className="type3-item">
                   <div className="type3-row">
                     {about[index] && (
-                      <div className="type3-text" style={image ? {} : { width: "95%", maxWidth: "95%" }}>
-                        <div className="title-3" >{titles[index]}</div>
+                      <div
+                        className="type3-text"
+                        style={image ? {} : { width: "95%", maxWidth: "95%" }}
+                      >
+                        <div className="title-3">{titles[index]}</div>
                         {about[index]}
                       </div>
                     )}

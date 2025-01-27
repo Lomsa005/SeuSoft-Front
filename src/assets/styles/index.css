@@ -19,3 +19,11 @@ body {
   background-size: 100vw;
   background-position: top;
 }
+
+@media (max-width: 554px) {
+  .mainContainer{
+    background-position: left;
+    background-size: auto;
+  }
+  
+}
