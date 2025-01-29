@@ -46,10 +46,10 @@ export const Footer = () => {
           </div>
           <div className="contactsAndLinks">
             <div className="links">
-              <h4 className="linksHeader">
+              <h4 className={`linksHeader ${isGeo ? 'geo' : ''}`}>
                 {isGeo ? 'ლინკები' : 'Link'}<span className="linksHeaderDot" style={isGeo ? {} : { marginTop: "2px" }}></span>
               </h4>
-              <ul className="linksList">
+              <ul className={`linksList ${isGeo ? 'geo' : ''}`}>
                 {boxesData.map((link, index) => (
                   <li 
                     key={index}
@@ -62,18 +62,18 @@ export const Footer = () => {
               </ul>
             </div>
             <div className="contacts">
-              <h4 className="linksHeader">
+              <h4 className={`linksHeader ${isGeo ? 'geo' : ''}`}>
                 {isGeo ? 'დაგვიკავშირდი' : 'Contact us'}<span className="contactsHeaderDot" style={isGeo ? {} : { marginTop: "2px" }}></span>
               </h4>
-              <ul className="contactsList">
+              <ul className={`contactsList ${isGeo ? 'geo' : ''}`}>
                 <li>{isGeo ? contactData?.addressGe: contactData?.addressEn}</li>
                 <li>{contactData?.email}</li>
                 <li>
                   <a style={{textDecoration:"underline"}}>{contactData?.number}</a>
                 </li>
-                <li className="ge" onClick={toggleLanguage}>
+                <li className={`ge ${isGeo ? 'geo': ''}`} onClick={toggleLanguage}>
                   <img src={flag} alt="geo flag" />
-                  <span className="geSpan" style={isGeo ? {} : { marginBottom: "-1px" }}>{isGeo ? 'GE' : 'EN'}</span>
+                  <span className="geSpan" style={isGeo ? {} : { marginBottom: "-1px" }}>{!isGeo ? 'GE' : 'EN'}</span>
                 </li>
               </ul>
             </div>

@@ -130,7 +130,7 @@
   transform: translate(0%, -50%);
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 1400px) {
   .boxes {
     width: 700px;
     gap: 65px;
@@ -146,10 +146,18 @@
   }
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1400px) {
   .boxParagraph {
-    font-size: 22px;
+    font-size: 20px;
   }
+  .boxContainer {
+    width: auto;
+    margin: 0 6px;
+  }
+  .box {
+    width: 220px;
+  }
+  
 }
 @media (max-width: 860px) {
   .boxes {
@@ -204,7 +212,7 @@
 
 @media (min-width: 2000px) {
   .boxParagraph {
-    font-size: 30px;
+    font-size: 28px;
   }
 }
 

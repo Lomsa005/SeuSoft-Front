@@ -40,7 +40,7 @@ nav {
     .line-primary {
       width: 258.282px;
       height: 2px;
-      background: radial-gradient(#1e98db, #1e98db00);
+      background: radial-gradient(#F520FF, rgba(245, 32, 255, 0.00));
       filter: blur(0.5px);
       transform: translate(28px, 0px) scaleX(0);
       transform-origin: center;
@@ -55,7 +55,7 @@ nav {
 
     .line-secondary {
       opacity: 0.6;
-      background: radial-gradient(#d4f0ff, #1e98db00);
+      background: radial-gradient(#D4F0FF, rgba(30, 152, 219, 0.00));
       filter: blur(0.5px);
       width: 267.717px;
       height: 2px;
@@ -70,7 +70,7 @@ nav {
 
     .blur-effect {
       opacity: 0.3;
-      background: linear-gradient(0deg, #01b3ff08 3%, #03b7ff 22%, #0dd3ff00 97%);
+      background: linear-gradient(0deg, rgba(245, 32, 255, 0.03) 3%, rgba(245, 32, 255, 0.80) 22%, rgba(245, 32, 255, 0.00) 97%);
       filter: blur(3px);
       width: 14px;
       height: 453px;
@@ -247,6 +247,9 @@ nav {
   letter-spacing: -0.09px;
   line-height: normal;
 }
+.linksHeader.geo{
+  font-size: 16px;
+}
 
 .linksHeaderDot {
   width: 10px;
@@ -273,6 +276,9 @@ nav {
   font-weight: 400;
   line-height: 236.3%;
 }
+.linksList.geo {
+  font-size: 12px;
+}
 
 .contacts {
   margin-left: 22%;
@@ -287,6 +293,11 @@ nav {
   line-height: 236.3%;
 }
 
+.contactsList.geo{
+
+  font-size: 12px;
+}
+
 .contactsAndLinks {
   display: flex;
   width: 38%;
@@ -298,10 +309,14 @@ nav {
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 150%;
+  line-height: 203%;
   display: flex;
   cursor: pointer;
   align-items: center;
+}
+
+.ge.geo{
+  font-size: 14px;
 }
 
 .geSpan {
