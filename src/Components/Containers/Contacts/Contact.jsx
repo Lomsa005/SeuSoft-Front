@@ -341,7 +341,7 @@ export const Contact = ({ isVisible, onClose }) => {
                       ref={inputRefs.Comment}
                       id="Comment"
                       className="p"
-                      row="1"
+                      rows="1"
                       onChange={handleInputChange}
                       onFocus={() => handleInputFocus('Comment')}
                       onBlur={() => handleInputBlur('Comment')}
